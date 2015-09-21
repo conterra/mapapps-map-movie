@@ -180,6 +180,26 @@
         <sourceDirectory>src/main/js</sourceDirectory>
         <resources>
             <resource>
+                <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/common</directory>
+                <excludes>
+                    <exclude>crossBrowserSettings.css</exclude>
+                </excludes>
+                <targetPath>${js.build.outputPath}/apps/mapmovie/themes/common</targetPath>
+            </resource>
+            <resource>
+                <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/winter</directory>
+                <excludes>
+                    <exclude>*.css</exclude>
+                    <exclude>themeSettings.less</exclude>
+                    <exclude>winter.less</exclude>
+                </excludes>
+                <targetPath>${js.build.outputPath}/apps/mapmovie/themes/winter-bright</targetPath>
+            </resource>
+            <resource>
+                <directory>${project.build.directory}/unpacked/bundles/base/templates/templates/common</directory>
+                <targetPath>${js.build.outputPath}/apps/mapmovie/templates/common</targetPath>
+            </resource>
+            <resource>
                 <directory>src/main/js</directory>
                 <targetPath>${js.build.outputPath}</targetPath>
                 <filtering>false</filtering>
