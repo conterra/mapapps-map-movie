@@ -1,0 +1,180 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .icon-users{
+                background-position: -315px 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-users{
+                    background-position: -315px -45px;
+                }
+            }
+            &.dijitDisabled .icon-users{
+                background-position: -315px -90px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-users .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: -315px -45px;
+        }
+        .ctFollowMeAttendeesList li span{
+            background-position: -1227px -462px;
+            .bgHD('../images/spriteGraphics.png');
+            &.ctFollowMePresenter{
+                background-position: -1227px -421px;
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-users .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e042';
+        }
+        .ctFollowMeAttendeesList li span{
+            .setWebFont();
+            &:before{
+                font-size: @ct-icon-medium;
+                content:'\e022';
+                position: relative;
+                top: -2px;
+            }
+        }
+        .ctFollowMeAttendeesList li.ctFollowMePresenter span:before{
+            color: @ct-highlight-color;
+        }
+    }
+
+    .showWebFonts();
+
+    .followMe .dijitTabContainerTop-tabs {
+        padding-left: 7px;
+    }
+
+    .followMe .dijitTabContainerTop-dijitContentPane,
+    .followMe .dijitTabContainerLeft-dijitContentPane,
+    .followMe .dijitTabContainerBottom-dijitContentPane,
+    .dijitTabContainerRight-dijitContentPane,
+    .followMe .dijitAccordionContainer-dijitContentPane{
+        padding: 8px;
+    }
+
+    .ctFollowMeSessionWrapper{
+        margin-bottom:5px;
+    }
+
+    .ctFollowMeSessionActive {
+        text-transform: none;
+        margin-bottom: 5pt;
+        font-size:11px;
+        font-weight: bold;
+    }
+
+    .ctFollowMeSessionActive{
+        color: @ct-message-pane-success-color;
+    }
+
+    .ctFollowMe {
+        .dijitAccordionContainer .dijitAccordionContainer-child{
+            padding: 4px;
+            min-width: 94%;
+        }
+        .dijitDialogPaneContent {
+            padding: 0;
+        }
+        .col1{
+            width:350px;
+            float: left;
+        }
+    }
+    .ctFollowMeAttendeesTitle {
+        font-weight: bold;
+        margin-top: 0;
+        margin-bottom: 5pt;
+        padding: 4px;
+        .standard-gradient-and-filter(@button-background-color);
+    }
+
+    .ctFollowMeAttendees {
+        margin-left:355px;
+        border-left: 1px dotted @ct-primary-contrast-border-color;
+        min-height:180px;
+    }
+
+    .followMeHint {
+        margin-bottom: 5pt;
+        font-size:11px;
+        font-weight: bold;
+    }
+    .ctFollowMeSeparator {
+        margin-bottom: 0;
+        margin-top: 5pt;
+        height: 0;
+        background-color: lightgray;
+    }
+    .ctFollowMeSessionTimestamp {
+        margin-bottom: 5pt;
+        font-size:11px;
+        font-weight: bold;
+    }
+
+    .ctFollowMeMouseCursor {
+        .size(10px);
+        position: absolute;
+        background-color: red;
+        z-index: 2000;
+    }
+    .ctFollowMeInputGroup {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        .dijitTextBox {
+            margin-top: 2px;
+            max-width: 100%;
+        }
+
+        /*Buttons with icons*/
+        .dijitButtonText{
+            padding: 2px 0.3em 1px 0;
+            font-weight: bold;
+        }
+    }
+
+    /*attendees list*/
+    .ctFollowMeAttendeesList{
+        margin-left:30px;
+        font-size:11px;
+        font-weight: bold;
+        p{
+            margin: 5px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            list-style-position: inside!important;
+            list-style: square;
+            height:160px;
+            overflow: auto;
+            li{
+                line-height:21px;
+                vertical-align: middle;
+                float: left;
+                width:33%;
+                padding: 5px;
+                list-style: none;
+                span{
+                    display: inline-block;
+                    vertical-align: middle;
+                    height: 21px;
+                    width: 20px;
+                    margin-right: 8px;
+                    background-repeat: no-repeat;
+                }
+                &:nth-child(2n){
+                    clear: both;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,296 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+
+    .showWebFont() when not (@ct-use-font-icons) {
+        .ctTool {
+            .icon-template-list {
+                background-position: -1575px -405px;
+            }
+            .icon-app-list {
+                background-position: -1620px -405px;
+            }
+            .icon-doc {
+                background-position: -1575px -405px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked {
+                .icon-template-list {
+                    background-position: -1575px -450px;
+                }
+                .icon-app-list {
+                    background-position: -1620px -450px;
+                }
+                .icon-doc {
+                    background-position: -1575px -405px;
+                }
+            }
+            &.dijitDisabled {
+                .icon-template-list {
+                    background-position: -1575px -495px;
+                }
+                .icon-app-list {
+                    background-position: -1620px -495px;
+                }
+                .icon-doc {
+                    background-position: -1575px -405px;
+                }
+            }
+        }
+        .ctToolWindow.ctCollapsed {
+            &.ctActiveToolIcon_ctToolIcon_icon-template-list .ctCollapseOpposite .ctCollapseInnerHandle {
+                background-position: -1575px -450px;
+            }
+            &.ctActiveToolIcon_ctToolIcon_appsOverviewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle {
+                background-position: -1620px -450px;
+            }
+        }
+    }
+    .showWebFont() when (@ct-use-font-icons) {
+        .ctToolWindow.ctCollapsed {
+            &.ctActiveToolIcon_ctToolIcon_templatesListTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+                content: "\e067";
+            }
+            &.ctActiveToolIcon_ctToolIcon_appsOverviewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+                content: "\e088";
+            }
+            &.ctActiveToolIcon_ctToolIcon_appsOverviewToggleTool .ctCollapseOpposite .ctCollapseInnerHandle:before {
+                content: "\e088";
+            }
+        }
+    }
+
+    .showWebFont();
+
+    &.app_management.started,
+    &.app_sampleAppsOverview{
+        background-color: darken(@ct-header-background-color, 3%);
+    }
+
+    &.app_management.started{
+        background-image: url("../../common/images/bg_manager.png");
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        .background-size(cover);
+    }
+
+    &.app_management .dojoxWizardContainer {
+        .dijitTextBox {
+            &.textbox,
+            &.textarea {
+                width: 300px;
+            }
+            &.textbox {
+                padding-left: 3px;
+                padding-right: 3px;
+                &.dijitError .dijitValidationContainer {
+                    margin-right: -3px;
+                }
+            }
+            &.textarea {
+                height: 50px;
+            }
+        }
+    }
+
+    &.app_management .ctTool_changeVersionRangeTool .dijitButtonNode,
+    &.app_management .ctTool_loadBundlesToAppTool .dijitButtonNode{
+        font-size: @ct-icon-small;
+        padding: 0px;
+        .size(22px)
+    }
+
+    &.app_management .ctChangeBundleRangeWindow .ctOkCancelContent{
+        text-align: center;
+    }
+    &.app_management .ctAvailableBundlesWindow .ctOkCancelHeader{
+        padding: 0;
+    }
+
+    /* define default image for apps and templates */
+    .ctDataView {
+        &.ctAppOverview,
+        &.ctAppsDataView,
+        &.ctAppTemplatesDataView {
+            .ctIconView .noimage .dijitButtonContents {
+                width: auto;
+            }
+            .ctIconView .noimage.dijitToggleButton .dijitButtonNode {
+                width: auto;
+                .dijitImageIcon {
+                    display: inline-block;
+                    background: url(../../common/images/defaultAppIcon.png) no-repeat center center;
+                }
+                .dijitButtonText {
+                    width: auto;
+                    padding-left: 15px;
+                    padding-top: 2px;
+                    display: block;
+                }
+                .dijitCheckBoxIcon {
+                    margin-top: 2px;
+                }
+            }
+            .ctIconView .nocheckbox.noimage.dijitToggleButton .dijitButtonNode .dijitButtonText {
+                padding-left: 0;
+            }
+            .dgrid-tool.LAUNCH_APP {
+                float: right;
+                cursor: pointer;
+                font-weight: bold;
+                // this button should not be as prominent as others so we choose
+                // dont choose a bg-color and choose a simple text-color
+                color: @text-color;
+                padding: 5px 6px 4px 2px;
+                &, span{
+                    vertical-align: middle;
+                    display: inline;
+                }
+                .icon{
+                    margin: 0 .3em;
+                    .size(auto);
+                    &:before{
+                        content: "\e626";   
+                    }
+                }
+                &:hover {
+                    // make it look like a normal button when hovered
+                    .standard-gradient(@button-hovered-background-color);
+                    color: @ct-button-hovered-text-color;
+                }
+            }
+        }
+
+        &.ctAppOverview {
+            padding:8px;
+            .fade(darken(@container-background-color,10%), 50%);
+        }
+        // The following is as fix for a too small shrinkingDropDown Button. This resulted in a scroll bar and the little bg image was over the text
+        &.ctAppOverview .ctScopedFilter .ctShrinkingDropDown .dijitButtonText {
+            width: 35px;
+        }
+    }
+    .dijitDialogFixed {
+        &.appsView,
+        &.templatesView,
+        &.reportsView,
+        &.bundlesView{            
+            .dijitDialogPaneContent {
+                .fade(darken(@container-background-color,10%), 50%);
+            }
+            .dgrid-content .dgrid-row{
+                cursor: pointer;
+            }
+        }
+    }
+
+    //Toolset at the top of the App Managment Page
+    .buildertoolsMenuBar {
+        border-bottom: none;
+    }
+    .ctAppDetails{
+        //styling for the App-Config Option Buttons inside the App-Details Dialog
+        .fullWidthCell{
+            text-align: center;
+            .dijitButton{
+                display: block;
+            }
+            .dijitButtonNode{
+                min-width: 130px;
+                width: 40%;
+                padding: 6px 4px;
+            }
+            .row.first-row {
+                margin-bottom: 15px
+            }
+        }
+        .panel .ctFormControl.dropZoneUploader.uploader{
+            display: inline-block;
+            width: 35%;
+            vertical-align: top;
+        }
+        .ctFormControl.thumbnailImage{
+            display: inline-block;
+            max-width: 60%;
+        }
+        .allowAppSharingPanel .labelCell {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            label{
+                white-space: nowrap;
+            }
+        }
+    }
+    // the manual configuration window
+    .ctAppFiles{
+        .manualConfigButtonContainer .dijitButton {
+            margin-top: 7px;
+            &:first-child{
+                margin-left: 0;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }    
+        .rightbutton{
+            display: inline-block;
+            float : right;
+        }
+    }
+    .AppFileSelector{
+        //MAPAPPS-3314
+        display: block;
+        width: auto;
+        .dijitArrowButtonContainer{
+            height: 100%;
+        }
+    }
+    &.ctEnv_FF .AppFileSelector{
+        //MAPAPPS-3314, unfortunately the !important is needed here as the dataform has a wrong ehight value
+        height: 20px!important;
+    }
+    .ctAppManagmentButton {
+        margin: 0;
+        .dijitButtonNode {
+            // secure that the appbuilder gets a contrast color although the primary and highlight color are the same..
+            .colorizeWizardButton() when (@ct-primary-button-color = @ct-highlight-color){
+                .standard-gradient-and-filter(#d07);
+            }
+            .colorizeWizardButton();
+        }
+        &.dijitButtonHover .dijitButtonNode {
+            .standard-gradient-and-filter(@button-hovered-background-color);
+        }
+        .dijitButtonText{
+            display: inline-block;
+            padding-top: 4px;
+        }
+        .dijitIcon{
+            float: right;
+        }
+
+        .showWebFonts() when not (@ct-use-font-icons) {
+            .icon-app-builder{
+                .size(45px);
+                .bgHD('../images/spriteGraphics.png');
+                background-position: -540px -405px;
+            }
+            &.dijitButtonHover .icon-app-builder{
+                background-position: -540px -450px;
+            }
+        }
+
+        .showWebFonts() when (@ct-use-font-icons) {
+            .dijitButtonNode {
+                padding: 4px;
+            }
+            &, 
+            &.dijitHover{
+                .icon-app-builder{
+                    font-size: @ct-icon-medium;
+                }
+            }
+        }
+        .showWebFonts();
+    }
+}

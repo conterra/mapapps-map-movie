@@ -1,0 +1,82 @@
+/**
+ * Created on : 26.11.2014, 10:38:59
+ * Author     : juku
+ *
+ * Styling for the MessagePane
+ *
+ * There are five types of Messages available: info, loading, warning, error, success
+ * 
+ */
+
+@import "../../themeSettings.less";
+
+.@{themeName}{   
+    .ctMessagePane{
+        // needs the same margin as the children,
+        // otherwise the size calculations in the JS will not work correctly!
+        margin-bottom: 5px;
+        // the background
+        .ctMessageItem{
+            padding: 8px 10px;
+            //.box-shadow (1px, 1px, 2px, 0.65);
+            margin-bottom: 5px;
+            min-height: 1em;
+            font-weight: bold;
+
+            &.info{
+                font-weight: normal;
+                background: @ct-message-pane-info-color;
+            }
+            &.loading{
+                font-weight: normal;
+                background: @ct-message-pane-loading-color;
+            }
+            &.warning{
+                .fade(@ct-message-pane-warning-color,90%);
+            }
+            &.error{
+                .fade(@ct-message-pane-error-color,90%);
+            }
+            &.success{
+                .fade(@ct-message-pane-success-color,90%);
+            }
+        }
+        //the message
+        .desc{
+            display: block;
+            margin-left: 30px;
+        }
+        // the icons
+        .icon{
+            display: inline-block;
+            float: left;
+
+            .showPaneIcons() when not (@ct-use-font-icons){
+                .bgHD('../../images/spriteGraphics.png');
+                .size(14px);
+
+                &.ctInfoIcon{
+                    background-position: -1410px -509px;
+                }
+                &.ctWarningIcon{
+                    background-position: -1320px -510px;
+                }
+                &.ctErrorIcon{
+                    background-position: -1365px -510px;
+                }
+                &.ctSuccessIcon{
+                    background-position: -1365px -375px;
+                }
+                &.ctLoadingIcon{
+                    background: url('../../images/loading.gif') 0 -1px;
+                    width: 18px;
+                }
+            }
+
+            .showPaneIcons() when (@ct-use-font-icons){
+                font-size: 1.5em;
+            }
+            .showPaneIcons();
+        }
+    } 
+}

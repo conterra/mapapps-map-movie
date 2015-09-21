@@ -1,0 +1,273 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    .esriLargeSlider {
+        .showWebFonts() when not (@ct-use-font-icons) {
+            .dijitSliderImageHandleV {
+                .bgHD('../images/spriteGraphics.png');
+                background-position: -680px -331px;
+                .size(37px, 14px);
+                &.dijitSliderThumbHover,
+                &.dojoMoveItem {
+                    background-position: -680px -286px;
+                }
+            }
+            .dijitSliderDecrementIconV,
+            .dijitSliderIncrementIconV,
+            .dijitSliderDecrementIconH,
+            .dijitSliderIncrementIconH {
+                background-repeat: no-repeat;
+                border: none;
+                font-size: 1px;
+                .bgHD('../images/commonFormArrows.png',412px);
+            }
+        }
+
+        .showWebFonts() when (@ct-use-font-icons) {
+            .dijitSliderImageHandleV {
+                background: transparent none;
+                left: 9px;
+                .setWebFont();
+                font-size: 18px;
+                color: @minor-selected-color;
+                .size(auto);
+                &.dijitSliderThumbHover,
+                &.dojoMoveItem {
+                    color: @button-hovered-background-color;
+                }
+            }
+            .dijitSliderImageHandle:before{
+                text-shadow: none;
+            }
+
+            .dijitSliderDecrementIconV,
+            .dijitSliderIncrementIconV,
+            .dijitSliderDecrementIconH,
+            .dijitSliderIncrementIconH {
+                //resets from default dijitSlider
+                background-color:transparent;
+                .border-radius(0);
+                color: @ct-icon-color;
+                &:before {
+                    content: "";
+                }
+            }
+
+            .dijitSliderIncrementIconV:hover,
+                .dijitSliderDecrementIconV:hover {
+                color: @minor-selected-color;
+            }
+            .dijitSliderButtonInner {
+                visibility: visible;
+                position: relative;
+                top: 7px;
+            }
+        }
+
+        .showWebFonts();
+
+        /*Delete Ruler Marker*/
+        .esriLargeSliderTicks {
+            display: none;
+        }
+        .dijitSliderBumper,
+        .dijitSliderLeftBumper,
+        .dijitSliderRightBumper,
+        .dijitSliderBar {
+            border: 0 solid transparent;
+            .border-radius(0);
+            outline: 0 solid transparent;
+        }
+        .dijitSliderHover .dijitSliderTopBumper,
+        .dijitSliderBumper,
+        .dijitSliderProgressBar,
+        .dijitSliderRemainingBar {
+            .resetBG();
+        }
+        .dijitSliderBarContainerV,
+        center {
+            width: 100%;
+            background-image: none;
+            .fade(@bar-background-color, 90%);
+        }
+        .dijitSliderBarContainerH {
+            height: 10px;
+            padding: 15px 0;
+            background-image: none;
+            .fade(@bar-background-color, 90%);
+        }
+        .dijitSliderBumperV {
+            background-image: url("../images/zoomSliderbarBumperBG.png");
+            background-repeat: repeat-y;
+            width: 9px;
+        }
+        .dijitSliderBumperH {
+            background-image: url("../images/zoomSliderbarBumperHBG.png");
+            background-repeat: repeat-x;
+            background-position: 0 15px;
+            height: 10px;
+            padding: 15px 0;
+            .fade(@bar-background-color, 90%);
+        }
+
+        .dijitSliderBarV {
+            background-image: none;
+            padding-top: 0;
+            width: 9px;
+        }
+
+        .dijitSliderBarContainerV {
+            background-image: url("../images/zoomSliderRuler.png");
+            background-position: -1px 0;
+        }
+
+
+        .dijitSliderBarContainerH {
+            background-image: url("../images/zoomSliderRulerH.png");
+        }
+
+        /* ---- + /- Button ---- */
+        .dijitSliderButtonContainer {
+            padding: 0;
+        }
+
+        .dijitSliderButtonContainerV {
+            .size(37px, 34px);
+            .standard-gradient-and-filter(@ct-toolset-button-background-color);
+        }
+
+        .dijitSliderButtonContainerH {
+            .size(34px, 37px);
+            .standard-gradient-and-filter(@ct-toolset-button-background-color);
+        }
+        td:first-child.dijitSliderButtonContainerH {
+            .border-radius(5px,0,0,5px);
+        }
+        td:last-child.dijitSliderButtonContainerH {
+            .border-radius(0,5px,5px,0);
+        }
+        .dijitSliderDecrementIconV, .dijitSliderIncrementIconV {
+            .size(37px, 35px);
+        }
+        .dijitSliderDecrementIconH, .dijitSliderIncrementIconH {
+            .size(35px, 37px);
+        }
+
+        .dijitSliderIncrementIconV, .dijitSliderIncrementIconH {
+            background-position: -95px 49%;
+            &:hover {
+                background-position: -130px 49%;
+            }
+        }
+        .dijitSliderDecrementIconV, .dijitSliderDecrementIconH {
+            background-position: 11px 50%;
+            &:hover {
+                background-position: -24px 50%;
+            }
+        }
+
+        // Labels
+        .dijitRuleLabel {
+            color: @text-color;
+            font-size: 10px;
+            text-shadow: 3px 0 4px @disabled-background-color, 
+                -3px 0 4px @disabled-background-color, 
+                0 3px 4px @disabled-background-color, 
+                0 -3px 4px @disabled-background-color;
+        }
+
+        .dijitSliderDecrementIconV,
+        .dijitSliderIncrementIconV,
+        .dijitSliderDecrementIconH,
+        .dijitSliderIncrementIconH {
+            background-repeat: no-repeat;
+            border: none;
+            font-size: 17px;
+            font-weight: bold;
+        }
+    }
+    // needed to disable ZoomSlider Animation for IE which doesn't support transitions
+    &.ctEnv_IE_8,
+    &.ctEnv_IE_9{
+        .esriLargeSlider .dijitSliderMoveable {
+            opacity: 1;
+        }
+        .esriLargeSliderVertical{
+            .dijitSliderBumper {
+                height: 8px !important;
+            }
+        }
+        .esriLargeSliderHorizontal .dijitSliderBumper {
+            width: 8px !important;
+        }
+        .esriLargeSlider,
+        .esriLargeSlider.dijitHover,
+        .esriLargeSlider.dijitActive {
+            height: 110px;
+        }
+    }
+    &.ctEnv_IE_10{
+        .esriLargeSlider{
+            height: 0px;
+        }
+        .esriLargeSlider.dijitHover,
+        .esriLargeSlider.dijitActive{
+            height: 70px;
+        }
+    }
+    &.ctEnv_IE,
+    &.ctEnv_FF {
+        .esriLargeSlider {
+            margin-right: 2px; // needed to make the zoomslider width in ie and ff as big as in chrome.
+        }
+    }
+
+
+    //------------------   Simple Slider Style ---------------------//
+    // resetting default esri simple slider
+
+    .esriSimpleSlider {
+        .box-shadow-light(@ct-standard-box-shadow);
+    }
+
+    .esriSimpleSliderIncrementButton {
+        .box-shadow-none();
+    }
+    .esriSimpleSlider,
+    .esriSimpleSliderIncrementButton {
+        border: none;
+        background: transparent none;
+    }
+
+    .esriSimpleSliderIncrementButton,
+    .esriSimpleSliderDecrementButton {
+        line-height: 35px;
+        height: 35px;
+        width: 39px;
+        color: @ct-primary-contrast-text-color;
+        .standard-gradient-and-filter(@ct-toolset-button-background-color);
+    }
+    .esriSimpleSliderIncrementButton:hover,
+        .esriSimpleSliderDecrementButton:hover {
+        color: @minor-selected-color;
+    }
+
+    .esriSimpleSliderIncrementButton {
+        .border-radius(0);
+        font-size: 17px;
+    }
+    .esriSimpleSliderDecrementButton {
+        .border-radius(0);
+        font-size: 18px;
+    }
+
+    .esriSimpleSliderHorizontal {
+        .esriSimpleSliderIncrementButton {
+            float: left;
+        }
+        .esriSimpleSliderDecrementButton{
+            border-right-width: 0;
+        }
+    }
+    //------------------  End of Simple Slider Style ---------------------//
+}

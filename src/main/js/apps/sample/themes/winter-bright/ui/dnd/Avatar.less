@@ -1,0 +1,58 @@
+/*
+    Document   : Avatar
+    Created on : 03.05.2011, 01:25:05
+    Author     : mre
+    Description:
+        Styles required/used by Avatar.js
+*/
+
+/*
+ ctAvatar is appended to a node during a drag operation
+ see: ct.ui.dnd.Avatar
+*/
+@import "../../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctDroppableWindowAvatar,
+        .ctInfoViewerAvatar{
+            .bgHD('../../images/spriteGraphics.png');
+            background-position: -1175px -94px;
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctDroppableWindowAvatar,
+        .ctInfoViewerAvatar{
+            .setWebFont();
+            font-size: @ct-icon-large;
+            color: @ct-icon-on-primary-color;
+            &:before{
+                position: relative;
+                content:'\e051';
+                top: 1px; left: 1px;
+            }
+        }
+    }
+    .showWebFonts();
+
+    .ctAvatar {
+        z-index: 1500;         // dialog starts at 900, so 1500 must be enough
+        position: absolute !important;
+        border-width: 1px;
+        .box-shadow (3px, 3px, 4px, 0.35);
+    }
+
+    .ctDroppableWindowAvatar,
+    .ctInfoViewerAvatar{
+        padding: 2px;
+        background-color: @minor-selected-color;
+        background-repeat: no-repeat;
+        .border-radius(5px);
+        .size(32px);
+        .box-shadow (0px, 1px, 3px, 0.25) !important;
+    }
+    .ctDroppableWindowAvatar.ctAvatarDropNotAllowed,
+    .ctInfoViewerAvatar.ctAvatarDropNotAllowed{
+        background-color: @error-color;
+    }
+}

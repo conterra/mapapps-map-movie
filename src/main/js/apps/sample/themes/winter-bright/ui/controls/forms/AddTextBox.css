@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.winter-bright .ctAddTextBox{display:table-row}.winter-bright .ctAddTextBox .dijitInputField,.winter-bright .ctAddTextBox .ctAddButton{display:table-cell}.winter-bright .ctAddTextBox .ctAddButton{background-color:#a0a0a0}.winter-bright .ctAddTextBox .ctAddButton,.winter-bright .ctAddTextBox .ctAddButton .dijitButtonNode{height:100%}.winter-bright .ctAddTextBox .ctAddButton .dijitButtonContents{display:inline-block}.winter-bright .ctAddTextBox .ctAddButton .dijitButtonNode{font-size:inherit;padding:0 .5em}.winter-bright .ctAddTextBox .ctAddButton .dijitIcon:before{top:-0.2em}.winter-bright .ctAddTextBox .ctAddButton.dijitHover,.winter-bright .ctAddTextBox .ctAddButton.dijitChecked{background-color:#bababa}.winter-bright .ctAddTextBox .ctAddButton.dijitDisabled{background-color:#a7a7a7}.winter-bright.ctEnv_WebKit .ctAddTextBox .ctAddButton .dijitIcon:before{position:static}

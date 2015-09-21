@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.winter-bright .ctMeasurement .esriMeasurementSeparator{display:none}.winter-bright .ctMeasurement.esriMeasurement .dijitToggleButton .dijitIcon{border-right:1px solid #e6e6e6}.winter-bright .ctMeasurement .esriMeasurementButtonPane{padding-top:0}.winter-bright .ctMeasurement .esriMeasurementResultValue{color:#a0a0a0;margin:10px 0 0 0;padding:0;filter:progid:DXImageTransform.Microsoft.Shadow(enabled=false) !important;-ms-filter:"progid:DXImageTransform.Microsoft.Shadow(enabled=false)" !important;filter:dropshadow(enabled=false) !important}.winter-bright .ctMeasurement .esriMeasurementTableHeader{font-weight:bold}.winter-bright .ctMeasurement .esriMeasurementResultLabel{display:none}.winter-bright .ctMeasurement .esriMeasurementTableContainer{padding:0;width:210px}.winter-bright .ctMeasurement .esriMeasurementTableRow{height:auto;color:#a0a0a0}.winter-bright .ctMeasurement .esriMeasurementTableRow img{height:12pt}.winter-bright .ctMeasurement .esriMeasurementTableContainer .esriMeasurementResultTable .esriMeasurementTableCell{width:initial}.winter-bright .ctMeasurement .dijitToggleButton,.winter-bright .ctMeasurement .dijitDropDownButton{margin-bottom:8px}.winter-bright .ctMeasurement .dijitToggleButton,.winter-bright .ctMeasurement .dijitButtonNode{margin:0}.winter-bright .ctMeasurement .dijitDropDownButton .dijitButtonNode{padding:4px 1px}.winter-bright .ctMeasurement .dijitDropDownButton{margin-left:5px}.winter-bright .ctMeasurement .dijitButtonNode{padding:0;margin-left:-3px;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0;border:0}.winter-bright .ctTool .icon-ruler:before,.winter-bright .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-ruler .ctCollapseOpposite .ctCollapseInnerHandle:before{content:"\e050"}.winter-bright .ctMeasurement .dijitToggleButton .dijitIcon{background-image:none;font-size:inherit;line-height:1.5}.winter-bright .ctMeasurement .dijitToggleButton .dijitButtonNode{font-size:30px;color:#a0a0a0}.winter-bright .ctMeasurement .dijitToggleButton.dijitHover .dijitButtonNode,.winter-bright .ctMeasurement .dijitToggleButton.dijitToggleButtonChecked .dijitButtonNode{color:#fff}.winter-bright .ctMeasurement .dijitToggleButton .areaIcon:before{content:'\e04f'}.winter-bright .ctMeasurement .dijitToggleButton .distanceIcon:before{content:'\e04d'}.winter-bright .ctMeasurement .dijitToggleButton .locationIcon:before{content:'\e04e'}

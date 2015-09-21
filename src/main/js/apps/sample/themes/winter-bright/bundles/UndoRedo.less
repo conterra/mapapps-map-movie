@@ -1,0 +1,60 @@
+@import "../themeSettings.less";
+/*
+*   1) ToolIcon Definitions
+*/
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .icon-undo{
+                background-position: -900px -540px;
+            }
+            .icon-redo{
+                background-position: -945px -540px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-undo{
+                    background-position: -900px -585px;
+                }
+                .icon-redo{
+                    background-position: -945px -585px;
+                }
+            }
+            &.dijitDisabled {
+                .icon-undo{
+                    background-position: -900px -630px;
+                }
+                .icon-redo{
+                    background-position: -945px -630px;
+                }
+            }
+        }
+        .ctToolWindow.ctCollapsed{
+            &.ctActiveToolIcon_icon-undo .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -900px -585px;
+            }
+            &.ctActiveToolIcon_icon-redo .ctCollapseOpposite .ctCollapseInnerHandle{
+                background-position: -945px -585px;
+            }
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctTool{
+            .icon-undo:before{
+                content:'\e013';
+            }
+            .icon-redo:before{
+                content:'\e014';
+            }
+        }
+        .ctToolWindow.ctCollapsed{
+            &.ctActiveToolIcon_icon-undo .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e013';
+            }
+            &.ctActiveToolIcon_icon-redo .ctCollapseOpposite .ctCollapseInnerHandle:before{
+                content:'\e014';
+            }
+        }
+    }
+    .showWebFonts();
+}

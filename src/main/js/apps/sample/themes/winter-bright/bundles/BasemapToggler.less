@@ -1,0 +1,57 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+
+    .ctShrinkingDropDownMenu{
+        &.ctBasemapDropDownList,
+        &.ctThemesDropDownList,
+        &.ctTemplatesDropDownList ,
+        &.ctLanguageTogglerDropDownList {
+            .box-shadow(3px, 3px, 3px, 0.1);
+        }
+    }
+
+
+    .dijitMenu.ctShrinkingDropDownMenu {
+        .dijitMenuTable {
+            width: 100%;
+            border-collapse: separate;
+            table-layout: auto;
+            margin: 0 0 -2px 0;
+        }
+        .dijitMenuItemLabel {
+            position: relative;
+            vertical-align: middle;
+        }
+    }
+
+    .templateButtons .ctShrinkingDropDown {
+        margin: 0 5px;
+
+        .dijitButtonNode {
+            border: none;
+            padding: 6px 0;
+            .border-radius(0);
+            font-size: 11px;
+        }
+
+        .ctShrinkingDropDownTitleNode {
+            font-weight: bold;
+            margin-left: 5px;
+            &:after {
+                content: ":";
+            }
+        }
+
+        .ctShrinkingDropDownLabelNode {
+            margin-left: 10px;
+        }
+    }
+    .buttonBasemapToggler .ctToggleButtonGroup .dijitToggleButtonChecked .dijitIcon{
+        display: inline-block;
+        .setWebFont();
+        &:before{
+            content:'\e60d';
+        }
+    }
+}

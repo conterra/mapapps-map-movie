@@ -1,0 +1,152 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctNotifier .ctNotifierIcon,
+        .ctNotifierContainer:hover .ctNotifierClose,
+            .ctNotifierContainer:hover .ctNotifierGlue{
+            .bgHD('../images/spriteGraphics.png');
+            background-repeat: no-repeat;
+        }
+        .ctNotifierContainer:hover {
+            .ctNotifierGlue{
+                background-position: -556px -151px;
+            }
+            .ctNotifierGlue:hover{
+                background-position: -556px -196px;
+            }
+            .ctNotifierClose{
+                background-position: -16px -152px;
+            }
+            .ctNotifierClose:hover{
+                background-position: -16px -197px;
+            }
+        }
+        .ctNotifier {
+            .Message .ctNotifierIcon{
+                background-position: -1050px -150px;
+            }
+            .Warning .ctNotifierIcon{
+                background-position: -1095px -150px;
+            }
+            .Error .ctNotifierIcon{
+                background-position: -1140px -149px;
+            }
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctNotifier .ctNotifierIcon,
+        .ctNotifierContainer:hover .ctNotifierClose,
+            .ctNotifierContainer:hover .ctNotifierGlue{
+            &:before{
+                .setWebFont();
+                font-size: @ct-icon-small;
+            }
+        }
+        .ctNotifierContainer:hover {
+            .ctNotifierGlue:before{
+                content:'\e016';
+            }
+            .ctNotifierGlue:hover:before{
+                content:'\e016';
+            }
+            .ctNotifierClose:before{
+                content:'\e019';
+            }
+            .ctNotifierClose:hover:before{
+                content:'\e019';
+            }
+        }
+        .ctNotifier {
+            .Message .ctNotifierIcon:before{
+                content:'\e625';
+                color: @ct-message-pane-success-color;
+            }
+            .Warning .ctNotifierIcon:before{
+                content:'\e068';
+                color: @ct-message-pane-warning-color
+            }
+            .Error .ctNotifierIcon:before{
+                content:'\e08e';
+                color: @ct-message-pane-error-color;
+            }
+        }
+    }
+    .showWebFonts();
+
+    .ctNotifierRoot {
+        display: block;
+        position: absolute;
+        .size(100%);
+        right: 15px;
+        bottom: 20px
+    }
+    .ctNotifier {
+        position: absolute;
+        z-index: 1000;
+
+        .ctNotifierContainer{
+            display: block;
+            position: absolute;
+            width: 17.5em;
+            margin: 0px;
+            padding: 8px;
+            overflow: auto;
+            overflow: visible;
+            &:hover .ctNotifierGlue{
+                margin-right: 5px;
+            }
+        }
+        .ctClear{
+            clear: left;
+        }
+        .ctNotifierMessage {
+            padding-top:5px;
+            padding-bottom:5px;
+        }
+        .Message,
+        .Error,
+        .Warning {
+            cursor: default;
+            margin-left: 5px;
+            font-size: 10pt;
+            font-weight: bold;
+            color: @text-color;
+
+            .ctNotifierStickyContent,
+            .ctNotifierContent {
+                padding: 0.8em;
+                .box-shadow(3px, 3px, 8px, 0.5);
+            }
+            .ctNotifierContent {
+                .fade(@pane-background-color, 70%);
+            }
+            .ctNotifierStickyContent {
+                .fade(@pane-background-color, 90%);
+            }
+        }
+        .ctNotifierClose,
+        .ctNotifierGlue {
+            cursor: pointer;
+            float: right;
+            .size(12px);
+        }
+        .ctNotifierIcon {
+            float:left;
+            .size(16px);
+            margin-right: 4px;
+            margin-top: 5px;
+        }
+    }
+    .ctGridNotifierGrid {
+        height: 100% !important;
+        width: 100%;
+    }
+    .ctNotifierClose,
+    .ctNotifierGlue {
+        margin: -6px -2px 0 0;
+    }
+    .ctNotifierContainer{
+        padding: 5px;
+    }
+}

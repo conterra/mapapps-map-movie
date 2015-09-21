@@ -1,0 +1,153 @@
+////////////////////////////////////////////
+//
+// 1. Text and Links (clicable text)
+// 2. Buttons
+//
+////////////////////////////////////////////
+@import "../../themeSettings.less";
+
+.@{themeName} {
+    .ctPager {
+        float: right;
+        .dijitButtonDisabled {
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+        }
+
+        a {
+            color: @text-color;
+            padding: 0 3px;
+            display: inline-block;
+            border-left: 1px solid @text-color;
+            &:first-child, &:only-child {
+                border: none;
+            }
+            &.selected,
+            &.notselected:hover{
+                text-decoration: underline;
+                color: @ct-highlight-color;
+            }
+        }
+
+        .ctPagerSizeSelector,
+        .ctPageSelector {
+            margin-left: 6px;
+        }
+        .ctPagerSizeSelector {
+            margin-right: 6px;
+        }
+
+        // 2. Buttons
+        //disable margin top and bottom because buttons are inline with text
+        .dijitButton {
+            margin: 0;
+            line-height: 100%;
+        }
+        .dijitButtonNode,
+        .dijitButton {
+            background: none;
+            .resetBG();
+        }
+        .dijitButtonNode {
+            padding: 0;
+        }
+
+        //replace String presentation with icons for nicer look
+        .ctPagerPageSelector {
+            .dijitButtonText {
+                display: none;
+            }
+
+            .showWebFonts() when not (@ct-use-font-icons){
+
+                .ctPagerStartBtn,
+                .ctPagerPrevBtn,
+                .ctPagerNextBtn,
+                .ctPagerLastBtn {
+                    .dijitIcon {
+                        .bgHD('../../images/spriteGraphics.png');
+                        .size(22px);
+                    }
+                }
+                .icon-arrow-double-left {
+                    background-position: -193px -282px;
+                }
+                .icon-arrow-bold-left {
+                    background-position: -237px -282px;
+                }
+                .icon-arrow-bold-right {
+                    background-position: -282px -282px;
+                }
+                .icon-arrow-double-right {
+                    background-position: -327px -282px;
+                }
+
+                .dijitButton .dijitButtonNode{
+                    padding: 0;
+                }
+                .dijitButtonHover {
+                    .dijitButtonNode {
+                        background-color: @button-hovered-background-color;
+                    }
+                    .icon-arrow-double-left {
+                        background-position: -193px -327px;
+                    }
+                    .icon-arrow-bold-left {
+                        background-position: -237px -327px;
+                    }
+                    .icon-arrow-bold-right {
+                        background-position: -282px -327px;
+                    }
+                    .icon-arrow-double-right {
+                        background-position: -327px -327px;
+                    }
+                }
+                .dijitButtonDisabled {
+                    .icon-arrow-double-left {
+                        background-position: -193px -372px;
+                    }
+                    .icon-arrow-bold-left {
+                        background-position: -237px -372px;
+                    }
+                    .icon-arrow-bold-right {
+                        background-position: -282px -372px;
+                    }
+                    .icon-arrow-double-right {
+                        background-position: -327px -372px;
+                    }
+                }
+            }
+
+            .showWebFonts() when (@ct-use-font-icons){
+
+                .ctPagerStartBtn,
+                .ctPagerPrevBtn,
+                .ctPagerNextBtn,
+                .ctPagerLastBtn {
+                    .dijitButtonNode{
+                        color: @text-color;
+                        font-size:@ct-icon-small;
+                    }
+                    .dijitIcon {
+                        .size(16px);
+                        .setWebFont();
+                        position: relative;
+                        top: 1px;
+                    }
+                }
+
+                .dijitButton .dijitButtonNode{
+                    padding: 0;
+                }
+                .dijitButtonHover .dijitButtonNode {
+                    background-color: @button-hovered-background-color;
+                    color: @ct-button-hovered-text-color;
+                }
+                .dijitButtonDisabled .dijitButtonNode{
+                    color:@ct-button-disabled-text-color;
+                }
+            }
+
+            .showWebFonts();
+        }
+    }
+}

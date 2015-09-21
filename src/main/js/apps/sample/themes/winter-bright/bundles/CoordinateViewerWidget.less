@@ -1,0 +1,39 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+
+    .ctCoordinateViewer{
+        color: @ct-primary-contrast-text-color;
+        text-align: center;
+        display: table-row;
+    }
+    .ctCoordinateViewer  > .dijitVisible{
+        display: table-cell !important;
+        vertical-align: middle;
+    }
+
+    .ctCoordinateViewerCoords{
+        /*make the table-rows look like they were just one single row.*/
+        table,
+        tbody {
+            display: block;
+        }
+        tr {
+            float:left;
+            padding: 0 5px;
+            vertical-align: bottom;
+        }
+        td {
+            display: inline;
+        }
+    }
+
+    .ctCoordinateViewerScale {
+        padding-left: 5px;
+    }
+
+    /*hide coordinates for ipad*/
+    &.ctEnv_iPhone .ctCoordinateViewerCoords{
+        display: none!important;
+    }
+}

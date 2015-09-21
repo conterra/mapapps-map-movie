@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.thumbWrapper .thumbNav{background-repeat:no-repeat;background-position:center;padding-top:1px;width:30px;height:100%}.thumbOuter{padding-bottom:2px}.thumbOuter.thumbHoriz{width:500px;height:85px}.thumbOuter.thumbVert{width:100px;height:400px}.thumbOuter .enabled{background:transparent url("images/buttons.png") no-repeat center center}.dj_ie6 .thumbOuter .enabled{background-image:url("images/buttons.gif")}.thumbOuter .thumbNav img{width:48px;height:75px}.thumbOuter .thumbClickable div{cursor:pointer}.thumbOuter .prevHoriz{background-position:-96px 12px;position:relative;float:left;height:100%}.thumbOuter .nextHoriz{background-position:-144px 12px;position:relative;float:right;height:100%}.thumbOuter .prevVert{background-position:0 0;height:48px;width:48px;margin-left:24px}.thumbOuter .nextVert{background-position:-48px 0;height:48px;width:48px;margin-left:24px}.thumbWrapper img{height:75px;max-width:100px;width:expression(this.width>100 ? 100:true)}.thumbWrapper .thumbNav .imageGalleryThumb{height:50px}.thumbWrapper .thumbNotifier{background-color:red;width:0;margin-left:2px;height:5px;font-size:1%}.thumbWrapper .thumbLoaded{background-color:transparent}.thumbScroller{overflow-x:hidden;overflow-y:hidden;text-align:center}.thumbHoriz .thumbScroller{width:500px;height:85px;float:left}.thumbVert .thumbScroller{height:500px;width:100px}.thumbWrapper{float:left}.thumbVert .thumbWrapper{width:100px;height:10px}.thumbHoriz .thumbWapper{height:85px;width:10px}.thumbWrapper.thumbHoriz div{float:left;padding-right:2px}.thumbWrapper.thumbVert{width:100px}.thumbWrapper.thumbVert div{padding-bottom:2px}

@@ -1,0 +1,196 @@
+{
+    "dataform-version": "1.0.0",
+    "type": "gridpanel",
+    "showLabels": true,
+    "cols": 1,
+    "children": [
+        {
+            "type": "accordionpanel",
+            "field": "selectedChild",
+            "children": [
+                {
+                    "type": "gridpanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "title": "1. Layer (required)",
+                    "children": [{
+                            "type": "textbox",
+                            "title": "Titel",
+                            "field": "layer1.title"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL",
+                            "field": "layer1.url",
+                            "required": true,
+                            "regex": "url",
+                            "size": {
+                                "w": 400
+                            }
+                        },
+                        {
+                            "type": "radiobutton",
+                            "title": "ArcGIS MapServer (Tiled)",
+                            "field": "layer1.type",
+                            "value": "AGS_TILED"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL des Bildes",
+                            "field": "layer1.thumbnail",
+                            "size": {
+                                "w": 400
+                            }
+                        }]
+                },
+                {
+                    "type": "gridpanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "title": "2. Layer (required)",
+                    "required": true,
+                    "children": [{
+                            "type": "textbox",
+                            "title": "Titel",
+                            "field": "layer2.title"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL",
+                            "field": "layer2.url",
+                            "required": true,
+                            "regex": "url",
+                            "size": {
+                                "w": 400
+                            }
+                        },
+                        {
+                            "type": "radiobutton",
+                            "title": "ArcGIS MapServer (Tiled)",
+                            "field": "layer2.type",
+                            "value": "AGS_TILED"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL des Bildes",
+                            "field": "layer2.thumbnail",
+                            "size": {
+                                "w": 400
+                            }
+                        }]
+                },
+                {
+                    "type": "gridpanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "title": "3. Layer",
+                    "children": [{
+                            "type": "textbox",
+                            "title": "Titel",
+                            "field": "layer3.title"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL",
+                            "field": "layer3.url",
+                            "regex": "url",
+                            "size": {
+                                "w": 400
+                            }
+                        },
+                        {
+                            "type": "radiobutton",
+                            "title": "ArcGIS MapServer (Tiled)",
+                            "field": "layer3.type",
+                            "value": "AGS_TILED"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL des Bildes",
+                            "field": "layer3.thumbnail",
+                            "size": {
+                                "w": 400
+                            }
+                        }]
+                },
+                {
+                    "type": "gridpanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "title": "4. Layer",
+                    "children": [{
+                            "type": "textbox",
+                            "title": "Titel",
+                            "field": "layer4.title"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL",
+                            "field": "layer4.url",
+                            "regex": "url",
+                            "size": {
+                                "w": 400
+                            }
+                        },
+                        {
+                            "type": "radiobutton",
+                            "title": "ArcGIS MapServer (Tiled)",
+                            "field": "layer4.type",
+                            "value": "AGS_TILED"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL des Bildes",
+                            "field": "layer4.thumbnail",
+                            "size": {
+                                "w": 400
+                            }
+                        }]
+                },
+                {
+                    "type": "gridpanel",
+                    "showLabels": true,
+                    "cols": 1,
+                    "title": "5. Layer",
+                    "children": [{
+                            "type": "textbox",
+                            "title": "Titel",
+                            "field": "layer5.title"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL",
+                            "field": "layer5.url",
+                            "regex": "url",
+                            "size": {
+                                "w": 400
+                            }
+                        },
+                        {
+                            "type": "radiobutton",
+                            "title": "ArcGIS MapServer (Tiled)",
+                            "field": "layer5.type",
+                            "value": "AGS_TILED"
+                        },
+                        {
+                            "type": "textbox",
+                            "title": "URL des Bildes",
+                            "field": "layer5.thumbnail",
+                            "size": {
+                                "w": 400
+                            }
+                        }]
+                }
+            ]
+        },
+        {
+            "type": "numberspinner",
+            "title": "Layerübergang in ms",
+            "field": "transitionTime",
+            "min": 1000,
+            "max": 10000,
+            "fractional": false,
+            "inc": 500
+        }
+    ]
+}

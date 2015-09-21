@@ -1,0 +1,76 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .consoleContainer{
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitButtonNode{
+                padding: 1px 4px 4px;
+            }
+        }
+    }
+
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitIcon{
+                .size(11px);
+            }
+        }
+        .ctTool{
+            .icon-play{
+                background-position: -1234px -325px;
+            }
+            .icon-stop{
+                background-position: -1276px -324px;
+            }
+            .icon-tool{
+                background-position: -469px -284px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-play{
+                    background-position: -1234px -355px;
+                }
+                .icon-stop{
+                    background-position: -1276px -354px;
+                }
+                .icon-tool{
+                    background-position: -469px -329px;
+                }
+            }
+            &.dijitDisabled {
+                .icon-play{
+                    background-position: -1234px -385px;
+                }
+                .icon-stop{
+                    background-position: -1276px -384px;
+                }
+                .icon-tool{
+                    background-position: -469px -374px;
+                }
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctTool_consoleStopBundleTool,
+        .ctTool_consoleStartBundleTool,
+        .ctTool_componentConfigureTool{
+            .dijitButtonNode{
+                font-size: @ct-icon-small;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .dijitButtonNode{
+                    background-color: @button-hovered-background-color;
+                }
+            }
+        }
+    }
+
+    .showWebFonts();
+
+}

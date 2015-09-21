@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.winter-bright .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-gallery .ctCollapseOpposite .ctCollapseInnerHandle:before{content:'\e047'}.winter-bright .ctBasemapGallery{overflow:auto;width:100%;height:95%;position:relative;overflow-y:hidden}.winter-bright .ctBasemapGallery .esriBasemapGalleryNode,.winter-bright .ctBasemapGallery .esriBasemapGalleryThumbnail{width:200px}.winter-bright .ctBasemapGallery .esriBasemapGalleryThumbnail{height:134px;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;border-width:2px}.winter-bright .ctBasemapGalleryUnlock{width:100%;height:100%}.winter-bright .ctBasemapGalleryLock{display:inherit;position:absolute}.winter-bright .ctBasemapGalleryLoadDiv{display:inherit;position:fixed;width:20px;height:16px;z-index:99999}.winter-bright .ctBasemapGalleryLoad.ctLoading{width:1em;height:1em;margin:0 auto}.winter-bright .ctBasemapGalleryHide{visibility:hidden;display:none}.winter-bright .esriBasemapGallerySelectedNode .esriBasemapGalleryThumbnail{border:2px solid #a0a0a0;margin:0}.winter-bright .esriBasemapGallery .basemapTable,.winter-bright .esriBasemapGallery .basemapRow{display:table-row}.winter-bright .esriBasemapGallery .esriBasemapGalleryNode{display:table-cell;float:none;padding:14px 10px 0 0}

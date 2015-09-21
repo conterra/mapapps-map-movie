@@ -1,0 +1,51 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .myAddThis{
+        vertical-align: middle;
+        color: @ct-primary-contrast-text-color;
+        .compactShareButton a{
+            b{
+                cursor: default;
+            }
+        }
+        p{
+            margin-left: 0;
+            font-weight: bold;
+        }
+    }
+    .addthis_toolbox {
+        display: inline-block;
+        height: 20px;
+
+        &.compactShareButton{
+            position: relative;
+            top: 7px;
+            width: 20px;
+        }
+    }
+
+    .addthis_32x32_style{
+        .dummy .at300bs,
+        .at300bs,
+        .at15t {
+            height: 30px !important;
+            width: 32px !important;
+            line-height: 30px !important;
+        }
+    }
+
+    .addthis_default_style{
+        .at300b,
+        .at300bo,
+        .at300m {
+            padding: 0;
+            width: 32px;
+            margin-right: 1px;
+        }
+        .at15t_expanded,
+        .at15t_compact {
+            margin-right: 0;
+        }
+    }
+}

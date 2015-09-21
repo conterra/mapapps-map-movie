@@ -1,0 +1,89 @@
+//this file contains all customizations against map.apps core theme
+@import "themeSettings.less";
+.@{themeName} {
+
+
+    .ctConfigureButton {
+        margin: 0;
+        &,.dijitButtonNode{
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .dijitButtonNode .dijitIcon{
+            float: none;
+        }
+
+    }
+    .ctScaleBar{ 
+        .esriScalebarLabel{
+            color: @ct-scalebar-color;
+            text-shadow: 1px 1px 1px #000;
+        }
+        .esriScalebarLine {
+            box-shadow: 1px 1px 1px #000;
+        }
+    }
+    
+    .ctOmniSearchInput .dijitTextBox{
+        width: 100%
+    }
+    .ctOmniSearchSettings .dijitButtonNode{
+        background-color: @ct-toolset-tool-button-background-color;
+    }
+    .ctWindowToolbar .ctTool.dijitHover .dijitIcon:before{
+        color: @ct-icon-hovered-color;
+    }
+    .ctConfigureButton .dijitButtonNode {
+        background-color: @ct-primary-button-color;
+    }
+
+    .dijitMenuPopup{
+        .dijitMenu{
+            border-top-width: 0;
+        }
+        td.dijitMenuItemLabel{
+            padding-top: 7px;
+            padding-bottom: 7px;
+        }
+    }
+    .dijitMenuItem {
+        color: #fff-@menu-background-color;
+    }
+    .dijitMenuItemHover {
+        color: #fff;
+    }
+    .dijitMenuTable.ctWDYWBtn {
+        .border-radius(0,0,3px,3px);
+        border-top-width: 1px;
+    }
+    .ribbles{
+        //background-image: url('images/ribbles.png');
+        background: @marketingColor;
+    }
+    .mainMap .ctOmniSearchUI{
+        border-bottom-width: 3px;
+    }
+    .header .ctOmniSearchUI{
+        border: 1px solid @marketingColor;
+    }
+    .headerToolbar .ctTool {
+        .dijitButtonNode,
+        &.dijitToggleButtonChecked .dijitButtonNode{
+            background: transparent;
+        }
+        .dijitIcon:before{            
+            color: @text-color;
+        }
+        &.dijitHover,
+        &.dijitToggleButtonChecked{
+            .dijitButtonNode .dijitIcon:before{
+                color: @marketingColor            
+            }
+        }
+    }
+    .muted.ctToolWindow .ctTool .dijitButtonNode{
+        .border-radius(5px);
+        background-color: @ct-highlight-color;
+    }
+}

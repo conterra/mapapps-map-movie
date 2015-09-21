@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.winter-bright .ctShrinkingDropDown{margin:0}.winter-bright .ctShrinkingDropDown .dijitDownArrowButton .dijitArrowButtonInner:before{color:#fff}.winter-bright .ctShrinkingDropDown.dijitDownArrowButtonHover .dijitArrowButtonInner:before,.winter-bright .ctShrinkingDropDown.dijitDropDownButton.dijitHover .dijitDownArrowButton .dijitArrowButtonInner:before{color:#000}.winter-bright .ctShrinkingDropDown .ctShrinkingDropDownTitleNode,.winter-bright .ctShrinkingDropDown .dijitButtonText{color:#45474d}.winter-bright .ctShrinkingDropDown .dijitButtonNode{height:100%;font-size:10px;margin:0;border-width:0;-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;background-color:transparent}.winter-bright .ctShrinkingDropDown .dijitButtonText{padding:0}.winter-bright .ctShrinkingDropDown.dijitHover .ctShrinkingDropDownTitleNode,.winter-bright .ctShrinkingDropDown.dijitHover .dijitButtonText{color:#a0a0a0}.winter-bright .ctShrinkingDropDown.dijitHover .dijitDownArrowButton .dijitArrowButtonInner:before,.winter-bright .ctShrinkingDropDown.dijitHover .dijitArrowButtonInner:before{color:#a0a0a0}.winter-bright .dijitMenu.ctShrinkingDropDownMenu{border:0;background:transparent none}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuTable{table-layout:fixed;background-color:#fff}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem{font-weight:bold;padding:0;text-align:center;text-transform:capitalize}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitHover,.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitFocused,.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitSelected{background-color:#a0a0a0}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitSelected,.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItem.dijitMenuItemSelected{color:#fff}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuArrowCell,.winter-bright .dijitMenu.ctShrinkingDropDownMenu .dijitMenuItemIconCell{display:none}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .ctToggleCollapser{margin:0;padding:0;width:100%;height:2px}.winter-bright .dijitMenu.ctShrinkingDropDownMenu .ctToggleCollapser .dijitArrowButtonInner{display:none}

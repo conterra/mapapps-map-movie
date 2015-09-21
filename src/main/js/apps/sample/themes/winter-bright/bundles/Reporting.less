@@ -1,0 +1,16 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctWindow.ctReportWindow{
+        .dijitDialogPaneContent{
+            background-image: url(../images/loader.gif);
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    
+        .ctContentIFrame{
+            //reseting bg color back to transparent as the report conten has #fff itelf.
+            background-color: transparent
+        }
+    }
+}

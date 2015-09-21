@@ -1,0 +1,178 @@
+/* Select
+ * 
+ * Styling Select mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitSelect - for border, background-color
+ * 		.dijitButtonContents - for border
+ *
+ * 2. Arrow
+ * 		.dijitArrowButton - for border, padding and background-color|image
+ * 		.dijitArrowButtonInner - for border, background-color|image, display and width|height
+ * 
+ * 3. Menu
+ * 		.dijitSelectMenu .* - for border, padding
+ * 
+ * 4. Various states
+ * 		.dijitSelectHover|.dijitSelectFocused|.dijitSelectDisabled .* - for border, padding and background-color|image 
+ * 
+ * 5. Border Radius Setup
+ */
+@import "../../themeSettings.less";
+
+.@{themeName} {
+
+    /* normal status */
+    .dijitSelect .dijitArrowButtonContainer {
+        border: none; //CHANGED from dijit original
+    }
+
+    .dijitSelect .dijitButtonContents {
+        .standard-gradient-and-filter(rgba(0,0,0,0)); //CHANGED from dijit original
+        background-color: transparent;
+        font-weight: bold;
+    }
+    .dijitSelect .dijitArrowButton {
+        padding: 0;
+        background-color: transparent;
+        // .standard-gradient("../");
+    }
+
+    /* hover status */
+    .dijitSelectHover {
+        background-color: @button-hovered-background-color;
+        .textbox-background-image;
+        background-repeat: repeat-x;
+    }
+
+    //.dijitSelectFocused,  //CHANGED from dijit original because it is already set in /form/common.less
+    .dijitSelectHover {
+        border-color: @hovered-border-color;
+    }
+
+    .dijitSelectHover .dijitButtonContents,
+    .dijitSelectHover .dijitArrowButton {
+        background-color: @arrowbutton-hovered-background-color;
+    }
+
+    .dijitSelectHover .dijitButtonContents .dijitButtonText {
+        color: @hovered-text-color;
+    }
+
+    .dijitSelectHover .dijitArrowButton .dijitArrowButtonInner {
+        background-position: -150px -194px;
+    }
+
+    /* focused status */
+    .dijitSelectFocused .dijitArrowButton {
+        //background-color:#7dbefa;		// TODO.  Mailed Jason about inconsistent ComboBox/Spinner behavior.
+        //.active-gradient("../");
+    }
+
+    .dijitSelectFocused .dijitArrowButton {
+        border: none;
+        //padding: 1px;     //CHANGED from dijit original
+    }
+
+    /* disable status */
+    .dijitSelectDisabled {
+        border-color: @disabled-border-color;
+        background-color: @disabled-background-color;
+        background-image: none;
+        color: @disabled-text-color;
+    }
+
+    .dijitValidationTextBox.dijitSelect.dijitSelectDisabled .dijitArrowButton{
+        background-color: @disabled-background-color; //CHANGED from dijit original to allow colored selectButtons but still greyed out if disabled
+    }
+    .dijitSelectDisabled .dijitArrowButton .dijitArrowButtonInner {
+        background-position: -150px -239px;
+    }
+
+    /* Dropdown menu style for select */
+    .dijitSelectMenu td.dijitMenuItemIconCell,
+    .dijitSelectMenu td.dijitMenuArrowCell {
+        /* so that arrow and icon cells from MenuItem are not displayed */
+        display: none;
+    }
+
+    .dijitSelectMenu td.dijitMenuItemLabel {
+        /* line up menu text with text in select box (in LTR and RTL modes) */
+        padding: @textbox-padding;
+    }
+
+    .dijitSelectMenu .dijitMenuSeparatorTop {
+        border-bottom: 1px solid @focused-border-color;
+    }
+
+    .dijitValidationTextBox {
+        .dijitButtonText {
+            color: @ct-textbox-font-color;
+        }
+
+        &.dijitSelect{
+            .dijitButtonContents,
+            .dijitArrowButton {
+                border: 1px solid transparent;
+            }
+            .dijitButtonContents {
+                color: @ct-textbox-font-color;
+                background-color: @textbox-background-color;
+            }
+
+            .dijitArrowButton {
+                color: @ct-button-text-color;
+                background-color: @minor-selected-color;
+                .setWebFont();
+                font-size: @ct-icon-small;
+                text-align: center;
+                .showWebFont() when (@ct-use-font-icons){
+                    &:before {
+                        content: '\e007';
+                    }
+                }
+                .showWebFont();
+
+                .dijitArrowButtonInner {
+                    display: none;
+                }
+            }
+        }
+
+
+        &.dijitSelectHover .dijitButtonContents,
+        &.dijitSelectHover .dijitArrowButton,
+        &.dijitSelectActive.dijitSelectFocused .dijitButtonContents,
+        &.dijitSelectActive.dijitSelectFocused .dijitArrowButton {
+            background-color: desaturate(lighten(@minor-selected-color,10%), 5%);
+        }
+
+        &.dijitSelectHover,
+        &.dijitSelectActive{
+            .dijitButtonContents{
+                .dijitButtonText{
+                    color: @hovered-text-color;
+                }
+            }
+        }
+    }
+    .setBorderRadius() when (@button-border-radius >0){
+        //the following is only needed if button-border-radius is set to something greater then 0
+        .dijitComboBox,
+        .dijitSelect{ 
+            .border-radius(@button-border-radius);
+        }
+
+        .dijitComboBox .dijitInputContainer,
+        .dijitSelect .dijitButtonContents{
+            .border-radius(@button-border-radius 0 0 @button-border-radius);
+        }
+
+        .dijitComboBox .dijitButtonNode.dijitDownArrowButton,
+        .dijitComboBox .dijitArrowButtonInner,
+        .dijitSelect .dijitButtonNode.dijitDownArrowButton {
+            .border-radius(0 (@button-border-radius - 1px) (@button-border-radius - 1px) 0);
+        }
+    }
+    .setBorderRadius();
+}

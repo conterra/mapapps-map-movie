@@ -1,0 +1,213 @@
+////////////////////////////////////////////
+// 1. Table Header
+// 2. Table Rows (including Hover and selected styles
+// 3. Table Cells
+// 4. Special styles to support transparency of parent window
+// 0. Less Funtions
+////////////////////////////////////////////
+@import "../../themeSettings.less";
+
+.@{themeName} {
+    .dgrid {
+        border: none;
+        .dgrid-scroller {
+            // needed to resolve https://issuetracker02.eggits.net/browse/MAPAPPS-1402
+            overflow: auto;
+        }
+        // 1. Table Header
+        .dgrid-header,
+        .dgrid-header-row,
+        .dgrid-footer {
+            .standard-gradient(@ct-dGrid-header-background-color);
+            .dgrid-cell {
+                color: @ct-dGrid-header-text-color;
+                div {
+                    line-height: 17px;
+                }
+                .ui-icon {
+                    background-image: url("../../../../../../../../js/dgrid/css/images/ui-icons_222222_256x240_white.png");
+                }
+                &.dgrid-sortable:hover {
+                    .standard-gradient(@ct-dGrid-hovered-row-color);
+                    .ui-icon {
+                        background-image: url("../../../../../../../../js/dgrid/css/images/ui-icons_222222_256x240_white.png");
+                    }
+                }
+            }
+        }
+        .showUiIcons() when (@ct-use-font-icons) {
+            .dgrid-cell,
+            .dgrid-cell:hover,
+                .dgrid-header .dgrid-cell,
+                .dgrid-header .dgrid-cell:hover {
+                .ui-icon {
+                    background-image: none;
+                    .setWebFont();
+                    font-size: @ct-icon-small;
+                }
+            }
+            .dgrid-sort-up .ui-icon:before {
+                content: '\e009';
+            }
+            .dgrid-sort-down .ui-icon:before {
+                content: '\e00b';
+            }
+            .dgrid-cell:hover .ui-icon:before {
+                color: @ct-icon-on-primary-hovered-color;
+            }
+        }
+        .showUiIcons();
+        table .dgrid-cell {
+            border-width: 0;
+        }
+
+        // 2. Table Rows (including Hover and selected styles
+        .dgrid-row-even {
+            background-color: @ct-dGrid-background-color;
+        }
+        .dgrid-row-odd {
+            background-color: lighten(@ct-dGrid-background-color, 5%);
+        }
+        .dgrid-row-highlight,
+        .dgrid-row.dgrid-selected {
+            color: @ct-dGrid-highlighted-row-text-color;
+            .fade(@ct-dGrid-highlighted-row-color, 50%);
+        }
+        .dgrid-row:hover,
+            .dgrid-row.dgrid-selected:hover {
+            color: @ct-dGrid-hovered-row-text-color;
+            .fade(@ct-dGrid-highlighted-row-color, 50%);
+        }
+
+        .dgrid-cell {
+            border-color: transparent;
+        }
+
+        .dgrid-row:hover button.dgrid-tool .icon,
+            .dgrid-row.dgrid-selected:hover button.dgrid-tool .icon {
+            color: @ct-highlight-text-color;
+        }
+
+        .dgrid-row {
+            border: 1px solid transparent;
+        }
+
+        .dgrid-row.dgrid-selected + .dgrid-row.dgrid-selected {
+            border-top-color: @ct-dGrid-border-color;
+        }
+
+
+        // 3. Table Cells
+        .dgrid-selected .dgrid-cell {
+            border-color: transparent;
+        }
+        .dgrid-cell {
+            border-width: 0;
+            border-color: @ct-dGrid-border-color;
+            .addVerticalCellBorder();
+            .addHorizontalCellBorder();
+            vertical-align: middle;
+            .dgrid-input {
+                color: @ct-textbox-font-color;
+                font-size: 100%;
+                background-color: @ct-textbox-edit-background-color;
+                border-width: 0;
+            }
+        }
+        //reduced width for default checkbox cells-columns
+        .dgrid-selector {
+            width: 25px;
+        }
+        .dgrid-no-data {
+            padding: 10px;
+        }
+
+        .dgrid-tools {
+            // tool buttons in the dgrid, created by ct/ui/controls/dataview/toolsColumn.js
+            padding: 0;
+        }
+        .dgrid-tool {
+            //.standard-gradient-and-filter(@button-background-color);
+            background: transparent;
+            border: none;
+            margin: 0 2px;
+            padding: 0;
+            .icon {
+                margin: 2px 3px 0 0;
+                display: inline-block;
+                .size(21px);
+                .showWebFonts() when not (@ct-use-font-icons) {
+                    .bgHD('../../images/spriteGraphics.png');
+                }
+
+                .showWebFonts() when (@ct-use-font-icons) {
+                    font-family: mapappsUiFont;
+                    speak: none;
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    line-height: 1;
+                    -webkit-font-smoothing: antialiased;
+                    font-size: @ct-icon-small;
+                    color: @ct-icon-color;
+                }
+                .showWebFonts();
+            }
+            .label {
+                font-weight: bold;
+                color: @ct-button-text-color;
+                font-size: 11px;
+            }
+
+            &:hover {
+                .label {
+                    color: @hovered-text-color;
+                }
+            }
+        }
+
+        .dgrid-row:hover {
+            // tool buttons in the dgrid, created by ct/ui/controls/dataview/toolsColumn.js
+            .dgrid-tool {
+                // .standard-gradient-and-filter(@button-hovered-background-color);
+                .label {
+                    color: @hovered-text-color;
+                }
+            }
+        }
+    }
+    //4. Special styles to support transparency of parent window
+    .ctTransparent .dgrid {
+        background-color: fade(@ct-dGrid-background-color, 30%);
+        .dgrid-row-odd {
+            background-color: fade(lighten(@ct-dGrid-background-color, 5%), 40%);
+        }
+        .dgrid-header,
+        .dgrid-header-row,
+        .dgrid-footer {
+            .standard-gradient-and-filter(fade(@ct-dGrid-header-background-color,30%));
+        }
+    }
+}
+
+// 0. Less Funtions
+.addHorizontalCellBorder() when (@ct-dGrid-horizontal-table-borders = true) {
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+}
+
+.addHorizontalCellBorder() when (@ct-dGrid-horizontal-table-borders = false) {
+    border-bottom-width: 0;
+    border-top-width: 0;
+}
+
+.addVerticalCellBorder() when (@ct-dGrid-vertical-table-borders = true) {
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+.addVerticalCellBorder() when (@ct-dGrid-vertical-table-borders = false) {
+    border-left-width: 0;
+    border-right-width: 0;
+}

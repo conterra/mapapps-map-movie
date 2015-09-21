@@ -1,0 +1,37 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    /* AttachementContent */
+    .ctAttachmentContent .ctAttachmentUI {
+        //the list containing all attachments
+        .list .deleteAttachment{
+            display: none;
+        }
+        .upload{
+            // important is due to the js api that adds style directly to element
+            display: none!important;
+        }
+        .title {
+            display : block;
+        }
+        a {
+            font-weight : normal;
+        }
+    }
+
+    .dijitContentPane.dijitAlignBottom .detailButton{
+        margin-right: 0;
+    }
+    
+    /* AGSDetailContent */
+    .AGSDetailView {
+        .mapPane {
+            text-align : left;
+            height: 25%;
+        }
+        .ctAttachmentContent {
+            text-align : left;
+            height: 25%;
+        }
+    }
+}

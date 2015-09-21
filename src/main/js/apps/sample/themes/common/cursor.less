@@ -1,0 +1,25 @@
+/*due to limitations of IE, the custom cursor for the magnifier tool can't be defined in the 
+magnifiers bundle css.
+only absolute path are working for IE browser. so you have to add to webcontext folder to the url
+*/
+.ctEnv_Chrome.ctActiveTool_magnifier div.container div.container,
+.ctEnv_FF.ctActiveTool_magnifier div.container div.container,
+.ctEnv_Safari.ctActiveTool_magnifier div.container div.container,
+.ctEnv_Opera.ctActiveTool_magnifier div.container div.container{
+        cursor:url("images/cursorMagnifier.png") 10 10,
+        url("images/cursorMagnifier.gif") 10 10,
+        auto !important;
+}
+
+/* for IE9 you have to define an alternative standard cursor
+   only absolute path are working. so you have to add to webcontext folder to the url
+*/
+.ctEnv_IE.ctActiveTool_magnifier div.container div.container{
+     cursor: url("js/bundles/base/themes/themes/common/images/cursorMagnifier.cur"), pointer !important;
+}
+
+.ctToolAvatar.dojoMoveItem{
+    cursor:move;
+}
+
+

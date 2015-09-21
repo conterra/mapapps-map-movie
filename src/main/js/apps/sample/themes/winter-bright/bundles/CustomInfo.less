@@ -1,0 +1,144 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    // 1.) Sepcial toolset design
+    .CustomInfoToolbar.dijitDialogFixed.notitle {
+        .dijitButtonNode {
+            .standard-gradient-and-filter(fade(@ct-toolset-tool-button-hovered-background-color,30%));
+            margin: 0 4px 0 0;
+        }
+        .dijitIcon {
+            border: none;
+        }
+        .dijitHover.ctTool,
+        .dijitChecked.ctTool {
+            .dijitButtonNode {
+                .standard-gradient-and-filter(fade(@ct-toolset-tool-button-hovered-background-color,80%));
+            }
+        }
+        &.alignBottomRight,
+        &.alignBottomLeft {
+            .dijitButtonNode {
+                .border-radius(@ct-dialog-border-radius,@ct-dialog-border-radius,0,0);
+            }
+        }
+        &.alignTopRight,
+        &.alignTopLeft {
+            .dijitButtonNode {
+                .border-radius(0,0,@ct-dialog-border-radius,@ct-dialog-border-radius);
+            }
+        }
+    }
+    // 2.) Icon positions
+    .showWebFonts() when not (@ct-use-font-icons) {
+        .CustomInfoToolbar {
+            .ctTool {
+                .dijitIcon {
+                    background-position: -45px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -45px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -45px -640px;
+                }
+            }
+        }
+        .ctTool {
+            &.ctCopyright {
+                .dijitIcon {
+                    background-position: -225px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -225px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -225px -640px;
+                }
+            }
+            &.ctDisclaimer {
+                .dijitIcon {
+                    background-position: -315px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -315px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -315px -640px;
+                }
+            }
+            &.ctImprint {
+                .dijitIcon {
+                    background-position: -135px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -135px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -135px -640px;
+                }
+            }
+            &.ctLegend {
+                .dijitIcon {
+                    background-position: -265px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -265px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -265px -640px;
+                }
+            }
+            &.ctInfo {
+                .dijitIcon {
+                    background-position: -180px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -180px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -180px -640px;
+                }
+            }
+            &.ctHelp {
+                .dijitIcon {
+                    background-position: -90px -540px;
+                }
+                &.dijitHover, &.dijitChecked .dijitIcon {
+                    background-position: -90px -585px;
+                }
+                &.dijitDisabled .dijitIcon {
+                    background-position: -90px -640px;
+                }
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons) {
+        .ctTool {
+            //TODO: remove with map.apps 4.0. don't forget to remove sprite definitions too!
+            &.ctCopyright .dijitIcon:before {
+                content: "\e086";
+            }
+            &.ctDisclaimer .dijitIcon:before {
+                content: "\e044";
+            }
+            &.ctImprint .dijitIcon:before {
+                content: "\e044";
+            }
+            &.ctLegend .dijitIcon:before {
+                content: "\e049";
+            }
+            &.ctInfo .dijitIcon:before {
+                content: "\e02c";
+            }
+            &.ctHelp .dijitIcon:before {
+                content: "\e015";
+            }
+            &.ctLink .dijitIcon:before {
+                content: "\e04c";
+            }
+        }
+    }
+    .showWebFonts();
+}

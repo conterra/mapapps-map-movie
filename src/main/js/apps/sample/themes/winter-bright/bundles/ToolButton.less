@@ -1,0 +1,141 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        /*same sprite for all toolicons!*/
+        .ctTool .dijitIcon,
+        .ctToolWindow .ctCollapseInnerHandle{
+            .bgHD('../images/spriteGraphics.png');
+        }
+        //Assign an Icon to each Tool and Change IconColor if Tool is Hovered, Activated or Disabled.
+        //Must be independant from the Toolset it is placed at.
+        .ctTool {
+            :before{
+                content: ''; //needed to prevent mixing in from mapappsuiFont
+            }
+            /* hide labels for all tool buttons */
+            .dijitButtonText {
+                display: none;
+            }
+            .icon-default {
+                background-position: 0 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-default{
+                    background-position: 0 -45px;
+                }
+            }
+            &.dijitDisabled .icon-default{
+                background-position: 0 -90px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-default .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: 0 -45px;
+        }
+    }
+
+    // WebFonts Support
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctToolWindow .ctTool .dijitIcon{
+            line-height: 1.5;
+            font-size: @ct-icon-large;
+        }
+        .ctTool .icon-default{
+            .setWebFont();
+            //a default icon if no other is specified
+            &:before{content:'\e043';}
+        }
+        .ctTool {
+            /* hide labels for all tool buttons */
+            .dijitButtonText {
+                display: none;
+            }
+            .dijitButtonNode{
+                color: @ct-icon-color;
+            }
+            &.dijitHover,
+            //&.dijitFocused,
+            &.dijitToggleButtonChecked,
+            //&.dijitActive,
+            //&.dijitChecked.dijitActiveFocused.dijitActive,
+            &.dijitChecked{
+                .dijitButtonNode{
+                    color: @ct-icon-on-primary-color;
+                }
+            }
+            &.dijitDisabled .dijitButtonNode{
+                color: @disabled-text-color;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-default .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e043';
+        }
+    }
+    .showWebFonts();
+
+    .ctToolWindow .ctTool{
+        margin: 0;
+        .dijitButtonNode{
+            padding: 0;
+        }
+        /*first and last Tool have no left/right border*/
+        &:first-child .dijitButtonNode .dijitIcon{
+            border-left: 1px solid transparent;
+        }
+        &:last-child .dijitButtonNode .dijitIcon{
+            border-right: 1px solid transparent;
+        }
+        /* Disabled Buttons */
+        &.dijitDisabled .dijitButtonNode{
+            .standard-gradient-and-filter(@disabled-background-color);
+        }
+    }
+    /* Toolset Buttons */
+    .ctToolWindow .ctTool,
+    .ctToolPopup .dijitToggleButton{
+        .dijitButtonNode {
+            .border-radius(0);
+            background-color: @ct-toolset-tool-button-background-color;
+        }
+        //&.dijitButtonFocused .dijitButtonNode,
+        &.dijitHover .dijitButtonNode{
+            .standard-gradient-and-filter(@ct-toolset-tool-button-hovered-background-color);
+        }
+        /* Active ToolButtons Backgrounds */
+        &.dijitChecked .dijitButtonNode {
+            .standard-gradient-and-filter(@ct-toolset-tool-button-checked-background-color);
+        }
+        .dijitIcon{
+            .size(45px);
+            background-repeat: no-repeat;
+            border-left: 1px solid darken(@ct-toolset-tool-button-background-color, 10%);
+            border-right: 1px solid lighten(@ct-toolset-tool-button-background-color, 10%);
+        }
+    }
+    //mapapps what do u want button
+    //.dijitDropDownButton.ctWDYWBtn{
+    .ctWDYWBtn{
+        font-size: 1.1em;
+        font-weight: normal;
+        .box-shadow(3px, 3px, 3px, 0.1);
+        margin: 0;
+        .dijitButtonNode{
+            padding: 6px 0 6px;
+            .border-radius(2px);
+            border-bottom: 3px solid darken(@ct-primary-button-color, 10);
+        }
+        .dijitButtonNode,
+        .dijitButtonContent,
+        .dijitButtonText{
+            width: 100%;
+        }
+        .dijitButtonText{
+            text-align: left;
+            padding-left: 8px;
+        }
+        .dijitArrowButtonInner{
+            right: 30px;
+        }
+    }
+}

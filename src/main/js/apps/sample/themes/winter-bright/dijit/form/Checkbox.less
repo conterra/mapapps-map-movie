@@ -1,0 +1,73 @@
+/* CheckBox
+ * 
+ * Styling CheckBox mainly includes:
+ * 
+ * 1. Containers
+ * 		.dijitCheckBox|.dijitCheckBoxIcon - for border, padding, width|height and background image
+ * 
+ * 2. CheckBox within ToggleButton
+ * 		.dijitToggleButton|.dijitToggleButtonChecked .* - for background image
+ * 
+ * 3. Checked state
+ * 		.dijitCheckBoxChecked - for checked background-color|image
+ * 		.dijitToggleButtonChecked - for border, background-color|image, display and width|height
+ * 
+ * 4. Hover state
+ * 		.dijitCheckBoxHover|.dijitCheckBoxCheckedHover - for background image
+ * 
+ * 5. Disabled state
+ * 		.dijitCheckBoxDisabled|.dijitCheckBoxCheckedDisabled - for background image
+ */
+
+@import "../../themeSettings.less";
+
+.@{themeName}{
+    .dijitToggleButton .dijitCheckBoxIcon {
+        .bgHD('../../images/spriteGraphics.png');
+    }
+
+    .dijitCheckBox,
+    .dijitCheckBoxIcon		/* inside a toggle button */	{
+        .bgHD('../../images/spriteGraphics.png');
+            background-repeat: no-repeat;
+            .size(15px);
+            margin: 0 2px 0 0;
+            padding: 0;
+            cursor: pointer;
+    }
+
+    .dijitCheckBox,
+    .dijitToggleButton .dijitCheckBoxIcon {
+            /* unchecked */
+            background-position: -780px -285px;
+    }
+
+    .dijitCheckBoxChecked,
+    .dijitToggleButtonChecked .dijitCheckBoxIcon {
+            /* checked */
+            background-position: -735px -285px;
+    }
+
+    .dijitCheckBoxDisabled,
+    .dijitDisabled .dijitCheckBoxIcon{
+            /* disabled */
+            background-position: -780px -375px;
+    }
+
+    .dijitCheckBoxCheckedDisabled,
+    .dijitCheckedDisabled .dijitCheckBoxIcon {
+            /* disabled but checked */
+            background-position: -735px -375px;
+    }
+
+    .dijitCheckBoxHover {
+            /* hovering over an unchecked enabled checkbox */
+            background-position: -780px -330px;
+    }
+
+    .dijitCheckBoxCheckedHover {
+            /* hovering over an checked enabled checkbox */
+            background-position:-735px -330px
+    }
+
+}

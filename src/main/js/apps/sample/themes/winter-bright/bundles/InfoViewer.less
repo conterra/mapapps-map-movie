@@ -1,0 +1,10 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .infoWindowPointer {
+        .fade(darken(@pane-background-color,15%), 90%);
+        width: 0; /* This affects the stroke width of the pointer */
+        border-color: transparent;
+        .box-shadow(0, 1px, 3px, 0.25,~"!important");
+    }
+}

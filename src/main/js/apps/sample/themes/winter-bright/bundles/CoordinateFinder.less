@@ -1,0 +1,58 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .icon-coordinate-finder {
+                background-position: -1125px -270px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-coordinate-finder {
+                    background-position: -1125px -315px;
+                }
+            }
+            &.dijitDisabled .icon-coordinate-finder {
+                background-position: -1125px -360px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-coordinate-finder .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: -1125px -315px;
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctTool .icon-coordinate-finder:before,
+            .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-coordinate-finder .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content: "\e087";
+        }
+    }
+
+    .showWebFonts();
+
+   @ctCoordFinderWidth:289px; // width of coordinate widget
+   @ctCoordFinderGap:16px;
+   @ctCoordFinderSumWidth: @ctCoordFinderWidth - @ctCoordFinderGap;
+   @ctCoordFinderSelectLabelWidth: @ctCoordFinderWidth*0.782;
+    .ctCoordFinder {
+
+        width: @ctCoordFinderSumWidth;
+        .epsgSelect{
+            margin: 3px 0 3px 2px;
+          .dijitSelectLabel{
+            width: @ctCoordFinderSelectLabelWidth;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            text-align: left;
+          }
+        }
+        .coordInput {
+            margin: 2px;
+        }
+        .epsgSelect .dijitSelect,
+        .coordInput .dijitTextBox{
+            width: 100%;
+            margin: 0;
+        }
+    }
+}

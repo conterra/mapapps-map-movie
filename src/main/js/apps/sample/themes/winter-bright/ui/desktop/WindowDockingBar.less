@@ -1,0 +1,146 @@
+/*
+    Document   : WindowDockingBar
+    Created on : 09.05.2011, 06:55:13
+    Author     : mre
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@import "../../themeSettings.less";
+
+.@{themeName} {
+    .ctWindowDockingBar-horizontal {
+        height: 100%;
+        .ctWindowTabButton .dijitButtonText {
+            display: block;
+        }
+    }
+
+    /*Not supported yet: IE8 does not support opaque shadows*/
+    &.ctEnv_IE_8 .ctWindowDockingBar  .dijitChecked .dijitButtonNode {
+        text-shadow: none;
+        border-color: @minor-border-color;
+    }
+    /*Not supported yet propperly: TextRotation in IE8 */
+    &.ctEnv_IE .ctWindowDockingBar-vertical-r .dijitButtonContents {
+        margin-top: -5px;
+        padding-bottom: 10px;
+        padding-left: 5px;
+        margin-right: -5px;
+    }
+    &.ctEnv_IE_9 .ctWindowDockingBar-vertical-r .dijitChecked .dijitButtonContents,
+    &.ctEnv_IE_9 .ctWindowDockingBar-vertical-r .dijitButtonContents {
+        font-weight: bold;
+    }
+    /*Hack needed for proper display of bottom docking bar buttons*/
+    &.ctEnv_IE .dockingBarBottom .dijitButton .dijitButtonNode,
+    &.ctEnv_IE .dockingBarBottom .dijitDropDownButton .dijitButtonNode,
+    &.ctEnv_IE .dockingBarBottom .dijitComboButton .dijitButtonNode,
+    &.ctEnv_IE .dockingBarBottom .dijitToggleButton .dijitButtonNode {
+        padding-bottom: 6px;
+        padding-top: 2px;
+    }
+
+    .ctWindowDockingBar .ctWindowTabButton {
+        margin: 0;
+    }
+
+    .dockingBarBottomLeft,
+    .dockingBarBottomRight {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    .dockingBarBottomLeft .ctWindowDockingBar,
+    .dockingBarBottomRight .ctWindowDockingBar {
+        height: 100%;
+    }
+    .dijitContentPane.dockingBarBottomRight {
+        min-width: 200px;
+        padding-right: 0;
+    }
+    .dijitContentPane.dockingBarBottomLeft {
+        padding-left: 0;
+    }
+
+    .ctWindowTabButton.ctTool.dijit {
+        .dijitButtonNode {
+            border: none;
+            padding: 8px 5px 6px;
+            .resetBG();
+            .border-radius(0);
+        }
+
+        &.dijitChecked .dijitButtonNode {
+            .standard-gradient-and-filter(@button-background-color);
+        }
+    }
+
+    .ctWindowDockingBar {
+        .ctWindowTabButton {
+            .dijitButtonNode{
+                color: @ct-primary-contrast-text-color;
+            }
+            .dijitButtonText {
+                font-size: 13px;
+                font-weight: normal;
+            }
+            .dijitIcon {
+                display: none;
+                &:before {
+                    font-size: @ct-icon-small;
+                }
+            }
+        }
+
+        .ctWindowTabButton {
+            border-right-width: 0;
+            border-left-width: 0;
+            &.dijitToggleButtonChecked .dijitButtonNode {
+                color: @ct-highlight-text-color;
+            }
+
+            &.dijitToggleButtonHover{
+                .dijitButtonNode{
+                    color: @ct-highlight-text-color;
+                }
+                &.flash .dijitButtonNode {
+                    color: @ct-button-hovered-text-color;
+                }
+            }
+
+            &.dijitToggleButtonHover.dijitChecked .dijitButtonNode {
+                color: @ct-button-hovered-text-color;
+            }
+            &.dijitDisabled .dijitButtonNode{
+                color: @disabled-text-color;
+            }
+        }
+    }
+
+    &.ctLayout_desktop .ctWindowTabButton.ctTool,
+    &.ctLayout_tablet_portrait .ctWindowTabButton.ctTool,
+    &.ctLayout_tablet_landscape .ctWindowTabButton.ctTool{
+        height: 30px;
+        .dijitButtonNode{
+            background-color:  @ct-footer-background-color;
+            transition: all .25s ease-in-out;
+        }
+        &.dijitHover .dijitButtonNode,
+        &.dijitChecked .dijitButtonNode,
+        &.dijitFocused .dijitButtonNode{
+            background-color:  @ct-footer-background-color;
+            border-bottom: 4px solid @ct-primary-button-color;
+            padding-bottom: 2px;
+            color: @text-color;
+        }
+    }
+
+    /* Flash Tool */
+
+    .ctTool.flash {
+        .standard-gradient-and-filter(@button-background-color);
+        .dijitButtonNode {
+            color: @ct-button-hovered-text-color;
+        }
+    }
+}

@@ -1,0 +1,176 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+
+    // 1. The ToolIcons
+    //Assign an Icon to each Tool and Change IconColor if Tool is Hovered, Activated or Disabled.
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .icon-map-bookmark{
+                background-position: -495px -270px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-map-bookmark{
+                    background-position: -495px -315px;
+                }
+            }
+            &.dijitDisabled .icon-map-bookmark{
+                background-position: -495px -315px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-map-bookmark .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: -495px -315px;
+        }
+        .ctBookmarks{
+            .esriBookmarkRemoveImage,
+            .esriBookmarkEditImage{
+                .size(21px);
+                .bgHD('../images/spriteGraphics.png');
+            }
+            .esriBookmarkRemoveImage{
+                background-position: -1137px -418px;
+            }
+            .esriBookmarkEditImage{
+                background-position: -912px -147px;
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-map-bookmark .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content: "\e076";
+        }
+        .ctBookmarks{
+            .esriBookmarkRemoveImage,
+            .esriBookmarkEditImage{
+                background-image: none; //rempoving esri's background-image
+                font-size: @ct-icon-small;
+                .setWebFont();
+                line-height: 20px;
+            }
+
+            .esriBookmarkItem.esriBookmarkHighlight{
+                .esriBookmarkLabel,
+                .esriBookmarkRemoveImage,
+                .esriBookmarkEditImage,
+                div{
+                    color: @ct-icon-on-primary-hovered-color;
+                }
+            }
+
+            .esriBookmarkRemoveImage:before{
+                content: "\e05b";
+            }
+            .esriBookmarkEditImage:before{
+                content: "\e059";
+            }
+        }
+    }
+
+    .showWebFonts();
+
+    // 2. Styling of the Bookmark Window
+
+    .ctBookmarks{
+        .esriBookmarks,
+        .esriBookmarkTable,
+        .esriBookmarkItem{
+            width: 99%; // fighting against absolute width setted by esri api
+        }
+        .esriBookmarkItem.esriAddBookmark{
+            width: 96%;
+            margin-left: 0;
+        }
+        .esriBookmarks{
+            border: none;
+        }
+        .ctPredefinedBookmarks{
+            .fade(lighten(@container-background-color,70%),10%);
+            font-weight: bold;
+            border: 1px solid @minor-border-color;
+            margin-bottom: 5px;
+        }
+        .ctCustomBookmarks{
+            margin-bottom: 5px;
+            width: 100%;
+        }
+        .esriBookmarkItem{
+            line-height: 21px;
+            &.esriBookmarkHighlight{
+                background-color:@button-hovered-background-color;
+            }
+            &.esriAddBookmark{
+                .standard-gradient-and-filter(@button-background-color);
+                color: @ct-button-text-color;
+                cursor: pointer;
+                padding: 3px 5px;
+                &:hover{
+                    .standard-gradient-and-filter(@button-hovered-background-color);
+                }
+            }
+        }
+
+        .esriBookmarkLabel{
+            color: @text-color;
+            font-family: @ct-font-family;
+            position: absolute;
+            left: 0px;
+            right: 60px;
+            width: auto; // to overwrite 136px from esri.css
+            text-overflow: ellipsis;
+        }
+
+        .esriBookmarkRemoveImage,
+        .esriBookmarkEditImage{
+            .size(21px);
+        }
+
+        .ctBookmarsCenterContainer{
+            overflow: auto;
+        }
+
+        .bottomButtonBar{
+            height: 25px;
+            padding-top: 5px;
+        }
+
+        .esriBookmarkEditBox{
+            .size(100%);
+            .box-sizing(border-box);
+            color: @ct-textbox-font-color;
+            position: static; // needed to set positioning back tod efault from esris ugly absolute positioning
+        }
+    }
+
+    //a second way to present the bookmarks. set widgetType to "viewer" in app.json
+    .ctBookmarksViewer{
+        display: inline-block;
+        padding: 10px 5px;
+        .border-radius(3px);
+        //the dark color is used to seperate the widget from the map. So there is no need to have a different color for a different theme
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,.5);
+        &:hover{
+            background-color: rgba(0,0,0,.8);
+        }
+        .dijitButton{
+            margin: 0;
+        }    
+        .dijitButton,
+        .dijitButton.dijitHover{
+            .dijitButtonNode{
+                padding-left: 5px;
+                padding-right: 5px;
+                background: transparent none;
+            }
+        }
+        .dijitButton.prev,
+        .dijitButton.next{
+            .dijitButtonNode{
+                font-size: 18px;
+            }
+        }
+    }
+
+}

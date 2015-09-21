@@ -1,0 +1,17 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    .ctMapTip {
+        .fade(@popup-background-color, 90);
+        .dijitDialogPaneContent {
+            padding: 6px 8px;
+            background: transparent none;
+            .dijitContentPane {
+                padding: 0;
+            }
+        }
+        &.pointer {
+            display: none;
+        }
+    }
+}

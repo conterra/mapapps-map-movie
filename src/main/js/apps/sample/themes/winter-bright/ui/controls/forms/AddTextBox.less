@@ -1,0 +1,44 @@
+/**
+  AddTextBox adds a "add" button to a AutoResizeTextBox.
+*/
+@import "../../../themeSettings.less";
+
+.@{themeName}{
+    .ctAddTextBox{
+        display: table-row;
+        .dijitInputField,
+        .ctAddButton {
+            display: table-cell;            
+        }
+
+        .ctAddButton {
+            &, .dijitButtonNode{
+                height: 100%;
+            }
+            .dijitButtonContents{
+                display: inline-block;
+            }
+            .dijitButtonNode{
+                font-size: inherit;
+                padding: 0 .5em;
+            }
+            .showWebFonts() when (@ct-use-font-icons){
+                .dijitIcon:before{
+                    top: -.2em;
+                }
+            }
+            .showWebFonts();
+            .standard-gradient-and-filter(@button-background-color);
+            &.dijitHover, 
+            &.dijitChecked{
+                .standard-gradient-and-filter(@button-hovered-background-color);
+            }
+            &.dijitDisabled{
+                .standard-gradient-and-filter(@disabled-background-color);
+            }
+        }
+    }
+    &.ctEnv_WebKit .ctAddTextBox .ctAddButton .dijitIcon:before{
+        position: static;
+    }
+}

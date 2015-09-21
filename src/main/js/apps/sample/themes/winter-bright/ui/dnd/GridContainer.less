@@ -1,0 +1,31 @@
+/** a grid conatiner is an container at which you drop items and positioning them absolute. */
+@import "../../themeSettings.less";
+
+.@{themeName}{
+
+    .ctGridContainer {
+        position: relative;
+        /* ctHighlightCell is used by GridContainer to highlight a snap cell*/
+        .ctHighlightCell {
+            /* the position is important!*/
+            position: absolute;
+            /* todo: find nice default style */
+            background-color: @minor-selected-color;
+            z-index: 22;
+        }
+        /** Container Items in a grid container must be positioned absolute */
+        .ctContainerItem {
+            position: absolute !important;
+        }
+        /** references the root node of the grid.*/
+        .ctGridContainerGrid{
+            position: absolute;
+            z-index: 21;
+        }
+        /** if the cells of the grid should be rendered use this style */
+        .ctGridContainerGridCell {
+            position: absolute;
+            .opacity(0.25);
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctMap {
+        //ensure white background behind Map;
+        background: #fff;
+    }
+    
+    /*-------------------------
+        Overwrite of ESRI Classes to fit theme Style
+    -------------------------*/
+    .map .container{
+        .fixedPan{
+            background-image: url('../images/fixed-pan-sprite.png');
+        }
+        .layersDiv{
+            background: url("../../common/images/bgMapGrid.png") top left repeat;
+        }
+    }
+}

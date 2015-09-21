@@ -1,0 +1,80 @@
+{
+    "Bundle-SymbolicName": "crossfader-config",
+    "Bundle-Version": "1.0",
+    "Bundle-Name": "Crossfader config",
+    "Bundle-Description": "Configuration Bundle for CrossFader",
+    "Bundle-Vendor": "con terra GmbH",
+    "Bundle-Localization": [],
+    "Require-Bundle": [{
+            "name": "dataform",
+            "version": "~3.2.0"
+        }, {
+            "name": "wizard",
+            "version": "~3.2.0"
+        }],
+    "Components": [
+        {
+            "name": "BuilderEntry",
+            "impl": "ct/Stateful",
+            "provides": ["wizard.MenuEntry"],
+            "propertiesConstructor": true,
+            "properties": {
+                "menuNode": {
+                    "priority": 10,
+                    "title": "CrossFader",
+                    "widget": "crossfaderWidget"
+                }
+            }
+        }, {
+            "name": "DataFormBuilderWidgetFactory",
+            "provides": ["dijit.wizard.Widget"],
+            "immediate": true,
+            "instanceFactory": true,
+            "properties": {
+                "dataformFile": "resource('./DataForm.json')",
+                "id": "crossfaderWidget",
+                "defaultProperties": {
+                    "layer1": {
+                        "title": "",
+                        "url": "",
+                        "thumbnail": "",
+                        "type": "AGS_TILED"
+                    },
+                    "layer2": {
+                        "title": "",
+                        "url": "",
+                        "thumbnail": "",
+                        "type": "AGS_TILED"
+                    },
+                    "layer3": {
+                        "title": "",
+                        "url": "",
+                        "thumbnail": "",
+                        "type": "AGS_TILED"
+                    },
+                    "layer4": {
+                        "title": "",
+                        "url": "",
+                        "thumbnail": "",
+                        "type": "AGS_TILED"
+                    },
+                    "layer5": {
+                        "title": "",
+                        "url": "",
+                        "thumbnail": "",
+                        "type": "AGS_TILED"
+                    }
+                },
+                "description": "Einstellungen f\u00FCr den CrossFader",
+                "hint": "Dienste URLs müssen inklusive Layer-ID angegeben werden, z.B. \"<i>http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/0</i>\"<br/>Derzeit werden nur <b>gekachelte</b> ArcGIS MapServer Dienste unterstützt."
+            },
+            "references": [{
+                    "name": "_configAdminService",
+                    "providing": "ct.framework.api.ConfigurationAdmin"
+                }, {
+                    "name": "_dataformService",
+                    "providing": "dataform.DataFormService"
+                }]
+        }
+    ]
+}

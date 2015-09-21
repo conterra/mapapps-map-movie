@@ -1,0 +1,189 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+
+    .showWebFonts() when not (@ct-use-font-icons) {
+        .ctTool {
+            .icon-doc-checked {
+                background-position: -405px 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked {
+                .icon-doc-checked {
+                    background-position: -405px -45px;
+                }
+            }
+            &.dijitDisabled .icon-doc-checked {
+                background-position: -405px -90px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-doc-checked .ctCollapseOpposite .ctCollapseInnerHandle {
+            background-position: -405px -45px;
+        }
+
+        .resultCenter {
+            .toolbar {                 
+              .dijitToggleButtonChecked .dijitButtonNode{
+                    background-color: @hovered-background-color;
+                }
+                .dijitToggleButton .icon-select-mouse {
+                    background-position: -1181px -417px;
+                }
+                .dijitToggleButton.dijitHover .icon-select-mouse,
+                .dijitToggleButtonChecked .icon-select-mouse {
+                    background-position: -1181px -462px;
+                }
+                .dijitToggleButton.dijitDisabled .icon-select-mouse {
+                    background-position: -1181px -507px;
+                }
+
+                .dijitButton {
+                    .icon-select-multiple {
+                        background-position: -1047px -417px;
+                    }
+                    .icon-selection-delete-selected {
+                        background-position: -1272px -417px;
+                    }
+                    .icon-trashcan {
+                        background-position: -1137px -417px;
+                    }
+                    .icon-doc{
+                        background-position: -1226px -552px;
+                    }
+                    .icon-doc-export{
+                        background-position: -1272px -552px;
+                    }
+                    &.dijitHover {
+                        .icon-select-multiple {
+                            background-position: -1047px -462px;
+                        }
+                        .icon-selection-delete-selected {
+                            background-position: -1095px -462px;
+                        }
+                        .icon-selection-delete-selected {
+                            background-position: -1272px -462px;
+                        }
+                        .icon-trashcan {
+                            background-position: -1137px -462px;
+                        }
+                        .icon-doc{
+                            background-position: -1226px -597px;
+                        }
+                        .icon-doc-export{
+                            background-position: -1272px -597px;
+                        }
+                    }
+                    &.dijitDisabled {
+                        .icon-select-multiple {
+                            background-position: -1047px -507px;
+                        }
+                        .icon-selection-delete-selected {
+                            background-position: -1272px -507px;
+                        }
+                        .icon-trashcan {
+                            background-position: -1137px -507px;
+                        }
+                        .icon-doc{
+                            background-position: -1226px -642px;
+                        }
+                        .icon-doc-export{
+                            background-position: -1272px -642px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons) {
+        .ctTool .icon-doc-checked:before {
+            content: '\e045';
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-doc-checked .ctCollapseOpposite .ctCollapseInnerHandle:before {
+            content: '\e045';
+        }
+        .resultCenter {
+            .toolbar {
+                .dijitButtonNode{
+                     font-size: @ct-icon-small;
+                }
+                .dijitToggleButtonChecked .dijitButtonNode {
+                    background-color: @button-background-color;
+                }
+                .dijitIcon {
+                    top: 0;
+                    left: 0;
+                }
+                .dijitButton {
+                    .icon-select-multiple:before {
+                        top: 4px;
+                    }
+                    .icon-trashcan:before,
+                    .icon-selection-delete-selected:before,
+                    .icon-select-multiple:before{
+                        position: relative;
+                        left: -1px;
+                    }
+                    .icon-trashcan:before {
+                        content: '\e05b';
+                        top: 2px
+                    }
+                    .icon-selection-delete-selected:before {
+                        content: '\e033';
+                        top: 4px
+                    }
+                    .icon-doc:before,
+                        .icon-doc-export:before{
+                        position: relative;
+                        top: 3px;
+                    }
+                }
+            }
+        }
+    }
+
+    .showWebFonts();
+
+    .resultCenter {
+        .dijitContentPane {
+            padding: 2px 0;
+            overflow: hidden;
+        }
+        .dijitDialogPaneContent {
+            padding-bottom: 2px;
+            padding-top: 0;
+        }
+        .ctPager {
+            float: right;
+            .dijitSelectLabel {
+                color: black;
+            }
+            .dijitButtonDisabled {
+                filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            }
+        }
+
+        .toolbar {
+            display: inline-block;
+            padding-right: 6px;
+            border-right: 1px solid @minor-border-color;
+
+            .dijitButtonNode {
+                padding: 0;
+                .resetBG();
+            }
+            .dijitButtonHover,
+            .dijitToggleButtonHover {
+                .dijitButtonNode {
+                    background-color: @button-hovered-background-color;
+                }
+            }
+            .ctTool {
+                margin: 0;
+                .dijitIcon {
+                    .size(22px);
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

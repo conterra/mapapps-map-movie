@@ -1,0 +1,294 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctInfoViewer {
+            .ctPrevButton .dijitIcon,
+            .ctNextButton .dijitIcon{
+                .bgHD('../images/spriteGraphics.png');
+            }
+            .ctPrevButton {
+                .ctPrevIcon{
+                    background-position: -58px -149px;
+                }
+                &.dijitButtonHover .ctPrevIcon{
+                    background-position: -58px -194px;
+                }
+            }
+            .ctNextButton {
+                .ctNextIcon{
+                    float: right;
+                }
+                &.dijitButtonHover .ctNextIcon{
+                    background-position: -102px -194px;
+                }
+            }
+            .ctSideBar {
+                // Action Binding Buttons
+                .dijitButton .dijitIcon,
+                .icon{
+                    .bgHD('../images/spriteGraphics.png');
+                }
+                .ctOwner .icon{
+                    background-position: -780px -418px;
+                }
+                .ctDate .icon{
+                    background-position: -735px -421px;
+                }
+            }
+            .dijitButton {
+                .dijitIcon {
+                    &.print{
+                        background-position: -1946px -10px;
+                    }
+                    &.csvExport{
+                        background-position: -55px -280px;
+                    }
+                    &.mailTo{
+                        background-position: -685px -550px;
+                    }
+                    &.goTo{
+                        background-position: -1495px -280px;
+                    }
+                }
+                &.dijitButtonHover .dijitIcon {
+                    &.print{
+                        background-position: -1946px -55px;
+                    }
+                    &.csvExport{
+                        background-position: -55px -325px;
+                    }
+                    &.mailTo{
+                        background-position: -685px -595px;
+                    }
+                    &.goTo{
+                        background-position: -1495px -325px;
+                    }
+                }
+            }
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctInfoViewer {
+            .ctOwner.icon,
+            .ctDate .icon{
+                .setWebFont();
+                font-size: @ct-icon-small;
+            }
+            // the big Blue-Buttons in sidebar
+            .dijitButton .dijitButtonNode{
+                font-size: @ct-icon-medium;
+            }
+            .ctPrevButton .ctPrevIcon,
+            .ctNextButton .ctNextIcon{
+                font-size: @ct-icon-small;
+            }
+            .ctPrevButton .ctPrevIcon:before{
+                content:'\e00f';
+            }
+            .ctNextButton .ctNextIcon:before{
+                content:'\e00e';
+            }
+        }
+    }
+
+    .showWebFonts();
+
+    /*------Detail View ------*/
+    .resultDetailView {
+        .resultPreview{
+            width: 50%;
+        }
+        .resultMetaData{
+            padding-left: 5px;
+            line-height: 2em;
+        }
+    }
+
+    .resultPreview a{
+        outline:none!important;
+    }
+
+    .ctLocationInfoMessageScreen div {
+        .size(100%);
+    }
+
+    /* -- ctImageContent -- */
+    .ctImageContent{
+        //98% to dissolve scrolling problems
+        .size(98%);
+
+        /* Standard InfoViewer */
+        &.StandardView {
+            .ctPreview{
+                .size(55%, 100%);
+                float: left;
+            }
+            .ctSideBar{
+                width: 40%;
+                float: right;
+            }
+        }
+        .ctPreview {
+            .ctImage{
+                max-height: 94%;
+                overflow: hidden;
+                border: 1px solid @border-color;
+            }
+            a{
+                .size(100%);
+                img{
+                    width: 100%;
+                    border: none;
+                }
+            }
+        }
+        .ctImageSource{
+            .size(60px,11px);
+            background-image: url(../../../../../selection/infoservice/images/panoramio.png);
+        }
+    }
+
+    .ctInfoViewer {
+        &.DetailView {
+            .ctSideBar {
+                // Action Binding Buttons
+                .dijitButton{
+                    width: 100%;
+                    margin: .3em 0;
+                    .dijitIcon{
+                        .size(25px);
+                        margin-right: 5px;
+                        float: none;
+                    }
+                }
+                .dijitButtonNode{
+                    width: 100%;
+                    padding: 9px 0;
+                }
+                .dijitButtonText{
+                    font-size: 11px;
+                }
+
+                .dijitButtonContents{
+                    text-align: left;
+                    margin-left: 14px;
+                }
+                .ctServiceMetadata{
+                    border-bottom: 1px solid @minor-border-color;
+                    .topic{
+                        font-size: 11px;
+                        color: @ct-primary-contrast-text-color;
+                        font-weight: bold;
+                    }
+                }
+                .icon{
+                    .size(14px);
+                    display: inline-block;
+                    background-color: transparent;
+                    margin-right: 10px;
+                }
+                .ctDescription, .ctMetaHeader {
+                    font-size: 12px;
+                }
+            }
+            // -- Thumbnail Scroller -- //
+            .ctThumbnailPane{
+                height: 68px;
+            }
+            .ctNextButton .dijitButtonNode, .ctPrevButton .dijitButtonNode{
+                min-width: 90px;
+            }
+        }
+        .ctSideBar {
+            .ctOwner, .ctDate {
+                margin: 10px 0;
+                font-style: italic;
+                font-size: 12px;
+                color: @ct-primary-contrast-text-color;
+                .icon{
+                    .size(15px);
+                    display: inline-block;
+                    margin-right: 1em;
+                }
+            }
+        }
+    }
+
+    .ctWikipediaContent img{
+        float: left;
+        margin: 0 8px 6px 0;
+    }
+
+    /* Detail Infoviewer Widget */
+    .DetailView {
+        .photolink {
+            text-decoration: none;
+            border-width:0px;
+            position: relative;
+        }
+        .logo {
+            margin-top: 3px;
+            position: absolute;
+            left: 0;
+            img{
+                width: 60px;
+            }
+        }
+        .photo {
+            max-width: 100%;
+            max-height: 95%;
+        }
+        .ctSideBar {
+            /* border-left: 1px solid @minor-border-color; */
+            width: 300px;
+            background-color: @bar-background-color;
+            margin-top: 18px;
+            .trailingContainer{
+                height:65%;
+            }
+        }
+        .mapPane {
+            height: 35%;
+            border-top: 1px solid @minor-border-color;
+        }
+        .ctButtonWrapper {
+            margin-top: 8px;
+        }
+        .ctDescription, .ctMetaHeader, .ctOwner, .ctUploadDate {
+            border-bottom: 1px solid @minor-border-color;
+            padding: 8px 0;
+        }
+        .ctOwnerName, .ctUploadDate, .ctDescription table {
+            color: @ct-primary-contrast-text-color;
+        }
+        .ctPrevButton .dijitIcon,
+        .ctNextButton .dijitIcon{
+            .size(19px);
+            text-align: center;
+        }
+        .ctNextButton .ctNextIcon{
+            float: right;
+        }
+    }
+
+    // ArcGis Info Content
+    .ctInfoContent {
+        &.ctCustomTemplateContent .dijitButton{
+            margin-top: 12px;
+            margin-left: 0;
+        }
+        // Dojo Grid based
+        &.ctGridContent, &.ctCustomTemplateContent{
+            height: 100%;
+        }
+        &.ctGridContent .dijitContainer.dijitLayoutContainer{
+            top: 0!important;
+        }
+        .dijitAlignBottom{
+            text-align: right;
+            margin-top: 2px;
+        }
+    }
+}

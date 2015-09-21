@@ -1,0 +1,74 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .esriScalebar{
+        position: static;
+        height: auto;
+        width: auto;
+        &.line.dual,
+        &.ruler.dual{
+            top: 7px;
+            div > div{
+                // dual line meters
+                .esriScalebarLineLabel{
+                    position: relative;
+                    top: 3px;
+                }
+            }
+            div + div{
+                // dual line miles
+                .esriScalebarLineLabel{
+                    position: relative;
+                    top: -8px;
+                }
+            }
+        }
+    }
+
+    .esriScalebar > div {
+        float: left;
+    }
+    .esriScalebarLine{
+        border: 2px solid @ct-scalebar-color;
+        border-top: none;
+        &.esriScalebarEnglishLine{
+            border: 2px solid @ct-scalebar-color;
+            border-bottom: none;
+            top: -2px;
+        }
+    }
+    .esriScaleLabelDiv{
+        top: -3px;
+    }
+    .esriScalebarLabel{
+        color: @ct-primary-contrast-text-color;
+        font-weight: normal;
+        font-size: 10px;
+    }
+    .esriScalebarLineLabel.esriScalebarSecondNumber{
+        // contrasting to esri default, the ScalebarLabel is positioned at the center of the ScaleLine
+        width: auto;
+        left: 0;
+    }
+    // Fix for FF Browser
+    &.ctEnv_FF .esriScalebar{
+        &.line.dual,
+        &.ruler.dual{
+            top: 7px;
+            div > div{
+                // dual line meters
+                .esriScalebarLineLabel{
+                    position: relative;
+                    top: 3px;
+                }
+            }
+            div + div{
+                // dual line miles
+                .esriScalebarLineLabel{
+                    position: relative;
+                    top: -8px;
+                }
+            }
+        }
+    }
+}

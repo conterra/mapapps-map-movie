@@ -1,0 +1,539 @@
+@import "../themeSettings.less";
+
+// when @ct-use-font-icons set to true, all background-images and positions of dijit components are removed and IconFont is set
+.showWebFonts() when (@ct-use-font-icons) {
+    /*import different webFonts*/
+    @import url("../../common/fonts/mapappsUiFont/mapappsUiFont.css");
+    @import url("../../common/fonts/directionsUiFont/directionsUiFont.css");
+
+    // this file replaces the usage of sprite-graphics in /dijits to create icons by the new webFont Way.
+    .@{themeName} {
+        .dijitIcon {
+            //general settings if webfont is used instead of sprite
+            .setWebFont();
+            font-size: @ct-icon-small;
+        }
+        //----- Menu.less --------
+        //some common menu icons
+        .dijitIconSave{
+            background-image: none;
+            &:before{
+                content:'\e040';
+            }
+        }
+        .dijitIconDelete{
+            background-image: none;
+            &:before{
+                content:'\e0a4';
+            }
+        }
+        .dijitIconCut{
+            background-image: none;
+            &:before{
+                content:'\e0ba';
+            }
+        }
+        .dijitIconCopy{
+            background-image: none;
+            &:before{
+                content:'\e0a2';
+            }
+        }
+        .dijitIconPaste{
+            background-image: none;
+            &:before{
+                content:'\e0ac';
+            }
+        }
+        .dijitIconUndo{
+            background-image: none;
+            &:before{
+                content:'\e013';
+            }
+        }
+        .dijitIconRedo{
+            background-image: none;
+            &:before{
+                content:'\e014';
+            }
+        }
+        //Radios within a menu
+        .dijitRadioMenuItem .dijitIcon{
+            background-image: none;
+            &:before{
+                content:'\e001';
+            }
+        }
+        .dijitRadioMenuItemChecked .dijitIcon:before{
+            content:'\e002';
+        }
+        //Checkboxes within a menu
+        .dijitCheckedMenuItem .dijitIcon{
+            background-image: none;
+            position: relative;
+            top: 2px;
+            &:before{
+                content:'\e003';
+            }
+        }
+        .dijitCheckedMenuItemChecked .dijitIcon:before{
+            content:'\e004';
+        }
+        //subMenuIcon
+        .dijitMenuExpand{
+            background-image: none;
+            position: relative;
+            top: -5px; left: -5px;
+            &:before {
+                content:'\e006';
+            }
+        }
+
+        //----- Tree.less --------
+        .dijitTreeExpando{
+            background-image: none;
+            .setWebFont();
+            font-size: @ct-icon-small;
+        }
+        .dijitTreeExpandoOpened,
+        .dijitTreeExpandoClosed{
+            //use the same icon for opened and closed TreeItem and rotate it by 90 degrees
+            transition: transform .25s;
+            -moz-transition: -moz-transform .25s;
+            -webkit-transition: -webkit-transform .25s;
+            &:before{
+                content:'\e00a';
+            }
+        }
+        dijitTreeExpandoClosed:before{       
+            position: relative;
+            left: -1px;
+        }
+
+        .dijitTreeExpandoOpened{
+            .transform();
+        }
+        &.ctEnv_IE_8  .dijitTreeExpandoOpened:before{
+            // as IE8 does not support CSS3 Transformations, it is needed to replace the icon with one that looks like 90 degree rotated
+            // content:'\e00b';            
+        }
+
+        .dijitFolderClosed{
+            background-image: none;
+            &:before{
+                content:'\e0c3';}
+        }
+        .dijitFolderOpened{
+            background-image: none;
+            &:before{
+                content:'\e0c2';
+            }
+        }
+        .dijitLeaf{
+            background-image: none;
+            &:before{
+                content:'\e0b8';
+            }
+        }
+        //----- TitlePane.less --------
+        .dijitTitlePane{
+            .dijitArrowNode{
+                background-image: none;
+                .setWebFont();
+                position: relative;
+                top: -4px; left: -5px;
+                font-size: @ct-icon-small;
+                &:before {
+                    content:'\e00a';
+                }
+            }
+            .dijitOpen .dijitArrowNode:before{
+                content:'\e00b';
+            }
+        }
+        //----- form/Button.less --------
+        .dijitButton .dijitIcon,
+        .dijitComboButton .dijitIcon,
+        .dijitDropDownButton .dijitIcon,
+        .dijitButton.dijitHover .dijitIcon,
+        .dijitComboButton.dijitHover .dijitIcon,
+        .dijitDropDownButton.dijitHover .dijitIcon,
+        .dijitButton.dijitDisabled .dijitIcon,
+        .dijitComboButton.dijitDisabled .dijitIcon,
+        .dijitDropDownButton.dijitDisabled .dijitIcon{
+            color: inherit;
+            font-size: inherit;
+            .size(auto);
+        }
+        .dijitDropDownButton .dijitDownArrowButton .dijitArrowButtonInner {
+            background-image: none;
+            .size(auto);
+
+        }
+        //switching icon when a menu is opened
+        .dijitDropDownButton.dijitDropDownButtonOpened .dijitDownArrowButton .dijitArrowButtonInner:before,
+            .dijitComboButtonOpened .dijitDownArrowButton .dijitArrowButtonInner:before {
+            content: '\e005';
+        }
+        .dijitDownArrowButtonHover .dijitArrowButtonInner,
+        .dijitDropDownButton.dijitHover .dijitDownArrowButton .dijitArrowButtonInner {
+            &:before {
+                //color: @ct-icon-on-primary-hovered-color;
+            }
+        }
+
+        .dijitButtonNode .dijitArrowButtonInner {
+            background-image: none;
+            &:before {
+                content: "\e007";
+                font-size: inherit;
+            }
+        }
+        // General Settings for Arrows used in DropDowns, ComboButtons, Selects and NumberSpinners
+        .dijitArrowButtonInner:before {
+            .setWebFont();
+            //color: @ct-icon-on-primary-color;
+            font-size: inherit;
+        }
+        .dijitLeftArrowButton .dijitArrowButtonInner:before {
+            content: '\e008';
+        }
+        .dijitRightArrowButton .dijitArrowButtonInner:before {
+            content: '\e006';
+        }
+        .dijitUpArrowButton .dijitArrowButtonInner:before {
+            content: '\e005';
+        }
+        .dijitDownArrowButton .dijitArrowButtonInner:before {
+            content: '\e007';
+        }
+        .dijitArrowButtonHover,
+        .dijitUpArrowButtonHover,
+        .dijitDownArrowButtonHover {
+            .dijitArrowButtonInner{
+                color: @ct-icon-on-primary-hovered-color;
+            }
+        }
+        .dijitDisabled .dijitArrowButtonInner {
+            color: @disabled-text-color;
+        }
+
+        .dijitComboBox {
+            .dijitArrowButton {
+                position: relative;
+                color: @ct-icon-on-primary-color;
+                font-size: @ct-icon-small;
+                &:before {
+                    .setWebFont();
+                    content: "\e007";
+                    position: absolute;
+                    right: 1px;
+                    top: 3px;
+                }
+                //replace arrow when menu is open
+                &.dijitHasDropDownOpen:before {
+                    content: "\e005";
+                }
+                &.dijitDownArrowButtonHover{
+                    //unfortunately, dijit does not provide a common hover class like dijitArroButtonHover
+                    color: @ct-icon-on-primary-hovered-color;
+                }
+            }
+            &.dijitDisabled .dijitArrowButton{
+                color: @disabled-text-color;
+            }
+        }
+        //----- form/Select.less --------
+        .dijitSelectDisabled.dijitSelect .dijitArrowButton{
+            color: @disabled-text-color;
+        }
+        //----- form/Checkbox.less --------
+        //----- due to similarity combinded with     --------
+        //----- form/RadioButton.less --------
+        .dijitCheckBox, .dijitCheckBoxIcon,
+        .dijitToggleButton .dijitCheckBoxIcon,
+        .dijitRadio, .dijitRadioIcon {
+            background-image: none;
+            &:before {
+                .setWebFont();
+                font-size: @ct-icon-small;
+            }
+        }
+        .dijitCheckBox, .dijitCheckBoxIcon,
+        .dijitRadio, .dijitRadioIcon {
+            position: relative;
+        }
+        .dijitCheckBox:before, .dijitToggleButton .dijitCheckBoxIcon:before,
+            .dijitRadio:before, .dijitToggleButton .dijitRadioIcon:before {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .dijitCheckBox:before,
+            .dijitToggleButton .dijitCheckBoxIcon:before {
+            content: '\e003';
+        }
+        .dijitCheckBoxChecked:before,
+            .dijitToggleButtonChecked .dijitCheckBoxIcon:before {
+            content: '\e004';
+        }
+        .dijitRadio:before {
+            content: '\e001';
+        }
+        .dijitRadioChecked:before {
+            content: '\e002';
+        }
+        .dijitCheckBoxHover,
+        .dijitRadioHover{
+            color: @ct-icon-muted-hovered-color;
+        }
+        .dijitCheckBoxDisabled,
+        .dijitRadioDisabled{
+            color: @disabled-text-color;
+        }
+        .dijitToggleButton .dijitCheckBoxIcon,
+        .dijitToggleButton .dijitRadioIcon{
+            color: @ct-button-text-color;
+        }
+        .dijitToggleButtonHover .dijitCheckBoxIcon,
+        .dijitToggleButtonHover .dijitRadioIcon {
+            color: @ct-button-hovered-text-color;
+        }
+        .dijitToggleButtonDisabled .dijitCheckBoxIcon,
+        .dijitToggleButtonDisabled .dijitRadioIcon{
+            color: @disabled-text-color;
+        }
+
+        //----- form/NumberSpinner.less --------
+        .dijitSpinner .dijitArrowButton .dijitArrowButtonInner:before {
+            position: relative;
+            top: -3px;
+        }
+
+        //----- form/Slider.less --------
+
+        .dijitSliderFocused,
+        .dijitSliderHover,
+        .dijitSlider {
+            .dijitSliderProgressBarH,
+            .dijitSliderLeftBumper,
+            .dijitSliderRemainingBarH,
+            .dijitSliderRightBumper,
+            .dijitSliderProgressBarV,
+            .dijitSliderBottomBumper,
+            .dijitSliderRemainingBarV,
+            .dijitSliderTopBumper {
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+            }
+        }
+
+        .dijitSliderDecrementIconH,
+        .dijitSliderIncrementIconH,
+        .dijitSliderDecrementIconV,
+        .dijitSliderIncrementIconV {
+            .resetBG();
+            background-color: @minor-selected-color;
+            .setWebFont();
+            font-size: @ct-icon-small;
+            border: 1px solid transparent;
+            color: @ct-icon-on-primary-color;
+        }
+        .dijitSliderDecrementIconH{
+            .size(12px, 10px);
+            .border-radius(100%,0,0,100%);
+            &:before{content:'\e00c';}
+        }
+        .dijitSliderIncrementIconH{
+            .size(12px, 10px);
+            .border-radius(0,100%,100%,0);
+            &:before{content:'\e00a';}
+        }
+        .dijitSliderDecrementIconV{
+            .size(10px, 12px);
+            .border-radius(0,0,100%,100%);
+            &:before{content:'\e00b';}
+        }
+        .dijitSliderIncrementIconV{
+            .size(10px, 12px);
+            .border-radius(100%,100%,0,0);
+            &:before{content:'\e009';}
+        }
+        .dijitSliderButtonContainer {
+            position: relative;
+        }
+        .dijitSliderDecrementIconH:before {
+            position: absolute;
+            top: 2px; right: 2px;
+        }
+        .dijitSliderIncrementIconH:before {
+            position: absolute;
+            top: 2px; left: 2px;
+        }
+        .dijitSliderDecrementIconV:before {
+            position: absolute;
+            top: 2px; left: 2px;
+        }
+        .dijitSliderIncrementIconV:before {
+            position: absolute;
+            bottom: 2px; left: 2px;
+        }
+        .dijitSliderImageHandleH,
+        .dijitSliderImageHandleV{
+            top: -4px;
+            background: transparent none;
+            .setWebFont();
+            .size(auto);
+            font-size: @ct-icon-small;
+            color: @slider-fullbar-background-color;
+            &:before {
+                content: "\e60b";
+                //this 'complicated' shadow produces an outline around the icon
+                text-shadow: 1px -1px @container-background-color, -1px 1px @container-background-color, -1px -1px @container-background-color, 1px 1px @container-background-color;
+            }
+        }
+        .dijitSliderDisabled .dijitSliderImageHandle{
+            color: @disabled-color;
+        }
+        //----- layout/TabContainer.less --------
+        .dijitTabCloseButton {
+            background-image: none;
+            &:before {
+                .setWebFont();
+                font-size: @ct-icon-small;
+                content: '\e019';
+            }
+        }
+
+        // -------- themes\common\dijit\icons\commonIcons.css ------
+        span.dijitIconError,
+        div.dijitIconError{
+            background-image: none;
+            .setWebFont();
+            &:before{
+                content:'\e08e';
+                color: @ct-message-pane-error-color;
+                font-size: @ct-icon-medium;
+                position: relative;
+                top: -5px;
+            }
+        }
+        span.dijitContentPaneLoading,
+        .dijitIconLoading{
+            background-image: none;
+        }
+        .dijitIconLoading{
+            .setWebFont();
+            .size(auto);
+            font-size: @ct-icon-medium;
+            .animation(spin, 1.5s, infinite, linear);
+            &:before{
+                content:'\e097';
+            }
+        }
+        //IE Fallback
+        &.ctEnv_IE_8,
+        &.ctEnv_IE_9{
+            .dijitIconLoading{
+                background: url('../images/ie_fallback_spinner.gif') center center no-repeat;
+                &:before{
+                    content: none;
+                }
+            }
+        }
+
+
+        // ------ dijit\Dialog.less ----------------------------------
+        .dijitDialogCloseIcon  {
+            background-image: none;
+            color: @ct-icon-on-primary-color;
+            .setWebFont();
+            font-size: @ct-icon-small;
+            &:before {
+                content: '\e019';
+            }
+            .dijitDialogCloseIconHover .dijitTabCloseButton {
+                color: @ct-icon-hovered-color;
+            }
+        }
+
+        .dijitTooltipContainer {
+            .box-shadow-light(@ct-standard-box-shadow);
+        }
+        .dijitTooltipConnector {
+            background-image: none;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 8px solid @ct-tooltip-border-color;
+        }
+
+        .dijitTooltipBelow {
+            .dijitTooltipConnector {
+                top: 5px;
+                left: 6px;
+                border-top: 8px solid @ct-tooltip-border-color;
+                border-bottom-width: 0;
+                .size(0,0);
+                .transform(180deg); 
+            }
+        }
+        .dijitTooltipAbove .dijitTooltipConnector {
+            .size(0,0);
+            bottom: 6px;
+            .transform(180deg); 
+        }
+        .dijitTooltipLeft .dijitTooltipConnector {
+            .transform(90deg);
+            .size(0,0);
+            right: 6px !important;
+        }
+        .dijitTooltipRight .dijitTooltipConnector {
+            .transform(270deg);
+            left: 6px !important;
+            .size(0,0);
+        }
+        &.ctEnv_IE_8{
+            .dijitTooltipBelow .dijitTooltipConnector {
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+            }
+            .dijitTooltipAbove .dijitTooltipConnector {
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+            }
+            .dijitTooltipLeft .dijitTooltipConnector {
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);                
+            }
+            .dijitTooltipRight .dijitTooltipConnector {
+                filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+            }
+        }
+
+        // --------- dijit\Calendar.less -------------------------------
+        .dijitCalendarMonthContainer{
+            .dijitCalendarArrow{
+                .setWebFont();
+                color: @ct-icon-on-primary-color;
+
+                img,span{
+                    display: none;
+                }
+            }
+            .dijitCalendarArrowHover{
+                color: @ct-icon-hovered-color
+            }
+            .dijitCalendarArrow[data-dojo-attach-point~="decrementMonth"]{
+                &:before{
+                    content: "\e00e";
+                }
+            }
+
+            .dijitCalendarArrow[data-dojo-attach-point~="incrementMonth"]{
+                &:before{
+                    content: "\e00f";
+                }
+            }
+        }
+    }
+}
+.showWebFonts();

@@ -1,0 +1,138 @@
+/*Import of extra widget styles */
+
+/*Floating Panel CSS has mixed theme styles (not fine) */
+/*@import url("dojox/layout/resources/FloatingPane.css");
+*/
+/*Floating Panel needs the resize handle css too */
+/*@import url("dojox/layout/resources/ResizeHandle.css");
+*/
+
+/*Used for thumbnail view in extended infoviewer */
+@import url("dojox/image/resources/ThumbnailPicker.css");
+
+/*Used for color picker in DataForm*/
+@import url("dojox/widget/ColorPicker/ColorPicker.css");
+
+/* Cursor Behavior */
+@import url("cursor.css");
+
+// import less-functions
+@import url("crossBrowserSettings");
+
+
+/*Prevent IE from displaying empty img tags like <img src/>*/
+img[src=""]{
+    display: none;
+}
+.ctLoading{
+    display: inline-block;
+}
+.dojoxFloatingPane{
+    z-index: 100;
+}
+
+.mobile .dijitPopup{
+    -webkit-box-shadow: none;
+    -webkit-border-radius: 0;
+}
+
+/** from here some default common helper classes **/
+.noscrolling{
+    overflow: hidden;
+}
+
+.noPadding,
+/* on content panes noPadding must be added directly*/
+.noPadding.dijitContentPane,
+/* support for ctWindow and dijitDialog, noPadding can be added as windowClass */
+.noPadding.ctWindow .dijitDialogPaneContent{
+    padding: 0;
+}
+
+.noVerticalPadding,
+.noVerticalPadding.dijitContentPane,
+.noVerticalPadding.ctWindow .dijitDialogPaneContent{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.noHorizontalPadding,
+.noHorizontalPadding.dijitContentPane,
+.noHorizontalPadding.ctWindow .dijitDialogPaneContent{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.shortenText{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.align-right{
+    text-align: right;
+}
+.align-center{
+    text-align: center;
+}
+
+.rotate-90{
+    .transformOneProp(rotate,90deg);
+}
+.rotate-180{
+    .transformOneProp(rotate,180deg);
+}
+.rotate-270{
+    .transformOneProp(rotate,270deg);
+}
+.flip-vertical{
+    .transformOneProp(scaleX,-1);
+}
+.flip-horizontal{
+    .transformOneProp(scaleY,-1);
+}
+
+/** Styles related to text selection */
+/*styles can not be combined */
+.notSelectable::selection,
+/*In Chrome we can prevent the Map from getting selected. That doesn't work in FF'*/
+.ctMap > div:first-child ::selection{
+    background-color: transparent;
+}
+.notSelectable ::-moz-selection{
+    background-color: transparent;
+}
+/* Disable selection highlighting */
+/**,
+*:focus{
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+     outline-style:none;IE
+ }
+
+.ctEnv_IE_8 *::selection,
+.ctEnv_IE_9 *::selection{
+    background-color: transparent;
+}
+
+ Enable selection highlighting 
+.selectable,
+.selectable:focus,
+.selectable *,
+.selectable *:focus {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    outline-style:none;IE
+}
+
+.ctEnv_IE_8 *.selectable::selection,
+.ctEnv_IE_9 *.selectable::selection{
+    background-color: transparent;
+}*/

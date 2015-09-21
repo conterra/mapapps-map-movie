@@ -1,0 +1,16 @@
+/**
+ * Copyright (C) 2015 con terra GmbH (info@conterra.de)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+.winter-bright .ctTableOfContents{background:#fff;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;max-height:300px;overflow:auto;width:250px;border:1px solid #e6e6e6}.winter-bright .ctTableOfContents .ctNotVisibleInScale{color:#dadada}.winter-bright .ctTableOfContents .ctNotVisibleInExtent{color:#f39c12}.winter-bright .ctTableOfContents .ctNotVisibleInSpatialReference{color:#c0392b}.winter-bright .ctTableOfContents .ctSelected{font-weight:bold}.winter-bright .ctTableOfContentsToolTip{padding:0;margin:0;font-size:.8em;color:#45474d}.winter-bright .dijitTreeIcon.ct_layer{background-image:none}.winter-bright .dijitTreeIcon.ct_layer:before{content:'\e0be'}.winter-bright .dijitTreeIcon.ct_grouplayer:before{content:'\e0af'}.winter-bright .dijitTreeIcon.ct_service:before{content:'\e624'}.winter-bright .dijitTreeIcon.ct_service.WMS:before,.winter-bright .dijitTreeIcon.ct_service.AGS_DYNAMIC:before{content:'\e61d'}.winter-bright .dijitTreeIcon.ct_service.WMTS:before,.winter-bright .dijitTreeIcon.ct_service.AGS_IMAGE:before,.winter-bright .dijitTreeIcon.ct_service.AGS_TILED:before{content:'\e623'}.winter-bright .dijitTreeIcon.ct_service.AGS_FEATURE:before{content:'\e61e'}.winter-bright .dijitTreeIcon.ct_service.INSPIRE_VIEW:before{content:'\e620'}.winter-bright .dijitTreeIcon.ct_service.GOOGLE_MAPS:before{content:'\e61f'}.winter-bright .dijitTreeIcon.ct_service.BING_MAPS:before{content:'\e61c'}.winter-bright .dijitTreeIcon.ct_service.OPEN_STREET_MAP:before{content:'\e622'}.winter-bright .dijitTreeIcon.ct_service.KML:before{content:'\e621'}

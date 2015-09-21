@@ -1,0 +1,142 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .dijitToolbar{
+        color: @text-color;
+        //TODO: Apply dijit .standard-gradient()
+        background: @bar-background-color none;
+        .dijitButtonNode{
+            border: none;
+            .border-radius(0);
+            padding: 2px;
+            background: transparent none;
+        }
+        .dijitHover .dijitButtonNode,
+        .dijitChecked .dijitButtonNode,
+        .dijitActive .dijitButtonNode{
+            //needed to remove default border-hover behaviour from dijit theme
+            border: none;
+            padding: 2px;
+            .standard-gradient-and-filter(@minor-selected-color);
+        }
+        .dijitArrowButton.dijitButtonNode{
+            .standard-gradient-and-filter(@minor-selected-color);
+        }
+        .dijitHover .dijitArrowButton.dijitButtonNode,
+        .dijitActive .dijitArrowButton.dijitButtonNode{
+            padding:0;
+            .standard-gradient-and-filter(@minor-selected-color);
+        }
+        .dijitDisabled .dijitButtonNode,
+        .dijitButtonDisabled,
+        .dijitDropDownButtonDisabled,
+        .dijitComboButtonDisabled,
+        .dijitToggleButtonDisabled{
+            .resetBG();
+        }
+    }
+    .showWebFonts() when not (@ct-use-font-icons){
+        //general editor icon styles
+        .dijitEditorIcon,
+        .dijitToolbarSeparator,
+        .dijitEditorIconsFindReplace {
+            background-image: url('../images/editorIconsEnabled.png');
+        }
+        .ctEditorToolButton.dijitHover,
+        .ctEditorToolButton.dijitActive,
+        .ctEditorToolButton.dijitChecked{
+            .dijitEditorIcon,
+            .dijitEditorIconsFindReplace{
+                background-image: url('../images/editorIconsHover.png');
+            }
+        }
+        .dijitDisabled .dijitEditorIcon,
+        .dijitDisabled .dijitEditorIconsFindReplace{
+            background-image: url('../images/editorIconsDisabled.png');
+        }
+        .dijitEditorIconFindString { background-position: -828px; }
+        .dijitEditorIconFind { background-position: -846px; }
+        .dijitEditorIconReplace { background-position: -864px; }
+        .dijitEditorIconReplaceAll { background-position: -882px; }
+        .dijitEditorIconsFindReplaceClose {
+            .bgHD('../images/spriteGraphics.png');
+            background-position: -105px -15px;
+        }
+        .dijitButtonHover .dijitEditorIconsFindReplaceClose{
+            background-position: -105px -60px;
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .dijitEditorIcon{
+            .setWebFont();
+            background-image: none;
+            font-size: @ct-icon-small;
+            color:  @ct-icon-on-primary-color;
+            &:before{
+                line-height:@ct-icon-small+3px;
+            }
+        }
+        .dijitButtonHover, .dijitToggleButtonHover, .dijitToggleButtonChecked .dijitEditorIcon{
+            color: @ct-icon-on-primary-hovered-color;
+        }
+        .dijitDisabled .dijitEditorIcon{
+            color: @disabled-text-color;
+        }
+        .dijitIconTask{ background-image: none; &:before{content:'\e0af';}}
+        .dijitEditorIconSep { background-image: none; &:before {content:'\e0a8';}}
+        .dijitIconEdit { background-image: none; &:before {content:'\e059';/*line-height:@ct-icon-small+3px; */}}
+        .dijitEditorIconSave, .dijitIconSave { background-image: none; &:before {content:'\e040';/*line-height:@ct-icon-small+3px;*/ }}
+        .dijitEditorIconPrint { background-image: none; &:before {content:'\e05a';}}
+        .dijitEditorIconCut { background-image: none; &:before {content:'\e0ba';}}
+        .dijitEditorIconCopy { background-image: none; &:before {content:'\e0a2';}}
+        .dijitEditorIconPaste { background-image: none; &:before {content:'\e0ac';}}
+        .dijitEditorIconDelete { background-image: none; &:before {content:'\e05b';}}
+        .dijitEditorIconCancel { background-image: none; &:before {content:'\e0a4';}}
+        .dijitEditorIconUndo { background-image: none; &:before {content:'\e013';}}
+        .dijitEditorIconRedo { background-image: none; &:before {content:'\e014';}}
+        .dijitEditorIconSelectAll { background-image: none; &:before {content:'\e036';}}
+        .dijitEditorIconBold { background-image: none; &:before {content:'\e0a5';}}
+        .dijitEditorIconItalic { background-image: none; &:before {content:'\e0b2';}}
+        .dijitEditorIconUnderline { background-image: none; &:before {content:'\e099';}}
+        .dijitEditorIconStrikethrough { background-image: none; &:before {content:'\e0a7';}}
+        .dijitEditorIconSuperscript { background-image: none; &:before {content:'\e09a';}}
+        .dijitEditorIconSubscript { background-image: none; &:before {content:'\e09b';}}
+        .dijitEditorIconJustifyCenter { background-image: none; &:before {content:'\e0a1';}}
+        .dijitEditorIconJustifyFull { background-image: none; &:before {content:'\e0b1';}}
+        .dijitEditorIconJustifyLeft { background-image: none; &:before {content:'\e0a0';}}
+        .dijitEditorIconJustifyRight { background-image: none; &:before {content:'\e09f';}}
+        .dijitEditorIconIndent { background-image: none; &:before {content:'\e0b4';}}
+        .dijitEditorIconOutdent { background-image: none; &:before {content:'\e0ad';}}
+        .dijitEditorIconForeColor { background-image: none; &:before {content:'\e0b5';}}
+        .dijitEditorIconHiliteColor { background-image: none; &:before {content:'\e0a6';}}
+        //.dijitEditorIconListBulletIndent { background-image: none; &:before {}}
+        //.dijitEditorIconListBulletOutdent { background-image: none; &:before {}}
+        //.dijitEditorIconListNumIndent { background-image: none; &:before {}}
+        //.dijitEditorIconListNumOutdent { background-image: none; &:before {}}
+        //.dijitEditorIconTabIndent { background-image: none; &:before {}}
+        //.dijitEditorIconLeftToRight { background-image: none; &:before {}}
+        .dijitEditorIconBackColor { background-image: none; &:before {}}
+        .dijitEditorIconForeColor { background-image: none; &:before {}}
+        .dijitEditorIconHiliteColor { background-image: none; &:before {}}
+        .dijitEditorIconNewPage { background-image: none; &:before {content:'\e0b8';}}
+        .dijitEditorIconInsertImage { background-image: none; &:before {content:'\e0b3';}}
+        .dijitEditorIconInsertTable { background-image: none; &:before {content:'\e09c';}}
+        .dijitEditorIconSpace { background-image: none; &:before {content:'\e0a8';}}
+        .dijitEditorIconInsertHorizontalRule { background-image: none; &:before {content:'\e0a9';}}
+        .dijitEditorIconInsertOrderedList { background-image: none; &:before {content:'\e0ae';}}
+        .dijitEditorIconInsertUnorderedList { background-image: none; &:before {content:'\e098';}}
+        .dijitEditorIconCreateLink { background-image: none; &:before {content:'\e09e';}}
+        .dijitEditorIconUnlink { background-image: none; &:before {content:'\e09d';}}
+        .dijitEditorIconViewSource { background-image: none; &:before {content:'\e0a3';}}
+        .dijitEditorIconRemoveFormat { background-image: none; &:before {content:'\e0b9';}}
+        .dijitEditorIconFullScreen { background-image: none; &:before {content:'\e0b0';}}
+        //.dijitEditorIconWikiword { background-image: none; &:before {}}   
+        .dijitAdditionalEditorIconPasteFromWord { background-image: none; &:before {content:'\e60f';}}
+           
+        .dojoxEditorUploadNorm {background-image: none; .setWebFont(); &:before {content:'\e62a';}}
+    }
+    .showWebFonts();
+    .dijitEditorIconsFindReplaceClose {
+        .size(18px);
+    }
+}

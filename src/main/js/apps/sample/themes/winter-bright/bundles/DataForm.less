@@ -1,0 +1,148 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctDataForm {
+        .dijitContentPane {
+            padding: 0;
+        }
+
+        .ctGridContainer.ctFormControl {
+            overflow: auto;
+        }
+        .ctFormControl {
+            &.label.required,
+            .required > label{
+                border-left: 3px solid @text-color;
+                padding-left: 4px;
+            }
+            &.title {
+                font-weight: bold;
+                margin-bottom: 1em;
+            }
+            &.panel {
+                position: relative;
+                padding: 0;
+                .hasposition.ctFormControl {
+                    position: absolute;
+                }
+            }
+            &.accordionpanel .panel,
+            &.borderpanel .panel,
+            &.tabpanel .panel,
+            &.tablepanel .panel,
+            &.wizardpanel .panel {
+                position: relative;
+            }
+
+            &.wizardpanel .dojoxWizardContainer>* {
+                overflow-y: auto;
+                width: 100%;
+            }
+            &.dijitSliderH { //  for horizontal slider
+                             width: 60%;  //  otherwise the slider flows out of the dataform cell
+
+            }
+
+            &.gridpanel {
+                position: relative;
+                .cell{
+                    display: inline; //display: table-cell;
+                    position: relative;
+                    &.nowidth {
+                        width:initial;
+                    }
+                }
+                .row {
+                    clear: both;
+                    padding: 2px;
+                    margin-bottom: 5px;
+                }
+                .row.last-row {
+                    margin-bottom: 0;
+                }
+                .labelCell{
+                    float: left;
+                    display: inline-block;
+                    width: 30%;
+                    text-align: left;
+                    margin-right: 12px;
+                    min-width: 100px;
+                    max-width: 300px;
+                }
+            }
+            &.fullWidthCell .cell{
+                display: block;
+            }
+            &.borderpanel .slider.ctFormControl {
+                width: 100%; // if slider is in broder panel, an additional panel for value is next to it. so the sliders size doesn't need to be reduced
+            }
+            &.image {
+                overflow : auto;
+            }
+        }
+        .tableContainer-table-horiz {
+            .tableContainer-labelCell,
+            .tableContainer-valueCell{
+                //default padding for dataForm Table Row Elements
+                padding: 4px 0;
+            }
+        }
+
+        .dropZoneUploader.uploader.dropEnabled{ 
+            display: block;
+            text-align: center;
+            border: 2px dashed lighten(@container-background-color, 20%);
+            .border-radius(@button-border-radius + 4px);
+            &:hover{
+                border-color: lighten(@container-background-color, 30%)
+            }
+            .dijitButtonNode{
+                height: 8em;
+                .resetBG();
+            }
+            input{
+                .size(100%); 
+            }
+            input,
+            .dijitButtonContents{
+                cursor: pointer;
+            }
+            .dijitButtonContents{
+                margin: 5em 3em 1em;
+                background: @button-background-color;
+                padding: @ct-button-padding;
+            }
+
+            .dijitButtonContents:hover{
+                background: @button-hovered-background-color;
+            }
+        }
+    }
+    .verticalMiddle{
+        padding-right: 5px;
+        &, span{
+            vertical-align: middle;
+        }
+    }
+
+    .ctAppWidgetContent .cell{
+        display:table-cell;
+    }
+
+    .ctAppWidgetContent .labelCell {
+        min-width: 200px;
+        max-width: 300px;
+    }
+    .ctAppWidgetContent .row{
+        clear: both;
+        padding: 2px;
+        margin-bottom: 10px;
+    }
+    // add exclamation mark after invalid dataform fields
+    .dijitValidationContainer:after {
+        content: "!";
+        color: white;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+}

@@ -1,0 +1,37 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    .showWebFonts() when not (@ct-use-font-icons) {
+        .ctTool {
+            .icon-web-map-search {
+                background-position: 0 -540px;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked {
+                .icon-web-map-search {
+                    background-position: 0 -585px;
+                }
+            }
+            &.dijitDisabled .icon-web-map-search {
+                background-position: 0 -630px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-web-map-search .ctCollapseOpposite .ctCollapseInnerHandle {
+            background-position: -405px -45px;
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons) {
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-web-map-search .ctCollapseOpposite .ctCollapseInnerHandle:before {
+            content: '\e064';
+        }
+    }
+
+    .showWebFonts();
+
+    .agolmapFinder .ctWindowContentPadding > .dijitDialogPaneContent  {
+        padding:0;
+    }
+    .ctAgolmapFinder  .ctScopedFilter .ctShrinkingDropDownLabelNode {
+        min-width: 30px;
+    }
+}

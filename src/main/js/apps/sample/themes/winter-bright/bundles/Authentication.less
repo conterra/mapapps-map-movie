@@ -1,0 +1,139 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctLogin {
+        .size(235px, 150px);
+
+        .pw, .username{
+            margin-bottom: 10px;
+        }
+        .btnbar{
+            bottom: 0;
+            position: relative;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            width: 100%;
+        }
+        label {
+            font-weight: bold;
+        }
+        .dijitTextBox {
+            display: block;
+            width: 99%;
+        }
+        .infoWrapper{
+            height: 2.5em;
+            position: relative;
+        }
+
+        .loadingMsg{
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    .ctLoginWindow .dijitDialogTitle{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    
+    .ctLoginBlocker {
+        padding : 2pt;
+
+        .ctLoading {
+            position: absolute;
+            right: 5%;
+        }
+    }
+
+    .ctUserName{
+        font-weight: bold;
+        text-align: right;
+        margin: 6px 0;
+        display: inline-block;
+    }
+
+    //shorten long usernames to solve display problems in FF
+    .ctUserNameValue{
+        display: inline-block;
+        max-width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        font-size: 11px;
+        padding: 3px 10px;
+    }
+
+    .ctUserButton{
+        &.dijitButton{
+            margin: 0;
+        }
+        &.ctLogoutBtn,
+        &.ctLoginBtn{
+            vertical-align: top;
+            .dijitButtonNode{
+                padding: 7px 5px;
+            }
+        }
+
+        &.ctLoginBtn .dijitButtonText{
+            float: left;
+            padding-top:2px;
+        }
+
+        .dijitIcon{
+            float: right;
+        }
+        &.dijitButtonHover .dijitButtonNode{
+            .standard-gradient-and-filter(@button-hovered-background-color);
+        }
+    }
+
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctUserButton{
+            .dijitIcon{
+                .bgHD('../images/spriteGraphics.png');
+                .size(16px);
+            }
+            .icon-logout{
+                background-position: -735px -555px;
+            }
+            .icon-login{
+                background-position: -780px -555px;
+            }
+            &.dijitButtonHover{
+                .icon-logout{
+                    background-position: -735px -600px;
+                }
+                .icon-login{
+                    background-position: -780px -600px;
+                }
+            }
+        }
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctUserButton{
+            .dijitIcon{
+                padding-top: 1px;
+            }
+            .dijitIcon,
+            &.dijitHover .dijitIcon{
+                font-size: @ct-icon-small;
+            }
+        }
+    }
+
+    .showWebFonts();
+
+    &.ctEnv_FF{
+        .ctLoginBlockWindow{
+            //fix to prevent FF from stretching the auth window across the whole screen
+            max-width: 180px;
+        }
+        .logoutBtn{
+            vertical-align: top;
+        }
+    }
+}

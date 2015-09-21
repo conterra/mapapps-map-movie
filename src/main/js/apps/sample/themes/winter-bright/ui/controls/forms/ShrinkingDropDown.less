@@ -1,0 +1,91 @@
+/**
+  ShrinkingDropDown uses dijitHidden to hide selected menu items in mode hideSelectedItem.
+*/
+/** root node of the button */
+@import "../../../themeSettings.less";
+
+.@{themeName} {
+    .ctShrinkingDropDown {
+        margin: 0;
+
+        .dijitDownArrowButton .dijitArrowButtonInner:before {
+            color: @ct-icon-muted-color;
+        }
+
+        &.dijitDownArrowButtonHover .dijitArrowButtonInner,
+        &.dijitDropDownButton.dijitHover .dijitDownArrowButton .dijitArrowButtonInner {
+            &:before {
+                color: @ct-icon-muted-hovered-color;
+            }
+        }
+
+        .ctShrinkingDropDownTitleNode,
+        .dijitButtonText {
+            color: @ct-primary-contrast-text-color;
+        }
+        .dijitButtonNode {
+            height: 100%;
+            font-size: 10px;
+            margin: 0;
+            border-width: 0;
+            .box-shadow-none();
+            .standard-gradient-and-filter(@ct-shrinking-dropdown-button-background-color);
+        }
+        .dijitButtonText {
+            padding: 0;
+        }
+        &.dijitHover {
+            .ctShrinkingDropDownTitleNode,
+            .dijitButtonText {
+                // style for hovered SchrinkingDropDownButton
+                color: @ct-highlight-hover-text-color;
+            }
+            .dijitDownArrowButton .dijitArrowButtonInner,
+            .dijitArrowButtonInner {
+                &:before {
+                    color: @ct-highlight-hover-text-color;
+                }
+            }
+        }
+    }
+
+    .dijitMenu.ctShrinkingDropDownMenu {
+        border: none;
+        // background color is applied to menu table because of the collapser
+        background: transparent none;
+        .dijitMenuTable {
+            table-layout: fixed;
+            .standard-gradient-and-filter(@menu-background-color);
+        }
+        .dijitMenuItem {
+            font-weight: bold;
+            padding: 0;
+            text-align: center;
+            text-transform: capitalize;
+            //color: @ct-primary-contrast-text-color;
+            &.dijitHover,
+            &.dijitFocused,
+            &.dijitSelected {
+                //menu items style of hovered and focused looks the same -- according to dojo!
+                //color: @hovered-text-color;
+                .standard-gradient-and-filter(@select-dropdownitem-hovered-background-color);
+            }
+            &.dijitSelected,
+            &.dijitMenuItemSelected{
+                color: @hovered-text-color;
+            }
+        }
+        .dijitMenuArrowCell,
+        .dijitMenuItemIconCell {
+            display: none;
+        }
+        .ctToggleCollapser {
+            margin: 0;
+            padding: 0;
+            .size(100%, 2px);
+            .dijitArrowButtonInner {
+                display: none;
+            }
+        }
+    }
+}

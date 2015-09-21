@@ -1,0 +1,155 @@
+@import "../../themeSettings.less";
+
+.@{themeName}{
+
+    @bigger: 84px;
+    @smaller: 13px;
+
+    .ctCollapseGrid {
+        /* this is the root of the following helper divs, don't make it relative or absolute,
+        otherwise you will block any event to the collapse (window) content.*/
+        cursor: pointer;
+    }
+    /* ctCollapsing is added during the collapse animation */
+    .ctCollapsing {
+        .standard-gradient-and-filter(@secondary-color);
+    }
+
+    /**
+     inner handles are the divs within the absolute positioned handles, see below.
+    */
+
+    .ctCollapseInnerHandle {
+        position: relative;
+    }
+
+    .ctCollapseGrid{
+        //shared properties of bottom and top handle
+        .ctCollapseHandleBottom,
+        .ctCollapseHandleTop{
+            position: absolute;
+            left:50%;
+            .size(0, @smaller);
+            .ctCollapseInnerHandle {
+                left: -(@bigger/2);
+                .size(@bigger, @smaller);
+            }
+        }
+        .ctCollapseHandleTop{
+            top: -@smaller;
+        }
+        .ctCollapseHandleBottom {
+            bottom: -@smaller;
+        }
+
+        //shared properties of left and right handle
+        .ctCollapseHandleLeft,
+        .ctCollapseHandleRight{
+            position: absolute;
+            top:50%;
+            .size(@smaller, 0);
+            .ctCollapseInnerHandle {
+                .size(@smaller, @bigger);
+                top : -(@bigger/2);
+            }
+        }
+        .ctCollapseHandleLeft {
+            left: -@smaller;
+        }
+        .ctCollapseHandleRight {
+            right: -@smaller;
+        }
+    }
+
+    .showWebFontCollapseHandle() when not (@ct-use-font-icons){
+
+        .ctCollapseInnerHandle {
+            .bgHD('../../images/spriteGraphics.png');
+        }
+        .ctCollapseHandleTop .ctCollapseInnerHandle {
+            background-position: -1308px -190px;
+        }
+        .ctCollapseHandleBottom .ctCollapseInnerHandle {
+            background-position: -1308px -244px;
+        }
+        .ctCollapseHandleLeft .ctCollapseInnerHandle {
+            background-position: -1226px -228px;
+        }
+        .ctCollapseHandleRight .ctCollapseInnerHandle {
+            background-position: -1283px -228px;
+        }
+
+        // change icons when window is collapsed
+        .ctCollapsed{
+            .ctCollapseHandleTop .ctCollapseInnerHandle{
+                background-position: -1308px -150px;
+            }
+            .ctCollapseHandleBottom .ctCollapseInnerHandle{
+                background-position: -1308px -285px;
+            }
+            .ctCollapseHandleLeft .ctCollapseInnerHandle{
+                background-position: -1232px -138px;
+            }
+            .ctCollapseHandleRight .ctCollapseInnerHandle{
+                background-position: -1278px -138px
+            }
+        }
+    }
+
+    // Font-Size of Web-Font-Icon
+    @font-size:12px;  // TODO: hitch to global variabl @icon-small
+
+    .showWebFontCollapseHandle() when (@ct-use-font-icons){
+        .ctCollapseInnerHandle {
+            background-color: @ct-collapse-and-resize-handle-color;
+            color: @ct-icon-on-primary-color;
+            font-size: @font-size;
+            .setWebFont();
+            &:before {
+                display: block;
+                position: relative;
+            }
+        }
+
+        .ctCollapseHandleLeft ,
+        .ctCollapseHandleRight {
+            .ctCollapseInnerHandle:before {
+                top: ((@bigger - @font-size)/2);
+            }
+        }
+
+        .ctCollapseHandleTop .ctCollapseInnerHandle:before {
+            content: "\e007";
+            text-align: center;
+        }
+        .ctCollapseHandleBottom .ctCollapseInnerHandle:before {
+            content: "\e005";
+            text-align: center;
+        }
+        .ctCollapseHandleLeft .ctCollapseInnerHandle:before {
+            content: "\e006";
+        }
+        .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+            content: "\e008";
+        }
+
+        // change icons when window is collapsed
+        .ctCollapsed{
+            .ctCollapseHandleTop .ctCollapseInnerHandle:before {
+                content: "\e005";
+            }
+            .ctCollapseHandleBottom .ctCollapseInnerHandle:before {
+                content: "\e007";
+            }
+            .ctCollapseHandleLeft .ctCollapseInnerHandle:before {
+                content: "\e008";
+            }
+            .ctCollapseHandleRight .ctCollapseInnerHandle:before {
+                content: "\e006";
+            }
+        }
+    }
+
+    .showWebFontCollapseHandle();
+
+}

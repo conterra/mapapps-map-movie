@@ -1,0 +1,146 @@
+//
+//    Document   : night.less
+//    Created on : 04.01.2011, 19:10:59
+//    Author     : mre
+//    Description:
+//        night style extension of dijit.
+//        it references the oringinal pure style and imports some addional styles required by api widgets.
+
+/* FONT PATH
+ * -------------------------- */
+// Import Web Font
+@import url("../common/fonts/lato/lato-font.css");
+//@import url(http://fonts.googleapis.com/css?family=Lato);
+// Import global theme setting like colors variables
+// More Information about lesscss at http://lesscss.org/
+@import "themeSettings.less";
+//*-------------------------
+//    General dojo / dijit
+//    framework  Classes
+//-------------------------*/
+@import url("dijit/dijit.css");
+@import url("../common/common.css");
+@import url("dojox/image/ThumbnailPicker.css");
+
+//-------------------------
+//    General mapApps  UI Classes
+//-------------------------*/
+@import url("ui/ui.css");
+
+//-------------------------
+//    Bundle  Classes
+//-------------------------
+@import url("bundles/bundles.css");
+@import url("bundles/bundles_1.css");
+
+@import url("bundles/crossfader.css");
+@import url("bundles/customwizard.css");
+@import url("bundles/image.css");
+@import url("custom.css");
+@import url("../common/fonts/caviardreams/caviardreams.css");
+
+.@{themeName} {
+    background-color: @secondary-color;
+
+    font-family: @ct-font-family;
+    *:focus {
+        outline: none;
+    }
+    .appTitle span{
+        font-family: caviar_dreamsbold;
+        font-size: 20px;
+        letter-spacing: .05em;
+    }
+
+    &.start .splashScreen .anim_bg .progress {
+        background-color: @marketingColor;
+    }
+    // -------------------------
+    //     Generic Classes
+    //  -------------------------*/
+    a {
+        color: @ct-text-color;
+        cursor: pointer;
+    }
+
+    /* loading icon */
+    .ctLoading {
+        .setWebFont();
+        font-size: @ct-icon-small;
+        color: @ct-highlight-color;
+        .animation(spin, 1.5s, infinite, linear);
+        &:before {
+            content: "\e097";
+        }
+    }
+    &.ctEnv_IE_8,
+    &.ctEnv_IE_9{
+        //as IE <10 does not know css3 animations we need to put an animated gif instead.
+        .ctLoading {
+            background-image: url(images/ie_fallback_spinner.gif);
+            //and remove the webFontIcon
+            &:before {
+                content: "";
+            }
+        }
+    }
+    &.ctEnv_FF{
+        .ctLoading{
+            line-height: @ct-icon-small - 2px;
+        }
+    }
+
+    .ctMap {
+        //ensure white background behind Map;
+        background: #fff;
+    }
+
+    // ----------------------
+    //    Header Classes
+    // -----------------------
+    .header {
+        .standard-gradient (@ct-header-background-color);
+        .box-shadow (0px, 0px, 5px, 0.25);
+        background-image: url(images/noisyBg.png);
+        .appTitle {
+            color: @text-color;
+            line-height: 40px;
+            letter-spacing: 1px;
+            font-weight: bold;
+            text-shadow: 0px 1px 1px lighten(@ct-header-background-color, 10%);
+        }
+    }
+    .logoWidget .dijitContentPane{
+        background-color: transparent;
+    }
+    // -----------------------
+    //    Footer Classes
+    // -----------------------
+    .footer {
+        .box-shadow (0px, 0px, 5px, 0.25);
+        .ctWindowDockingBar  .ctWindowTabButton .dijitButtonNode {
+            background: none;
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            -ms-filter: "progid:DXImageTransform.Microsoft.gradient(enabled=false)";
+
+        }
+    }
+
+    .footer,
+    .dijitContentPane.sidebar {
+        .standard-gradient (@ct-footer-background-color);
+        border-bottom: 3px solid @dialog-titlebar-background-color;
+    }
+
+    /*-------------------------
+        Overwrite of ESRI Classes to fit theme Style
+    -------------------------*/
+    .map .container{
+        .fixedPan{
+            background-image: url('images/fixed-pan-sprite.png');
+        }
+        .layersDiv{
+            background: url("../common/images/bgMapGrid.png") top left repeat;
+        }
+    }
+}

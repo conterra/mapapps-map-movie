@@ -1,0 +1,814 @@
+@font-face {
+	font-family: 'mapappsUiFont';
+	src:url('mapappsUiFont.eot');
+	src:url('mapappsUiFont.eot?#iefix') format('embedded-opentype'),
+		url('mapappsUiFont.woff') format('woff'),
+		url('mapappsUiFont.ttf') format('truetype'),
+		url('mapappsUiFont.svg#mapappsUiFont') format('svg'); 
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* this is a fix for Chrome Browsers that do not properly apply AA on web Fonts. It forces Chrome to use SVG Font where AA can be applied propperly.
+ For more Info see. http://keyamoon.com/?p=318 */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+        font-family: 'mapappsUiFont';
+        src: url('mapappsUiFont.svg#mapappsUiFont') format('svg');
+    }
+}
+
+.icon-small:before {
+  font-size: 150%;
+  vertical-align: -10%;
+}
+.icon-medium:before {
+  font-size: 200%;
+  vertical-align: -16%;
+}
+.icon-large:before {
+  font-size: 250%;
+  vertical-align: -22%;
+}
+
+
+.icon-marker, .icon-radio-unselcted, .icon-radio-selected, .icon-checkbox-unchecked, .icon-checkbox-checked,.icon-checkbox-checkmark, .icon-arrow-light-up,
+.icon-arrow-light-right, .icon-arrow-light-down, .icon-arrow-light-left, .icon-arrow-up, .icon-arrow-right, .icon-arrow-down,
+.icon-arrow-left, .icon-arrow-double-left, .icon-arrow-bold-left, .icon-arrow-bold-right, .icon-arrow-bold-up, .icon-arrow-bold-down, 
+.icon-arrow-double-right, .icon-rotate-ccw,
+.icon-rotate-cw, .icon-undo, .icon-redo, .icon-needle, .icon-plus, .icon-minus, .icon-window-close, .icon-window-minimize,
+.icon-window-fullscreen, .icon-window-no-fullscreen, .icon-window-bottom-mode, .icon-visibility-hidden, .icon-visibility-visible,
+.icon-transparency, .icon-transparency-inverse, .icon-user, .icon-login, .icon-logout, .icon-social-share, .icon-social-twitter,
+.icon-social-facebook, .icon-calendar, .icon-toolcase, .icon-magnifier, .icon-info, .icon-info-2, .icon-view-table, .icon-view-grid,
+.icon-list-grid, .icon-locate, .icon-trashcan, .icon-selection-delete-selected, .icon-select-mouse, .icon-select-none, .icon-select-multiple,
+.icon-selection-mask, .icon-selection-mask-delete, .icon-cog, .icon-map-locate, .icon-map-center, .icon-help, .icon-locate-position,
+.icon-located-position , .icon-key, .icon-video, .icon-floppy, .icon-camera, .icon-wiki, .icon-cursor, .icon-mapflow, .icon-users, .icon-gallery,
+.icon-doc, .icon-doc-checked, .icon-doc-export, .icon-globe, .icon-legend, .icon-street-view, .icon-location-info , .icon-link, .icon-ruler-distance, 
+.icon-ruler-coordinates, .icon-ruler-area, .icon-ruler, .icon.ruler, .icon-tool, .icon-dashboard, .icon-polygon, .icon-polyline-freeform, 
+.icon-polyline, .icon-polygon-freeform, .icon-line, .icon-draw-point, .icon-pencil, .icon-print, .icon-trashcan-detailed, .icon-zoom-world,
+.icon-zoom-selection, .icon-zoom-previous, .icon-zoom-out-extend, .icon-zoom-out, .icon-zoom-next, .icon-zoom-in-extend, .icon-zoom-in, 
+.icon-web-map-search, .icon-triangle, .icon-text, .icon-template-list, .icon-shape-select-edit-scale-move, .icon-shape-select, .icon-shape-move, 
+.icon-shape-edit-vertices, .icon-shape-delete, .icon-select-extend, .icon-pointer-up, .icon-pointer-right, .icon-pointer-left, .icon-pointer-down, 
+.icon-map-selection, .icon-map-pan, .icon-map-bookmark, .icon-mail, .icon-location-marker, .icon-location-information-bubble, .icon-identify, 
+.icon-heliport, .icon-globe-flat, .icon-feature-add, .icon-extent, .icon-ellipsis, .icon-custom-info-info, .icon-custom-info-imprint, 
+.icon-custom-info-help, .icon-custom-info-disclaimer, .icon-custom-info-copyright, .icon-custom-info, .icon-copyright, .icon-coordinate-finder, 
+.icon-app-list, .icon-app-builder, .icon-airport, .icon-add-symbol, .icon-stop, .icon-social-media-location, .icon-pointer,
+.icon-play, .icon-pause, .icon-drawing-settings, .icon-custom-info-link, .icon-custom-info-legend, .icon-sign-info,
+.icon-sign-warning, .icon-sign-success, .icon-sign-error, .icon-edit-attributes, .icon-feature-settings, .icon-spinner, 
+.icon-editor-unordered-list, .icon-editor-underlined, .icon-editor-text-upper, .icon-editor-text-lower, .icon-editor-table, .icon-editor-link-break, 
+.icon-editor-link, .icon-editor-justify-right, .icon-editor-justify-left, .icon-editor-justify-centered, .icon-editor-copy, .icon-editor-code, 
+.icon-editor-clear, .icon-editor-bold, .icon-editor-background-color, .icon-editor-strike-through, .icon-editor-seperator-v, .icon-editor-seperator-h, 
+.icon-editor-replace-next, .icon-editor-replace-all, .icon-editor-paste, .icon-editor-outdent, .icon-editor-ordered-list, .icon-editor-new-task, 
+.icon-editor-make-fullscreen, .icon-editor-justify-block, .icon-editor-italic, .icon-editor-image, .icon-editor-ident, .icon-editor-font-color, 
+.icon-editor-find, .icon-editor-exit, .icon-editor-empty-page, .icon-editor-delete-style, .icon-editor-cut, .icon-snapping, .icon-layer-settings, 
+.icon-layer-add, .icon-layer, .icon-house, .icon-feature-edit, .icon-feature-delete, .icon-folder-opened, .icon-folder-closed, .icon-expand, .icon-collapse,
+.icon-heart, .icon-selection-polygon, .icon-selection-freehand-polygon, .icon-selection-circle, .icon-time-stopwatch, .icon-time-rewind, .icon-time-forward, 
+.icon-time-clock, .icon-shape-circle, .icon-paperclip, .icon-doc-xls, .icon-doc-word, .icon-doc-txt, .icon-doc-pdf, .icon-doc-image-portrait, .icon-doc-image-landscape, .icon-doc-file-remove,
+.icon-doc-file-add, .icon-doc-csv, .icon-doc-code, .icon-box-open,.icon-box-closed, .icon-swap, .icon-app-launch, .icon-routing, .icon-mapservice-b, .icon-mapservice-dynamic, .icon-mapservice-feature, 
+.icon-mapservice-g, .icon-mapservice-inspire, .icon-mapservice-kml,.icon-mapservice-osm, .icon-mapservice-tiled, .icon-mapservice-unknown, .icon-mapservice-c, .icon-sync, .icon-download, .icon-upload, .icon-thumb-up,.icon-bell{
+	font-family: mapappsUiFont;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-marker:before {
+	content: "\e000";
+}
+.icon-radio-unselcted:before {
+	content: "\e001";
+}
+.icon-radio-selected:before {
+	content: "\e002";
+}
+.icon-checkbox-unchecked:before {
+	content: "\e003";
+}
+.icon-checkbox-checked:before {
+	content: "\e004";
+}
+.icon-checkbox-checkmark:before {
+	content: "\e60d";
+}
+.icon-arrow-light-up:before {
+	content: "\e005";
+}
+.icon-arrow-light-right:before {
+	content: "\e006";
+}
+.icon-arrow-light-down:before {
+	content: "\e007";
+}
+.icon-arrow-light-left:before {
+	content: "\e008";
+}
+.icon-arrow-up:before {
+	content: "\e009";
+}
+.icon-arrow-right:before {
+	content: "\e00a";
+}
+.icon-arrow-down:before {
+	content: "\e00b";
+}
+.icon-arrow-left:before {
+	content: "\e00c";
+}
+.icon-arrow-double-left:before {
+	content: "\e00d";
+}
+.icon-arrow-bold-left:before {
+	content: "\e00e";
+}
+.icon-arrow-bold-right:before {
+	content: "\e00f";
+}
+.icon-arrow-bold-up:before {
+	content: "\e605";
+}
+.icon-arrow-bold-down:before {
+	content: "\e606";
+}
+.icon-arrow-double-right:before {
+	content: "\e010";
+}
+.icon-rotate-ccw:before {
+	content: "\e011";
+}
+.icon-rotate-cw:before {
+	content: "\e012";
+}
+.icon-undo:before {
+	content: "\e013";
+}
+.icon-redo:before {
+	content: "\e014";
+}
+.icon-needle:before {
+	content: "\e016";
+}
+.icon-plus:before {
+	content: "\e017";
+}
+.icon-minus:before {
+	content: "\e018";
+}
+.icon-window-close:before {
+	content: "\e019";
+}
+.icon-window-minimize:before {
+	content: "\e01a";
+}
+.icon-window-fullscreen:before {
+	content: "\e01b";
+}
+.icon-window-no-fullscreen:before {
+	content: "\e01c";
+}
+.icon-window-bottom-mode:before {
+	content: "\e01d";
+}
+.icon-visibility-hidden:before {
+	content: "\e01e";
+}
+.icon-visibility-visible:before {
+	content: "\e01f";
+}
+.icon-transparency:before {
+	content: "\e020";
+}
+.icon-transparency-inverse:before {
+	content: "\e021";
+}
+.icon-user:before {
+	content: "\e022";
+}
+.icon-login:before {
+	content: "\e023";
+}
+.icon-logout:before {
+	content: "\e024";
+}
+.icon-social-share:before {
+	content: "\e025";
+}
+.icon-social-twitter:before {
+	content: "\e026";
+}
+.icon-social-facebook:before {
+	content: "\e027";
+}
+.icon-calendar:before {
+	content: "\e028";
+}
+.icon-toolcase:before {
+	content: "\e029";
+}
+.icon-magnifier:before {
+	content: "\e02a";
+}
+.icon-info:before {
+	content: "\e02b";
+}
+.icon-info-2:before {
+	content: "\e02c";
+}
+.icon-view-table:before {
+	content: "\e02d";
+}
+.icon-view-grid:before {
+	content: "\e02f";
+}
+.icon-list-grid:before {
+	content: "\e030";
+}
+.icon-locate:before {
+	content: "\e031";
+}
+.icon-trashcan:before {
+	content: "\e032";
+}
+.icon-selection-delete-selected:before {
+	content: "\e033";
+}
+.icon-select-mouse:before {
+	content: "\e034";
+}
+.icon-select-none:before {
+	content: "\e035";
+}
+.icon-select-multiple:before {
+	content: "\e036";
+}
+.icon-selection-mask:before {
+	content: "\e037";
+}
+.icon-selection-mask-delete:before {
+	content: "\e038";
+}
+.icon-cog:before {
+	content: "\e039";
+}
+.icon-map-locate:before {
+	content: "\e03a";
+}
+.icon-map-center:before {
+	content: "\e03b";
+}
+.icon-help:before {
+	content: "\e015";
+}
+.icon-locate-position:before {
+	content: "\e02e";
+}
+.icon-located-position:before {
+	content: "\e03c";
+}
+.icon-key:before {
+	content: "\e03f";
+}
+.icon-video:before {
+	content: "\e03e";
+}
+.icon-floppy:before {
+	content: "\e040";
+}
+.icon-camera:before {
+	content: "\e041";
+}
+.icon-wiki:before {
+	content: "\e03d";
+}
+.icon-cursor:before {
+	content: "\e043";
+}
+.icon-mapflow:before {
+	content: "\e046";
+}
+.icon-users:before {
+	content: "\e042";
+}
+.icon-gallery:before {
+	content: "\e047";
+}
+.icon-doc:before {
+	content: "\e044";
+}
+.icon-doc-export:before {
+	content: "\e601";
+}
+.icon-doc-checked:before {
+	content: "\e045";
+}
+.icon-globe:before {
+	content: "\e048";
+}
+.icon-legend:before {
+	content: "\e049";
+}
+.icon-street-view:before {
+	content: "\e04a";
+}
+.icon-location-info:before {
+	content: "\e04b";
+}
+.icon-link:before {
+	content: "\e04c";
+}
+.icon-ruler-distance:before {
+	content: "\e04d";
+}
+.icon-ruler-coordinates:before {
+	content: "\e04e";
+}
+.icon-ruler-area:before {
+	content: "\e04f";
+}
+.icon-ruler:before,
+.icon.ruler:before{
+	content: "\e050";
+}
+.icon-tool:before {
+	content: "\e051";
+}
+.icon-dashboard:before {
+	content: "\e052";
+}
+.icon-polygon:before {
+	content: "\e053";
+}
+.icon-polyline-freeform:before {
+	content: "\e054";
+}
+.icon-polyline:before {
+	content: "\e055";
+}
+.icon-polygon-freeform:before {
+	content: "\e056";
+}
+.icon-line:before {
+	content: "\e057";
+}
+.icon-draw-point:before {
+	content: "\e058";
+}
+.icon-pencil:before {
+	content: "\e059";
+}
+.icon-print:before {
+	content: "\e05a";
+}
+.icon-trashcan-detailed:before {
+	content: "\e05b";
+}
+.icon-zoom-world:before {
+	content: "\e05c";
+}
+.icon-zoom-selection:before {
+	content: "\e05d";
+}
+.icon-zoom-previous:before {
+	content: "\e05e";
+}
+.icon-zoom-out-extend:before {
+	content: "\e05f";
+}
+.icon-zoom-out:before {
+	content: "\e060";
+}
+.icon-zoom-next:before {
+	content: "\e061";
+}
+.icon-zoom-in-extend:before {
+	content: "\e062";
+}
+.icon-zoom-in:before {
+	content: "\e063";
+}
+.icon-web-map-search:before {
+	content: "\e064";
+}
+.icon-triangle:before {
+	content: "\e065";
+}
+.icon-text:before {
+	content: "\e066";
+}
+.icon-template-list:before {
+	content: "\e067";
+}
+.icon-shape-select-edit-scale-move:before {
+	content: "\e06a";
+}
+.icon-shape-select:before {
+	content: "\e06b";
+}
+.icon-shape-move:before {
+	content: "\e06c";
+}
+.icon-shape-edit-vertices:before {
+	content: "\e06d";
+}
+.icon-shape-delete:before {
+	content: "\e06e";
+}
+.icon-select-extend:before {
+	content: "\e06f";
+}
+.icon-pointer-up:before {
+	content: "\e070";
+}
+.icon-pointer-right:before {
+	content: "\e071";
+}
+.icon-pointer-left:before {
+	content: "\e072";
+}
+.icon-pointer-down:before {
+	content: "\e073";
+}
+.icon-map-selection:before {
+	content: "\e074";
+}
+.icon-map-pan:before {
+	content: "\e075";
+}
+.icon-map-bookmark:before {
+	content: "\e076";
+}
+.icon-mail:before {
+	content: "\e077";
+}
+.icon-location-marker:before {
+	content: "\e078";
+}
+.icon-location-information-bubble:before {
+	content: "\e079";
+}
+.icon-identify:before {
+	content: "\e07a";
+}
+.icon-heliport:before {
+	content: "\e07b";
+}
+.icon-globe-flat:before {
+	content: "\e07c";
+}
+.icon-feature-add:before {
+	content: "\e07d";
+}
+.icon-extent:before {
+	content: "\e07e";
+}
+.icon-ellipsis:before {
+	content: "\e07f";
+}
+.icon-custom-info-info:before {
+	content: "\e080";
+}
+.icon-custom-info-imprint:before {
+	content: "\e081";
+}
+.icon-custom-info-help:before {
+	content: "\e082";
+}
+.icon-custom-info-disclaimer:before {
+	content: "\e083";
+}
+.icon-custom-info-copyright:before {
+	content: "\e084";
+}
+.icon-custom-info:before {
+	content: "\e085";
+}
+.icon-copyright:before {
+	content: "\e086";
+}
+.icon-coordinate-finder:before {
+	content: "\e087";
+}
+.icon-app-list:before {
+	content: "\e088";
+}
+.icon-app-builder:before {
+	content: "\e089";
+}
+.icon-airport:before {
+	content: "\e08a";
+}
+.icon-add-symbol:before {
+	content: "\e08b";
+}
+.icon-stop:before {
+	content: "\e08c";
+}
+.icon-social-media-location:before {
+	content: "\e08d";
+}
+.icon-pointer:before {
+	content: "\e08f";
+}
+.icon-play:before {
+	content: "\e090";
+}
+.icon-pause:before {
+	content: "\e091";
+}
+.icon-drawing-settings:before {
+	content: "\e092";
+}
+.icon-custom-info-link:before {
+	content: "\e093";
+}
+.icon-custom-info-legend:before {
+	content: "\e094";
+}
+.icon-sign-warning:before {
+	content: "\e068";
+}
+.icon-sign-info:before {
+	content: "\e625";
+}
+.icon-sign-success:before {
+	content: "\e069";
+}
+.icon-sign-error:before {
+	content: "\e08e";
+}
+.icon-edit-attributes:before {
+	content: "\e095";
+}
+.icon-feature-settings:before {
+	content: "\e096";
+}
+.icon-spinner{
+	-webkit-animation: spin 1.5s infinite linear;
+	-moz-animation: spin 1.5s infinite linear;
+	-o-animation: spin 1.5s infinite linear;
+	-ms-animation: spin 1s infinite linear;
+	animation: spin 1.5s infinite linear;
+}
+.icon-spinner:before {
+	content: "\e097";
+}
+.icon-editor-unordered-list:before {
+	content: "\e098";
+}
+.icon-editor-underlined:before {
+	content: "\e099";
+}
+.icon-editor-text-upper:before {
+	content: "\e09a";
+}
+.icon-editor-text-lower:before {
+	content: "\e09b";
+}
+.icon-editor-table:before {
+	content: "\e09c";
+}
+.icon-editor-link-break:before {
+	content: "\e09d";
+}
+.icon-editor-link:before {
+	content: "\e09e";
+}
+.icon-editor-justify-right:before {
+	content: "\e09f";
+}
+.icon-editor-justify-left:before {
+	content: "\e0a0";
+}
+.icon-editor-justify-centered:before {
+	content: "\e0a1";
+}
+.icon-editor-copy:before {
+	content: "\e0a2";
+}
+.icon-editor-code:before {
+	content: "\e0a3";
+}
+.icon-editor-clear:before {
+	content: "\e0a4";
+}
+.icon-editor-bold:before {
+	content: "\e0a5";
+}
+.icon-editor-background-color:before {
+	content: "\e0a6";
+}
+.icon-editor-strike-through:before {
+	content: "\e0a7";
+}
+.icon-editor-seperator-v:before {
+	content: "\e0a8";
+}
+.icon-editor-seperator-h:before {
+	content: "\e0a9";
+}
+.icon-editor-replace-next:before {
+	content: "\e0aa";
+}
+.icon-editor-replace-all:before {
+	content: "\e0ab";
+}
+.icon-editor-paste:before {
+	content: "\e0ac";
+}
+.icon-editor-outdent:before {
+	content: "\e0ad";
+}
+.icon-editor-ordered-list:before {
+	content: "\e0ae";
+}
+.icon-editor-new-task:before {
+	content: "\e0af";
+}
+.icon-editor-make-fullscreen:before {
+	content: "\e0b0";
+}
+.icon-editor-justify-block:before {
+	content: "\e0b1";
+}
+.icon-editor-italic:before {
+	content: "\e0b2";
+}
+.icon-editor-image:before {
+	content: "\e0b3";
+}
+.icon-editor-ident:before {
+	content: "\e0b4";
+}
+.icon-editor-font-color:before {
+	content: "\e0b5";
+}
+.icon-editor-find:before {
+	content: "\e0b6";
+}
+.icon-editor-exit:before {
+	content: "\e0b7";
+}
+.icon-editor-empty-page:before {
+	content: "\e0b8";
+}
+.icon-editor-delete-style:before {
+	content: "\e0b9";
+}
+.icon-editor-cut:before {
+	content: "\e0ba";
+}
+.icon-snapping:before {
+	content: "\e0bb";
+}
+.icon-layer-settings:before {
+	content: "\e0bc";
+}
+.icon-layer-add:before {
+	content: "\e0bd";
+}
+.icon-layer:before {
+	content: "\e0be";
+}
+.icon-house:before {
+	content: "\e0bf";
+}
+.icon-feature-edit:before {
+	content: "\e0c0";
+}
+.icon-feature-delete:before {
+	content: "\e0c1";
+}
+.icon-folder-opened:before {
+	content: "\e0c2";
+}
+.icon-folder-closed:before {
+	content: "\e0c3";
+}
+.icon-expand:before {
+	content: "\e0c4";
+}
+.icon-collapse:before {
+	content: "\e0c5";
+}
+.icon-heart:before {
+	content: "\e600";
+}
+.icon-selection-polygon:before {
+	content: "\e602";
+}
+.icon-selection-freehand-polygon:before {
+	content: "\e603";
+}
+.icon-selection-circle:before {
+	content: "\e604";
+}
+.icon-time-stopwatch:before {
+	content: "\e607";
+}
+.icon-time-rewind:before {
+	content: "\e608";
+}
+.icon-time-forward:before {
+	content: "\e609";
+}
+.icon-time-clock:before {
+	content: "\e60a";
+}
+.icon-shape-circle:before {
+	content: "\e60b";
+}
+.icon-paperclip:before {
+	content: "\e60c";
+}
+.icon-doc-xls:before {
+	content: "\e60e";
+}
+.icon-doc-word:before {
+	content: "\e60f";
+}
+.icon-doc-txt:before {
+	content: "\e610";
+}
+.icon-doc-pdf:before {
+	content: "\e611";
+}
+.icon-doc-image-portrait:before {
+	content: "\e612";
+}
+.icon-doc-image-landscape:before {
+	content: "\e613";
+}
+.icon-doc-file-remove:before {
+	content: "\e614";
+}
+.icon-doc-file-add:before {
+	content: "\e615";
+}
+.icon-doc-csv:before {
+	content: "\e616";
+}
+.icon-doc-code:before {
+	content: "\e617";
+}
+.icon-box-open:before {
+	content: "\e618";
+}
+.icon-box-closed:before {
+	content: "\e619";
+}
+.icon-swap:before {
+	content: "\e61a";
+}
+.icon-app-launch:before {
+	content: "\e626";
+}
+.icon-routing:before {
+	content: "\e61b";
+}
+.icon-mapservice-b:before {
+	content: "\e61c";
+}
+.icon-mapservice-dynamic:before {
+	content: "\e61d";
+}
+.icon-mapservice-feature:before {
+	content: "\e61e";
+}
+.icon-mapservice-g:before {
+	content: "\e61f";
+}
+.icon-mapservice-c:before {
+	content: "\e627";
+}
+.icon-mapservice-inspire:before {
+	content: "\e620";
+}
+.icon-mapservice-kml:before {
+	content: "\e621";
+}
+.icon-mapservice-osm:before {
+	content: "\e622";
+}
+.icon-mapservice-tiled:before {
+	content: "\e623";
+}
+.icon-mapservice-unknown:before {
+	content: "\e624";
+}
+.icon-sync:before {
+	content: "\e628";
+}
+.icon-download:before {
+	content: "\e629";
+}
+.icon-upload:before {
+	content: "\e62a";
+}
+.icon-thumb-up:before {
+	content: "\e62b";
+}
+.icon-bell:before {
+	content: "\e62c";
+}

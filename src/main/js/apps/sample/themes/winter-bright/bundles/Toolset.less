@@ -1,0 +1,360 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    .ctToolWindow,
+    .ctCollapsing {
+        border: none;
+        .border-radius(0);
+    }
+    .ctToolWindow {
+        // Collapse Handle Integration with Web Fonts
+        @toolicon-size: 8px;
+        @toolicon-height: 45px;
+
+        .dijitDialogPaneContent {
+            /** prevent scrollbars in tool windows */
+            overflow: hidden;
+        }
+        .ctCollapseHandleLeft,
+        .ctCollapseHandleRight {
+            .ctCollapseInnerHandle:before {
+                top: ((@toolicon-height - @toolicon-size)/2);
+                font-size: @toolicon-size;
+            }
+        }
+        .ctCollapseHandleTop,
+        .ctCollapseHandleBottom {
+            .ctCollapseInnerHandle:before {
+                top: 0;
+                font-size: @toolicon-size;
+                text-align: center;
+            }
+        }
+
+        &.ctWindow.dijitDialogFixed {
+            border: none;
+            .box-shadow-light(@ct-standard-box-shadow);
+        }
+        .ctWindowPadding {
+            .ctWindowTitelBarPadding,
+            .ctWindowContentPadding {
+                background-color: @ct-toolset-button-background-color;
+            }
+        }
+        &.ctCollapsable .ctWindowPadding .dijitDialogTitleBar,
+        &.notitle .ctWindowPadding .dijitDialogTitleBar {
+            // ensure correct height calculation (without a title)
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 0 !important;
+            display: none !important;
+        }
+        &.alignBottomRight {
+            right: 0;
+            bottom: 0;
+        }
+        &.alignBottomLeft {
+            left: 0;
+            bottom: 0;
+        }
+        &.alignTopRight {
+            right: 0;
+            top: 0;
+        }
+        &.alignTopLeft {
+            left: 0;
+            top: 0;
+        }
+        .dijitDialogTitleBar .dijitDialogTitle {
+            //save some space for the close Icon
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        .dijitDialogPaneContent {
+            padding: 0;
+            margin: 0;
+            .border-radius(0);
+            background: none;
+            border: none;
+        }
+        &.ctContainerItem {
+            background: none;
+        }
+        /*Background during animation*/
+        &.ctContainerItem.ctCollapsing {
+            // NEVER EVER USE A MS-FILTER ON this. Otherwise the Collapseopposite is hidden during Collapsing
+            .resetBG();
+            .standard-gradient(@ct-toolset-tool-button-background-color);
+        }
+
+        &.dijitDialogHover .dojoxResizeHandle,
+        &.dijitDialogActive .dojoxResizeHandle {
+            background-image: url("../../.././../../../../js/dojox/layout/resources/icons/resize.png");
+        }
+
+        .ctWindowPadding {
+            background-position: bottom left;
+        }
+
+        &.ctCollapsed .ctWindowPadding {
+            background-position: top left;
+        }
+        .showWebFonts() when not(@ct-use-font-icons) {
+            // Special Style for tools that have a response time and can change the icon to an processing animation
+            // to make sure, it appears in any circumstances, it is made important
+            .ctTool.ctToolProcessing .dijitIcon,
+            &.ctCollapsed.ctToolProcessing .ctCollapseOpposite .ctCollapseInnerHandle {
+                background: url('../images/processing_animation.gif') top left no-repeat !important;
+            }
+            //switch collapseHandleArrows when Collapsed
+            &.ctCollapsed {
+                .ctCollapseHandleTop.ctCollapseNoOpposite .ctCollapseInnerHandle {
+                    background-position: -1409px -244px;
+                }
+                .ctCollapseHandleBottom.ctCollapseNoOpposite .ctCollapseInnerHandle {
+                    background-position: -1409px -236px;
+                }
+                .ctCollapseHandleRight.ctCollapseNoOpposite .ctCollapseInnerHandle {
+                    background-position: -1425px -135px;
+                }
+                .ctCollapseHandleLeft.ctCollapseNoOpposite .ctCollapseInnerHandle {
+                    background-position: -1393px -135px;
+                }
+            }
+            .ctCollapseHandleRight .ctCollapseInnerHandle {
+                background-position: -1404px -135px;
+            }
+            .ctCollapseHandleLeft .ctCollapseInnerHandle {
+                background-position: -1415px -135px;
+            }
+            .ctCollapseHandleBottom .ctCollapseInnerHandle {
+                background-position: -1409px -227px;
+            }
+            .ctCollapseHandleTop .ctCollapseInnerHandle {
+                background-position: -1409px -252px;
+            }
+            .ctCollapseOpposite {
+                .ctCollapseInnerHandle {
+                    .bgHD('../images/spriteGraphics.png');
+                    background-position: -1170px 0;
+                }
+                &.ctCollapseHandleHover .ctCollapseInnerHandle {
+                    background-position: -1170px -45px;
+                }
+            }
+            .ctToolAvatar {
+                .bgHD('../images/spriteGraphics.png');
+                background-position: -1175px -85px;
+            }
+        }
+        .showWebFonts() when (@ct-use-font-icons) {
+            // Special Style for tools that have a response time and can change the icon to an processing animation
+            // to make sure, it appears in any circumstances, it is made important
+            .ctTool.ctToolProcessing .dijitIcon,
+            &.ctCollapsed.ctToolProcessing .ctCollapseOpposite .ctCollapseInnerHandle {
+                .animation(spin, 1.5s, infinite, linear);
+                border-color: transparent;
+                &:before {
+                    font-family: mapappsUiFont!important; //otherwise the icon is incorrect when the tool doesn't use mapappsUiFont'
+                    content: '\e097' !important;
+                }
+            }
+            .ctCollapseNoOpposite {
+                .standard-gradient(@ct-collapse-and-resize-handle-color);
+            }
+            .ctCollapseOpposite .ctCollapseInnerHandle {
+                .resetBG();
+                &:before {
+                    line-height: .4;
+                    content: '\e051';
+                    font-size: @ct-icon-large;
+                    color: @ct-icon-muted-color;
+                    text-align: center;
+                    position: absolute;
+                    .size(45px, 45px);
+                    top: 16px;
+                }
+            }
+            .ctToolAvatar:before {
+                content: '\e051';
+                font-size: @ct-icon-large;
+                color: @ct-icon-muted-color;
+            }
+        }
+        .showWebFonts();
+
+        .ctCollapseHandleRight {
+            .size(7px, 45px);
+            right: -7px;
+            margin-top: -23px;
+            top: 23px; // this is needed to overwrite top:50% from CollapseGrid.less to fix MAPAPPS-1440
+            .ctCollapseInnerHandle {
+                .size(7px, 45px);
+                top: 0px;
+            }
+        }
+        .ctCollapseHandleLeft {
+            left: -7px;
+            .size(7px, 45px);
+            margin-top: -23px;
+            top: 23px;
+            .ctCollapseInnerHandle {
+                .size(7px, 45px);
+                top: 0px;
+            }
+        }
+        .ctCollapseHandleBottom {
+            bottom: -7px;
+            .size(45px, 7px);
+            margin-left: -23px;
+            .ctCollapseInnerHandle {
+                .size(45px, 7px);
+                left: 0px;
+            }
+        }
+        .ctCollapseHandleTop {
+            top: -7px;
+            .size(45px, 7px);
+            margin-left: -23px;
+            .ctCollapseInnerHandle {
+                .size(45px, 7px);
+                left: 0px;
+            }
+        }
+
+        .ctCollapseOpposite {
+            .standard-gradient-and-filter(@ct-toolset-button-background-color);
+            .size(45px,45px);
+            .box-shadow-light(@ct-standard-box-shadow);
+            .ctCollapseInnerHandle {
+                .size(45px,45px);
+            }
+            &.ctCollapseHandleHover .ctCollapseInnerHandle {
+            }
+            &.ctCollapseHandleRight {
+                right: -45px;
+            }
+            &.ctCollapseHandleLeft {
+                left: -45px;
+            }
+            &.ctCollapseHandleTop {
+                top: -45px;
+            }
+            &.ctCollapseHandleBottom {
+                bottom: -45px;
+            }
+        }
+        &.ctCollapsed.ctActiveTool  .ctCollapseOpposite {
+            //if a tool is activated, the toolSET Buttons becomes another color
+            .standard-gradient-and-filter(@ct-toolset-tool-button-checked-background-color);
+            .ctCollapseInnerHandle:before {
+                color: @ct-icon-on-primary-color;
+            }
+        }
+    }
+    //style for tools without toolWindow arround it and floating directly on the map container
+    .ctToolWindow.muted {
+        &.dijitDialogFixed.ctWindow{
+            .box-shadow-none();
+        }
+        .dijitDialogPaneContent{
+            //otherwise the shadow dropped by tools inside is cutt-off
+            overflow: visible;
+        }
+        .ctWindowTitelBarPadding,
+        .ctWindowContentPadding{
+            background: transparent none;
+        }
+        .ctTool {
+            padding: 6px 0 0;
+            display: block;
+            .dijitButtonNode{
+                .box-shadow-light(@ct-standard-box-shadow);
+                padding: 11px 13px;
+                .standard-gradient-and-filter(@ct-toolset-tool-button-background-color);
+                color: @ct-icon-muted-color;
+                font-size: @ct-icon-small;
+            }
+            .dijitIcon{
+                border: none;
+                line-height: 0.9em;
+                .size(@ct-icon-small);
+                font-size: @ct-icon-small;
+            }
+            &.dijitHover,
+            //&.dijitFocused,
+            &.dijitToggleButtonChecked{
+                .dijitButtonNode{
+                    .standard-gradient-and-filter(@ct-toolset-tool-button-background-color);
+                    color: @ct-icon-muted-hovered-color
+                }
+            }
+        }
+        .ctTool:last-child .dijitButtonNode .dijitIcon{
+            border-right: none;
+        }
+        .ctTool:first-child .dijitButtonNode .dijitIcon{
+            border-left: none;
+        }
+    }
+
+    //button that opens the additionals tools menu
+    .ctTooltipDialogDropDownButton,
+    .ctDrawerButton {
+        .dijitButtonNode {
+            padding: 5px 12px 12px;
+            font-size: @ct-icon-large; 
+        }
+        .dijitArrowButtonInner{
+            display: none;
+        }
+        .dijitButtonText{
+            display: none;
+        }
+        .dijitIcon{
+            display: inline-block;
+            font-size: inherit;
+            &:before{content:'\e02d';}
+        }
+    }
+    // the toolset that is opened inside a dijitTooltipPopupDialog
+    .dijitTooltipDialogPopup .ctTool .dijitButtonNode{
+        font-size: @ct-icon-medium;
+        padding: 6px 12px 8px;
+    }
+
+    .ctToolAvatar {
+        .size(32px);
+        padding: 2px;
+        .border-radius(5px);
+        .box-shadow(0, 1px, 3px, 0.25,~"!important");
+        .ctAvatarDropNotAllowed {
+            background-color: @error-color;
+        }
+    }
+    .ctToolWindow.ctAvatar {
+        border-color: @border-color;
+        border-width: 1px;
+        .box-shadow(0, 1px, 5px, 0.25);
+        .transition(background-color, 0.5s, ease-out);
+        .transition(box-shadow, 0.5s, ease-out);
+    }
+
+    //Styles needed for a menu-toolset
+    .ctTool.dijitMenuItemChecked {
+        .standard-gradient-and-filter(@ct-toolset-tool-button-checked-background-color);
+        color: @selected-text-color;
+    }
+
+    .ctTool.dijitMenuItem .dijitIcon {
+        margin-right: 2px;
+    }
+    //allow use of ctToolProcessing outside of a toolset
+    .ctTool.ctToolProcessing .dijitIcon{
+        .animation(spin, 1.5s, infinite, linear);
+        &:before {
+            content: '\e097';
+        }
+    }
+}

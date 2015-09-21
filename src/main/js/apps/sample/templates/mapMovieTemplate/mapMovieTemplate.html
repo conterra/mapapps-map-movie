@@ -1,0 +1,54 @@
+<div class="fullwidthAndHeight">
+    <div class="builderWizardBtn" data-dojo-attach-point="builderWizardButton"></div>
+    <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false,design:'headline','class':'fullwidthAndHeight'">
+        <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="gutters:false,design:'sidebar',region:'top','class':'header fullwidthAndHeight'">
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'left','class':'appTitle'">
+                <span>${appProps.title}</span>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center','class':'noPadding omniSearchWrapper'">
+                <div class="omnisearch" data-dojo-attach-point="omniSearch"></div>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right','class':'headerToolbar'">
+                <span class="headerToolbar" data-dojo-attach-point="toolset_default_tools"></span>
+            </div>
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'right','class':'noPadding'">
+                <span class="languageToggler" data-dojo-attach-point="languageToggler"></span>
+            </div>
+        </div>
+        <div data-dojo-type="ct/ui/template/OverlayContainer" data-dojo-props="region:'center','class':'mainMap'">
+            <div data-dojo-type="dijit/layout/ContentPane" data-dojo-attach-point="map"></div>
+            <div class="ribbles"></div>
+            <div class="logoWidget" data-dojo-attach-point="image"></div>
+            <!--<div class="omnisearch" data-dojo-attach-point="omniSearch"></div>-->
+            <div class="mainMapControls">
+                <div class="mapLoadingInfo" data-dojo-attach-point="mapLoadingInfo"></div>
+                <div class="scaleBar" data-dojo-attach-point="scaleBar"></div>
+                <div class="bookmarksViewer" data-dojo-attach-point="bookmarksViewer"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div data-dojo-attach-point="crossfader" data-template-window="title:'Crossfader',
+         draggable:false, dockable:false, resizable: false, show:true, minimizeOnClose:true,
+         collapsable:true, collapseAxis:{t:true}, marginBox:{r:0,b:0, l:0, h:275}, minSize:{h:0},
+         collapsed: false, fixEdgesInViewPort:{t:false},         
+         windowClass:'noTitleBarAndWindowTools'">
+    </div>
+
+
+
+    <!--tool windows on map-->
+    <div data-dojo-attach-point="measurementtoolbar" class="dijitHidden"
+         data-template-window="title:'${i18n.measurement.title}',dockTool:'measurementtool',marginBox:{w:327,h:160,r:80,t:55},closable:true,minimizeOnClose:true,resizable:false,dndDraggable:true,windowClass:'ctToolPopup'"></div>
+    <div data-dojo-attach-point="bookmarkstoolbar" class="dijitHidden"
+         data-template-window="title:'${i18n.bookmarks.title}',dockTool:'bookmarkstool',marginBox:{w:327,h:250,r:80,t:55},closable:true,minimizeOnClose:true,resizable:true,dndDraggable:true,windowClass:'ctToolPopup',minSize:{w:255,h:180}"></div>
+    <div data-dojo-attach-point="parametrizedURL" class="dijitHidden"
+         data-template-window="title:'${i18n.parameterURL.title}',dockTool:'urlEncoder',marginBox:{w:380,h:290,r:80,t:55},closable:true,minimizeOnClose:true,resizable:true,dndDraggable:true,windowClass:'ctToolPopup'"
+         data-template-windowevents="onShow:'preSelectLink'"></div>
+    <div data-dojo-attach-point="loginUI" class="dijitHidden"
+         data-template-window="title:'Login',modal:true,closable:false,minimizeOnClose:true,resizable:false,draggable:false,windowClass:'ctLoginWindow',show:true"
+         data-template-windowevents="onHide:'_cancel'"></div>
+    <div data-dojo-attach-point="printDialogAGSPrinting" class="dijitHidden"
+         data-template-window="title:'${i18n.agsPringing.title}',dockTool:'agsprinttool',marginBox:{r:80,t:55,w:327,h:210},closable:true,minimizeOnClose:true,resizable:false,dndDraggable:true,windowClass:'ctToolPopup'"></div>
+</div>

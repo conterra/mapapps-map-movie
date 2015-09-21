@@ -1,0 +1,97 @@
+/* dojox.image.ThumbnailPicker */
+
+@import "../../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .thumbOuter .thumbNav{
+            .bgHD('../../images/spriteGraphics.png');
+        }
+        .thumbOuter .prevHoriz.enabled {
+            background-position: -584px -271px;
+        }
+        .thumbOuter .prevHoriz {
+            background-position: -584px -361px;
+        }
+        .thumbOuter .nextHoriz.enabled{
+            background-position: -634px -271px;
+        }
+        .thumbOuter .nextHoriz{
+            background-position: -634px -361px;
+        }        
+    }
+    .showWebFonts() when (@ct-use-font-icons){
+        .thumbOuter .thumbNav{
+            background-image: none;
+            &:before{
+                .setWebFont();
+                font-size: @ct-icon-large+12px;
+                line-height: @ct-icon-large+12px;
+                color: @ct-icon-muted-color;
+            }
+        }
+        .thumbOuter .prevHoriz.enabled:before {
+            content:'\e00e';
+        }
+        .thumbOuter .nextHoriz.enabled:before {
+            content:'\e00f';
+        }  
+        .thumbOuter .thumbNav.enabled:hover:before {
+            color: @ct-icon-muted-hovered-color;
+        }
+    }  
+    .showWebFonts();
+
+    .thumbWrapper .thumbNotifier {
+        background-color: transparent;
+    }
+
+    .thumbOuter .thumbNav{
+        background-repeat: no-repeat;
+        .size(37px, 43px);
+        top: 13%;
+        position: relative;
+    }
+
+    .thumbOuter .enabled{
+        cursor: pointer;
+    }
+    .thumbOuter.thumbHoriz{
+        padding: 5px 5px 0px 5px;
+        .standard-gradient-and-filter(@primary-color);
+        border: 1px solid @minor-border-color;
+        height: 64px;
+        margin: 0 auto;
+    }
+
+    .thumbScroller{
+        margin-left: 12px;
+        height: 64px;
+    }
+
+    // for chrome & iPad
+    &.ctEnv_WebKit .thumbScroller{
+        //overflow-x: auto;
+    }
+
+    .thumbWrapper img{
+        height: 58px;
+        max-width: 58px;
+        width: ~"expression(this.width > 58 ? 58: true);"/*IE Hack*/
+    }
+
+    .thumbNav img{
+        height: 55px;
+    }
+
+
+    /* Hightlight Selected Thumbnail */
+    .thumbWrapper.thumbHoriz div {
+        border:  1px solid transparent;
+        padding: 0;
+    }
+
+    .thumbWrapper.thumbHoriz div.selected {
+        border-color:  @ct-highlight-border-color;
+    }
+}

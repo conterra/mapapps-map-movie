@@ -1,0 +1,83 @@
+@import "../../themeSettings.less";
+
+.@{themeName}{
+
+    .ctResizeGrid {
+        /* this is the root of the following helper divs, don't make it relative or absolute,
+        otherwise you will block any event to the resize (window) content.*/
+    }
+
+    .ctResizeGrid .ctResizeHandleRightTop{
+        position: absolute;
+        top:0;
+        right:0;
+        width:5pt;
+        height:5pt;
+        cursor: ne-resize;
+    }
+
+    .ctResizeGrid .ctResizeHandleTop{
+        position: absolute;
+        top:-3px;
+        left:5pt;
+        right:5pt;
+        height:5pt;
+        cursor: n-resize;
+    }
+
+    .ctResizeGrid .ctResizeHandleLeftTop{
+        position: absolute;
+        top:0;
+        left:0;
+        width:5pt;
+        height:5pt;
+        cursor: nw-resize;
+    }
+
+    .ctResizeGrid .ctResizeHandleLeft {
+        position: absolute;
+        top:0;
+        left:0;
+        width:5pt;
+        bottom:0;
+        cursor: w-resize;
+    }
+    .ctResizeGrid .ctResizeHandleLeftBottom{
+        position: absolute;
+        left:0;
+        bottom:0pt;
+        width: 5pt;
+        height: 5pt;
+        cursor: ne-resize;
+    }
+    .ctResizeGrid .ctResizeHandleBottom {
+        position: absolute;
+        left:5pt;
+        right:5pt;
+        bottom:0pt;
+        height: 5pt;
+        cursor: n-resize;
+    }
+    .ctResizeGrid .ctResizeHandleRightBottom {
+        position: absolute;
+        right:0;
+        bottom:0pt;
+        width: 5pt;
+        height: 5pt;
+        cursor: nw-resize;
+
+    }
+    .ctResizeGrid .ctResizeHandleRight {
+        position: absolute;
+        top:0;
+        right:0;
+        width: 5pt;
+        bottom:5pt;
+        cursor: w-resize;
+    }
+    .ctResizeGridResizer {
+        position:absolute; top:0; left:0;
+        border:1px dashed @border-color;
+        z-index:1200;
+    }
+}

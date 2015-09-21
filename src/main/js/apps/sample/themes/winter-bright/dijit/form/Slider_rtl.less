@@ -1,0 +1,37 @@
+@import "../../themeSettings.less";
+
+.@{themeName}{
+    .dijitSliderRtl{
+        .dijitSliderProgressBarH,
+        .dijitSliderRemainingBarH,
+        .dijitSliderLeftBumper,
+        .dijitSliderRightBumper,
+        .dijitSliderTopBumper {
+                background-position: top right;
+        }
+
+        .dijitSliderProgressBarV,
+        .dijitSliderRemainingBarV,
+        .dijitSliderBottomBumper {
+                background-position: bottom right;
+        }
+
+        .dijitSliderLeftBumper {
+                border-left-width: 0px;
+                border-right-width: 1px;
+        }
+
+        .dijitSliderRightBumper {
+                border-left-width: 1px;
+                border-right-width: 0px;
+        }
+
+        .dijitSliderIncrementIconH {
+                background-position:-357px 50%;
+        }
+
+        .dijitSliderDecrementIconH {
+                background-position:-251px 50%;
+        }
+    }
+}

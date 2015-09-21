@@ -1,0 +1,64 @@
+/*
+    Document   : PopUpWindow
+    Created on : 21.09.2011, 11:09:38
+    Author     : guest-jk
+    Description:
+        Styling for popUpWindows like ctLocationInfo, ctFeatureInfoWindow, ctInfoWindow.
+        BaseClass: .ctInfoPopupWindow
+*/
+
+/*
+ * 1. General
+ * 2. Tittlebar
+ *  2a. Tittlebar Tools
+ * 3. ContentPane
+*/
+
+@import "../../themeSettings.less";
+
+.@{themeName}{
+    /*
+     * 1. General
+    */
+
+    //TODO: Move to InfoViewer
+    .ctInfoPopupWindow,
+    .esriPopup{
+        font-size: 11px;
+        .dijitContentPane{
+            padding: 0;
+        }
+    }
+    .esriPopup{
+        // remove shadow that is applied by esri.css to all esriPopups. 
+        // The shadow is not wanted if esriPopup is displayed as content of a map.apps window
+        .box-shadow-none();
+    }
+    .ctInfoPopupWindow a{
+        text-decoration: none;
+        font-style: italic;
+    }
+    .ctInfoPopupWindow a:hover{
+        text-decoration: underline;
+    }
+
+    /* Description */
+    .ctInfoPopupWindow .ctDescription{
+        margin-bottom: 5px;
+    }
+
+    /* Photo */
+    .ctInfoPopupWindow .ctImage img{
+        border: 1px solid  @base-border-color;
+    }
+
+    /*AGOL View*/
+    .ctInfoPopupWindow .esriViewPopup {
+        padding-top: 5px;
+        /* Reset header settings for shadow and height */
+        .header {
+            .box-shadow-none;
+            height: initial;
+        }
+    }
+}

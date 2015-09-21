@@ -1,0 +1,51 @@
+@import "../themeSettings.less";
+
+.@{themeName} {
+    .ctConfigureButton {
+        .box-shadow-light(@ct-standard-box-shadow);
+        .setBorderRadius() when (@button-border-radius >0){
+            .border-radius(@button-border-radius);
+        }
+        .setBorderRadius();
+        .dijitButtonNode {
+            padding: 7px 12px;
+            font-size: 14px;
+            // secure that the appbuilder gets a contrast color although the primary and highlight color are the same..
+            .colorizeWizardButton() when (@ct-primary-button-color = @ct-highlight-color){
+                .standard-gradient-and-filter(#d07);
+            }
+            .colorizeWizardButton();
+
+            .dijitIcon {
+                float: right;
+                .showWebFonts() when not (@ct-use-font-icons){
+                    .bgHD('../images/spriteGraphics.png');
+                    background-position: -869px -149px;
+                    top: 6px;
+                    .size(18px);
+                }
+                .showWebFonts() when (@ct-use-font-icons){
+                    &:before {
+                        content: "\e039";
+                    }
+                }
+                .showWebFonts();
+            }
+        }
+    }
+
+    .header .builderWizardBtn .ctConfigureButton {
+        margin: 0;
+        .box-shadow-none();
+        .dijitButtonNode {
+            font-size: 11px;
+            padding: 6px 5px 9px;
+            height: 15px;
+        }
+        .dijitIcon {
+            position: relative;
+            top: .3em;
+            float: right;
+        }
+    }
+}

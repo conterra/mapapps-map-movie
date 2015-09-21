@@ -1,0 +1,247 @@
+/**
+ * Author     : juku
+ *
+ * BASE
+ * [General Purpose]
+ *
+ * 1. [FIRST BLOCK] 
+ * 
+ * 2. [SECOND BLOCK]
+ */
+@import "../themeSettings.less";
+
+//import directionsWebFont only if needed. Otherwise ESRI Images are used
+.toImportOrNotToImport() when (@ct-use-font-icons) {
+  @import: "../../common/fonts/directionsUiFont/directionsUiFont.css";
+}
+
+.@{themeName} {
+  .ctRouting {
+    //use the webFont Direction Icons only if theme uses webFonts. Otherwise the graphics comming from ESRI are used.
+    .showWebFonts() when (@ct-use-font-icons) {
+      .esriDirectionsContainer {
+        .esriRouteIcon {
+          background-image: none;
+          .setWebFont(directionsUiFont);
+          font-size: @ct-icon-medium;
+          color: #000; //esri routingResultList has always white background. So fix color is ok here
+        }
+        .esriStopsReverse,
+        .esriStopIconRemove,
+        .esriStopsClearDirections,
+        .esriResultsPrint {
+          .setWebFont();
+          font-size: @ct-icon-small;
+        }
+        .esriStopOrigin {
+          &.dojoDndItemOver {
+            .standard-gradient(@hovered-background-color);
+          }
+
+        }
+        .esriStopsReverse {
+          background-image: none;
+          &:before {
+            content: '\e61a';
+          }
+        }
+        .esriStopsClearDirections {
+          font-size: 0;
+          float: right;
+          color: @primary-color;
+          text-decoration: initial;
+          &:before {
+            font-size: 15px;
+            content: '\e05b';
+            vertical-align: middle;
+          }
+          &:hover {
+            color: @secondary-color;
+          }
+        }
+        .esriStopIconRemoveColumn {
+          padding-left: 2px;
+          padding-right: 2px;
+          text-align: center;
+          .esriStopIconRemove {
+            background-image: none;
+            &:before {
+              content: '\e019';
+            }
+          }
+        }
+        .esriResultsPrint {
+          background-image: none;
+          &:before {
+            content: '\e05a';
+          }
+        }
+        .esriDMTDepart,
+        .esriDMTStop,
+        .esriDMTStopOrigin {
+          .esriRouteIconColumn {
+            width: 35px;
+            text-align: left;
+          }
+          .esriRouteIcon {
+            font-family: @ct-font-family;
+            &:before {
+              font-family: directionsUiFont;
+            }
+          }
+        }
+        .esriRouteIconColumn {
+          text-align: center;
+        }
+      }
+
+      .simpleDirections .esriResultsLoading .esriResultsContainer {
+        background: none;
+        text-align: center;
+        &:before {
+          content: '\e097';
+          .animation(spin, 1.5s, infinite, linear);
+          .setWebFont();
+          font-size: @ct-icon-medium;
+          min-height: @ct-icon-medium;
+        }
+      }
+    }
+
+    .showWebFonts() when not (@ct-use-font-icons) {
+      .esriDirectionsContainer {
+        .esriRouteIcon:before {
+          content: '';
+        }
+        .esriStopsGetDirectionsContainer {
+          > div {
+            margin: .3em 0;
+          }
+        }
+      }
+      .ctTool_routingToggleTool {
+        .dijitIcon {
+          background-position: -1485px -540px;
+        }
+        &.dijitHover,
+        &.dijitToggleButtonHover,
+        &.dijitToggleButtonChecked {
+          .dijitIcon {
+            background-position: -1485px -585px;
+          }
+        }
+        &.dijitDisabled {
+          .dijitIcon {
+            background-position: -1485px -630px;
+          }
+        }
+      }
+      .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-routing .ctCollapseOpposite .ctCollapseInnerHandle {
+        background-position: -1485px -585px;
+      }
+    }
+    .showWebFonts();
+
+    /*  2. The main Routing widget layout'*/
+    height: 100%;
+    padding-right: 5px;
+    .esriGeocoder {
+      padding: 6px;
+      border-bottom: none;
+      background-color: @textbox-background-color;
+    }
+    .esriGeocoderResults {
+      color: @ct-textbox-font-color;
+    }
+    // locate Button inside the text inputs. Dissapear only while hovering the inputs
+    .LocateButton {
+      cursor: pointer;
+      top: 2px;
+      right: 6px;
+    }
+    .esriStop .esriStopReverseColumn {
+      padding-left: 0;
+      text-align: center;
+      vertical-align: middle;
+    }
+    // different types of buttons
+    .esriStopsOptionsButton,
+    .esriStopsAddDestination,
+    .esriOptionsCheckboxes {
+      color: @text-color;
+    }
+    .esriDirectionsButton {
+      //as these are no dijit Buttons we have to give them at least the look of dijit Buttons
+      display: inline-block;
+      padding: @ct-button-padding;
+      text-decoration: none;
+      text-transform: none;
+      font-weight: bold;
+      .standard-gradient-and-filter(@button-background-color);
+      color: @ct-button-text-color;
+      // set border radius of routing buttons according to button-border-radius defined in themeSettings.less
+      .border-radius(@button-border-radius);
+      margin: 0 .3em;
+      border-width: 0;
+      vertical-align: middle;
+      // fake dijitButtonHover Style
+      &:hover {
+        .standard-gradient-and-filter(@button-hovered-background-color);
+        color: @ct-button-hovered-text-color;
+      }
+    }
+    .esriStopsGetDirections {
+      float: none;
+      width: 100%;
+    }
+    // special style for a group of buttons
+    .esriDirectionsTabButton {
+      .standard-gradient-and-filter(transparent);
+      color: @text-color;
+      border: solid @button-background-color;
+      border-width: 1px 1px 1px 0;
+      margin-left: 0;
+      margin-right: 0;
+      &:first-child {
+        border-left-width: 1px;
+      }
+    }
+    .esriDirectionsPressedButton {
+      .standard-gradient-and-filter(@button-background-color);
+      color: @ct-button-text-color;
+      .box-shadow-none();
+    }
+    //the button to select start/destination from map
+    .esriActivateButton {
+      width: 22px;
+      padding: 0;
+      border: none;
+    }
+    //container above the routing result list
+    .esriResultsSummary {
+      background: @container-background-color;
+      color: @text-color;
+    }
+    .esriResultsButtonsContainer {
+      color: #000; //esri routingResultList has always white background. So fix color is ok here
+    }
+    // when hovering a routing advice, color like a hovered button
+    tr.esriRouteZoom:hover {
+      background-color: @button-hovered-background-color;
+      .esriRouteInfo,
+      .esriRouteIcon,
+      strong {
+        color: @ct-button-hovered-text-color;
+      }
+    }
+
+    //the info window with routing details
+    .esriInfoWindowRoute {
+      //inconsistent use of class "esriRouteIcon" so that we have to set back the font-family for routing description
+      font-family: @ct-font-family;
+      &:before {
+        content: none;
+      }
+    }
+  }
+}

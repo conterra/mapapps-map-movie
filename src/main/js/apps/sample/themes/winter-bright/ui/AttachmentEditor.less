@@ -1,0 +1,76 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctAttachmentUI {
+        overflow-y: auto;
+
+        br {
+            // important is due to the js api that adds style directly to element
+            display : none!important;
+        }
+        .contentBody {
+            margin: 0 5px;
+            br {
+                display : none;
+            }
+        }
+        .error {
+            color : @error-color;
+        }
+        //the list containing all attachments
+        .list{
+            display: block;
+            position: relative;
+            > span {
+                color: transparent; // hiding the (X)
+                display: block;
+                padding-left: 5px;
+                line-height: 2em;
+                &:hover{
+                    background-color:@button-hovered-background-color;
+                    a {color: @ct-button-hovered-text-color;}
+                }
+            }
+            a{
+                color: @text-color;
+            }
+            .deleteAttachment{
+                vertical-align: middle;
+                position: absolute;
+                right: 0;
+                font-size: 0;
+                .size(22px);
+            }
+            .showTrashCan() when not (@ct-use-font-icons){
+                .deleteAttachment{
+                    .bgHD('../images/spriteGraphics.png');
+                    background-position: -1137px -418px;
+                }
+                > span:hover .deleteAttachment{
+                    background-position: -1137px -463px;
+                }
+            }
+            .showTrashCan() when (@ct-use-font-icons){
+                .deleteAttachment:before{
+                    .setWebFont();
+                    content:'\e05b';
+                    line-height: 22px;
+                    text-align: center;
+                    font-size: @ct-icon-small;
+                    color: @text-color;
+                }
+                > span:hover .deleteAttachment:before{
+                    color: @ct-icon-on-primary-hovered-color;
+                }
+            }
+            .showTrashCan();
+            a {
+                margin-right: 5px;
+            }
+        }
+        .title,
+        hr {
+            display: none;
+        }
+    }
+}

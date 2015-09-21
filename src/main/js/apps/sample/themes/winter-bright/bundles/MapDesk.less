@@ -1,0 +1,119 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+
+    /*reset from window base background (grey gradient)*/
+    /*Mapdesk main div must not have a padding! otherwise the collapsing doesn't work proper*/
+    .mapDesk.ctWindow {
+        border: none;
+        .dijitDialogPaneContent{
+            .fade(@pane-background-color, 90%);
+        }
+        .dijitDialogTitleBar{
+            .fade(@dialog-titlebar-background-color, 90%);
+        }
+        &.ctTransparent{
+            .dijitDialogPaneContent{
+                .fade(@pane-background-color, 70%);
+            }
+            .dijitDialogTitleBar{
+                .fade(@dialog-titlebar-background-color, 70%);
+            }
+        }
+    }
+
+    /* base class of a mapdesk */
+    .ctMapDesk,
+    .mapDesk .ctWindowTitelBarPadding .dijitDialogTitleBar {
+        border-width: 0;
+    }
+    .ctTransparent .ctMapDesk,
+    .ctTransparent.mapDesk .ctWindowTitelBarPadding .dijitDialogTitleBar{
+        background-image: none;
+    }
+
+    /* class of the content/container node */
+    .ctMapDeskContent {
+        .size(100%);
+        position: relative;
+        overflow: auto;
+        .dijitDialogPaneContent.dijitDialogSingleChild{
+            // needed to overwrite style of parent mapdesk layout
+            padding:10px 8px;
+        }
+    }
+
+    // Selector looks strange but is NEEDED to affect only the mapdesk and NOT all windows which are childs of mapdesk
+    .mapDesk > .ctWindowPadding > .ctContentPadding > .dijitDialogPaneContent{
+        padding: 0;
+    }
+    /* BG Mapdesk Content */
+    .mapDesk {
+        .dijitDialogPaneContent{
+            border-top-width: 0px;
+        }
+        .ctWindowEffect .dijitDialogPaneContent{
+            padding-top: 8px;
+            border-top-width: 1px;
+        }
+        .overviewMap.ctWindowEffect .dijitDialogPaneContent,
+        .magnifier.ctWindowEffect .dijitDialogPaneContent,
+        .streeView.ctWindowEffect .dijitDialogPaneContent{
+            padding-top: 0;
+            border-right-width: 0;
+        }
+        .dijitDialogTitleBar {
+            border-width:0;
+            padding: 5px 7px 4px 7px;
+        }
+        .ctResizeGrid .ctResizeHandleLeft{
+            background-color: @ct-collapse-and-resize-handle-color;
+        }
+        .dijitDialogPaneContent .ctResizeGrid .ctResizeHandleLeft{
+            background: transparent;
+        }
+        .showWebFontCollapseHandle() when (@ct-use-font-icons){
+            .ctCollapseInnerHandle:before{
+                top: ((84px - @ct-icon-small)/2);
+                font-size: 18px;
+            }
+        }
+        .showWebFontCollapseHandle();
+
+    }
+
+    //without the '>' selectors below, all windows dropped onto mapDesk are affected
+    .mapDesk> .ctWindowPadding > .ctWindowTitelBarPadding{
+        .ctWindowDragTitleBar{
+            display: none;
+        }
+        .ctWindowToolbar{
+            position: static;
+            display: block;
+        }
+    }
+
+    /* Reset for InfoWindow Widgets on Mapdesk */
+    .ctMapDeskContent {
+        .ctWindowContentPadding .dijitDialogPaneContent{
+            border-top-width: 1px;
+        }
+        .overviewMap .ctWindowContentPadding .dijitDialogPaneContent,
+        .magnifier .ctWindowContentPadding .dijitDialogPaneContent,
+        .streeView .ctWindowContentPadding .dijitDialogPaneContent{
+            padding-top: 0;
+            border-right-width: 0;
+        }
+        .mapDeskAnchor .ctWindowDragTitleBar{
+            display: block;
+        }
+        .ctWindowToolbar{
+            position: absolute;
+        }
+    }
+
+    // Imitation of shadows for Windows on Mapdesk in IE8 and below
+    &.ctEnv_IE_8 .ctMapDeskContent .ctWindow{
+        border: 2px solid darken(@border-color, 10%);
+    }
+}

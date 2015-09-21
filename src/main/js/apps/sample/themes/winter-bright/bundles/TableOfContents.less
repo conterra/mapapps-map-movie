@@ -1,0 +1,81 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .ctTableOfContents {
+        background: @container-background-color;
+        .border-radius();
+        max-height: 300px;
+        overflow: auto;
+        width: 250px;
+        border: 1px solid @border-color;
+
+        .ctNotVisibleInScale {
+            color: @disabled-text-color;
+        }
+        .ctNotVisibleInExtent {
+            color: @ct-warn-color;
+        }
+        .ctNotVisibleInSpatialReference {
+            color: @error-color;
+        }
+        .ctSelected {
+            font-weight: bold;
+        }
+    }
+    .ctTableOfContentsToolTip {
+        padding :0;
+        margin :0;
+        font-size: 0.8em;
+        color: @text-color;
+    }
+
+    // Tree Icon according to map/Layer type
+    // This is valid for any Tree Representation of MapModel
+    .showWebFonts() when (@ct-use-font-icons){
+        .dijitTreeIcon{  
+            &.ct_layer{
+                background-image: none;
+                &:before{
+                    content:'\e0be';
+                }
+            }
+            &.ct_grouplayer:before{
+                content:'\e0af';
+            }
+            &.ct_service{
+                &:before{
+                    content:'\e624';
+                }
+                &.WMS:before,
+                    &.AGS_DYNAMIC:before{
+                    content:'\e61d';
+                }
+                &.WMTS:before,
+                    &.AGS_IMAGE:before,
+                    &.AGS_TILED:before{
+                    content:'\e623';
+                }
+                &.AGS_FEATURE:before{
+                    content:'\e61e';
+                }
+                &.INSPIRE_VIEW:before{
+                    content:'\e620';
+                }
+                &.GOOGLE_MAPS:before{
+                    content:'\e61f';
+                }
+                &.BING_MAPS:before{
+                    content:'\e61c';
+                }
+                &.OPEN_STREET_MAP:before{
+                    content:'\e622';
+                }
+                &.KML:before{
+                    content:'\e621';
+                }
+
+            }
+        }
+    }
+    .showWebFonts();
+}

@@ -1,0 +1,48 @@
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .showWebFonts() when not (@ct-use-font-icons){
+        .ctTool{
+            .icon-globe{
+                background-position: -495px 0;
+            }
+            &.dijitHover,
+            &.dijitToggleButtonChecked{
+                .icon-globe{
+                    background-position: -495px -45px;
+                }
+            }
+            &.dijitDisabled .icon-globe{
+                background-position: -495px -90px;
+            }
+        }
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-globe .ctCollapseOpposite .ctCollapseInnerHandle{
+            background-position: -495px -45px;
+        }
+    }
+
+    .showWebFonts() when (@ct-use-font-icons){
+        .ctToolWindow.ctCollapsed.ctActiveToolIcon_icon-globe .ctCollapseOpposite .ctCollapseInnerHandle:before{
+            content:'\e048';
+        }
+    }
+
+    .showWebFonts();
+
+    .ctOverviewMap {
+        position: relative !important;
+        &.esriOverviewMap.ovwTL .ovwContainer {
+            border:none !important;
+            padding: 0;
+        }
+        .ovwHide {
+            display: none;
+        }
+        .map .container .layersDiv {
+            background-image: none;
+            &:before{
+                content: none;
+            }
+        }
+    }
+}

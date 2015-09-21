@@ -1,0 +1,58 @@
+@import "../themeSettings.less";
+//DO NOT CHANGE! Theme prefix is generated from @themeName in themeSettings.less
+.@{themeName}{
+    .dijitDialogUnderlayWrapper {
+        z-index: 1000!important;
+    }
+    .ctAppBuilderWindow {
+        z-index: 1001!important;
+    }
+    .ctConfigureButton {
+        .dijitButton {
+            margin: 0;
+            width: 50%;
+            &.unsaved {
+                .dijitIcon,
+                .dijitButtonText {
+                    color: @error-color;
+                }
+            }
+
+            &.unsaved .dijitIcon:before,
+                &.saved .dijitIcon:before{
+                content:'\e040';
+            }
+        }
+    }
+    .ctConfigurableWidget {
+        z-index: 1000;
+        position: absolute;
+        cursor: pointer;
+        .transition(background,.25s, ease-in-out);
+        &.notConfigured {
+            background-color: rgba(255,255,0,0.2)
+        }
+        &.notConfigured:hover {
+            background-color: rgba(255,255,0,0.4)
+        }
+        &.configured {
+            background-color: rgba(0, 255, 0, 0.3);
+            .icon{
+                color: @text-color;
+            }
+        }
+        &.configured:hover {
+            background-color: rgba(0, 255, 0, 0.6);
+        }
+        .icon {
+            color: #0391FE;
+            position: absolute;
+            right: 0;
+            font-size: 1.3em;
+        }
+    }
+
+    .ctAppBuilderWindow .dijitAccordionTitle{
+        color: #fff;
+    }
+}

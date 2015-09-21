@@ -1,0 +1,138 @@
+/* Toolbar 
+ * 
+ * Styling Toolbar means styling the toolbar container and the widget inside toolbar  (dijitToolbar)
+ * 
+ * 1. toolbar (default styling): 
+ * 		.dijitToolbar - styles for outer container
+ *
+ * 2. widget inside toolbar
+ * 		.dijitToolbar .dijitButtonNode   - Button widget
+ * 					  .dijitComboButton  - ComboButton widget
+ * 					  .dijitDropDownButton  - DropDownButton widget
+ * 					  .dijitToggleButton  - ToggleButton widget
+ * 		
+ * 3. hovered widget inside toolbar (ie, mouse hover on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeHover  - styles for hovered Button widget
+ * 
+ * 4. actived widget inside toolbar (ie, mouse down on the widget inside)
+ * 			.dijitToolbar .dijitButtonNodeActive  - mouse down on Button widget
+ */
+@import "../themeSettings.less";
+
+.@{themeName}{
+    .dijitToolbar {
+            border-bottom: 1px solid @border-color;
+            background-color: @bar-background-color;
+            background-image: url("images/commonHighlight.png");
+            background-position:0px 0px;
+            background-repeat:repeat-x;
+            padding: 2px 0px 2px 4px;
+            zoom: 1;
+    }
+
+    .dijitToolbar label {
+            padding: 0px 3px 0 6px;
+    }
+
+    /** override pure/form/Button.css **/
+    .dijitToolbar .dijitButtonNode {
+            border:none;
+            padding: 2px;
+            background-image: url("images/commonHighlight.png");
+            background-position:0 -30px;
+            background-repeat:repeat-x;
+            background-color:rgba(171,214,255,0);
+            .border-radius(@toolbar-button-border-radius);
+            .box-shadow-none();
+            .transition-property(background-color);
+            .transition-duration(.3s);
+    }
+    .dijitToolbar .dijitComboButton .dijitButtonNode{
+            padding: 3px 2px 3px 2px;	/* make the ComboButton in toolbar more stable when mouse hovering */
+    }
+
+    .dijitToolbar .dijitComboBox .dijitButtonNode {
+            padding: 0px;
+    }
+
+    .dijitToolbar .dijitComboButton {
+            padding: 1px;
+    }
+    /* hover status */
+    .dijitToolbar .dijitButtonHover .dijitButtonNode,
+    .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode,
+    .dijitToolbar .dijitToggleButtonHover .dijitButtonNode {
+            background-position:0 0;
+            //border:solid 1px #769dc0;
+            background-color: @hovered-background-color;
+            padding: 1px;
+    }
+    .dijitToolbar .dijitComboButtonHover {
+            background-color: @hovered-background-color;
+            border: solid 1px @hovered-border-color;
+            padding: 0px;
+    }
+    .dijitToolbar .dijitComboButtonHover .dijitButtonNode,
+    .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+            background-position:0 0;
+            padding: 2px;
+    }
+    .dijitToolbar .dijitComboButtonHover .dijitDownArrowButton {
+            background-color: @toolbar-combobutton-hovered-unhoveredsection-background-color;
+    }
+    /* actve status */
+    .dijitToolbar .dijitButtonActive .dijitButtonNode,
+    .dijitToolbar .dijitDropDownButtonActive .dijitButtonNode,
+    .dijitToolbar .dijitToggleButtonActive .dijitButtonNode {
+            border-width: 1px;
+            background-color:@pressed-background-color;
+            background-position:0px -177px;
+            padding: 1px;
+    }
+    .dijitToolbar .dijitComboButtonActive {
+            .transition-duration(.2s);
+            border-width: 1px;
+            padding: 0px;
+    }
+    .dijitToolbar .dijitComboButtonActive .dijitButtonNode {
+            background-color: @toolbar-combobutton-hovered-unhoveredsection-background-color;
+            background-position:0px -177px;
+            padding: 2px;
+    }
+    .dijitToolbar .dijitComboButton .dijitDownArrowButtonActive {
+            background-color: @pressed-background-color;
+    }
+    /* toggle button checked status */
+    .dijitToolbar .dijitToggleButtonChecked .dijitButtonNode {
+            border-color: @selected-border-color;
+            background-color: @toolbar-button-checked-background-color;
+            padding: 1px;
+    }
+
+
+
+    .dijitToolbarSeparator {
+            /* separator icon in the editor sprite */
+            background: url('../images/editorIconsEnabled.png');
+    }
+
+    /* Toolbar inside of disabled Editor */
+    .dijitDisabled .dijitToolbar {
+            background:none;
+            background-color:@disabled-background-color;
+            border-bottom: 1px solid @disabled-border-color;
+    }
+}
+
+/** hacks for browsers **/
+.dj_ie7 {.@{themeName}{ .dijitToolbar .dijitButtonContents {
+	margin: -2px 0;
+	padding: 0;
+}}}
+
+.dj_ie {.@{themeName}{ .dijitToolbar .dijitButtonNode {
+            background-color: transparent;   /* for IE, which doesn't understand rgba(...) */
+    }}}
+.dj_ie6 {.@{themeName}{ .dijitToolbar .dijitButtonNode {
+            background: none;	/* because background-color: transparent above doesn't work */
+        }}}

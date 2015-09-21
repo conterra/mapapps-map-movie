@@ -1,0 +1,143 @@
+@import "../themeSettings.less";
+
+//  1) Styling for a ToggleButtonGroup
+//  2) Styling for Small Add/Remove Button
+//  3) Styling for general loading icon
+
+.@{themeName}{
+    //  1) used to make a checked toggle button within a ctToggleButtonGroup look like a checked button
+    .ctToggleButtonGroup .dijitToggleButtonChecked .dijitButtonNode{}
+
+    //  2) Styling for Small Add/Delete Button
+    .toolbar{
+        .ctAddButton,
+        .ctDeleteButton,
+        //or if it is a ctTool containing something with ctTool_add or ctTool_delete:
+        [class*='ctTool_delete'],
+        [class*='ctTool_remove'],
+        [class*='ctTool_add'],
+        [class*='ctTool_create']{
+            .dijitButtonText{
+                padding: 0;
+            }
+            .dijitButtonNode{
+                .showWebFonts() when not (@ct-use-font-icons){
+                    padding: 0px 4px 5px;
+                }
+                .showWebFonts() when (@ct-use-font-icons){
+                    font-size: @ct-icon-medium;
+                    padding: 0px;
+                    height: 22px;
+                }
+                .showWebFonts();
+            }
+            .dijitIcon{
+                .showWebFonts2() when not (@ct-use-font-icons){
+                    .size(11px);
+                    .bgHD('../images/spriteGraphics.png');
+                }
+                .showWebFonts2() when (@ct-use-font-icons){
+                    &:before{
+                        .setWebFont();
+                        //color:@ct-icon-on-primary-color;
+                        position: relative;
+                        top: -6px;
+                    }
+                }
+                .showWebFonts2();
+            }
+        }
+    }
+
+    .showWebFonts3() when not (@ct-use-font-icons){
+        .dijitIcon{
+            &.icon-plus,
+            &[class*='ctToolIcon_add'],
+            &[class*='ctToolIcon_create']{
+                background-position: -1682px -422px;
+            }
+            &[class*='ctToolIcon_delete'],
+            &[class*='ctToolIcon_remove']{
+                background-position: -1727px -422px;
+            }
+        }
+        &.dijitButtonHover .dijitIcon{
+            &.icon-plus,
+            &[class*='ctToolIcon_add'],
+            &[class*='ctToolIcon_create']{
+                background-position: -1682px -467px;
+            }
+            &[class*='ctToolIcon_delete'],
+            &[class*='ctToolIcon_remove']{
+                background-position: -1727px -467px;
+            }
+        }
+        &.dijitButtonDisabeld .dijitIcon{
+            &.icon-plus,
+            &[class*='ctToolIcon_add'],
+            &[class*='ctToolIcon_create']{
+                background-position: -1682px -512px;
+            }
+            &[class*='ctToolIcon_delete'],
+            &[class*='ctToolIcon_remove']{
+                background-position: -1727px -512px;
+            }
+        }
+    }
+    .showWebFonts3();
+
+    // 3) Loading icon
+    .ctLoadingIndicator{ 
+        padding: 8px;
+        position: relative;
+        .ctLoading{
+            //vertical and horizontal center align of loading spinner
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -8px;
+            margin-left: -8px;
+        }
+    }
+    .showWebFonts4() when not (@ct-use-font-icons){
+        .ctLoading {
+            background: url("../images/ie_fallback_spinner.gif") center center no-repeat;
+        }
+    }
+
+    .showWebFonts4() when (@ct-use-font-icons){
+        .ctLoading {
+            .setWebFont();
+            font-size: @ct-icon-small;
+            color: @ct-highlight-color;
+            .animation(spin, 1.5s, infinite, linear);
+            &:before {
+                content: "\e097";
+            }
+        }
+        &.ctEnv_IE_8,
+        &.ctEnv_IE_9{
+            //as IE <10 does not know css3 animations we need to put an animated gif instead.
+            .ctLoading {
+                .size(15px);
+                background-image: url(../images/ie_fallback_spinner.gif);
+                //and remove the webFontIcon
+                &:before {
+                    content: "";
+                }
+            }
+        }
+        &.ctEnv_FF{
+            .ctLoading{
+                line-height: @ct-icon-small - 2px;
+            }
+        }
+    }
+
+    .showWebFonts4();
+
+    .dijitTextBoxFocused {
+        // outline: 1px solid @ct-toolset-tool-button-hovered-background-color;
+        outline-offset: 1px ;
+    }
+}

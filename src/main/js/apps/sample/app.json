@@ -1,0 +1,238 @@
+{
+    "properties": {
+        "title": "Map Movie App-Template"
+    },
+    "load": {
+        "bundleLocations": ["${app}/bundles", "bundles"],
+        "allowedBundles": ["dataform",
+            "mobileview",
+            "notifier",
+            "parametermanager",
+            "splashscreen",
+            "toolset",
+            "agsprinting",
+            "locateme",
+            "measurement",
+            "navigationtoolset",
+            "locator",
+            "omnisearch",
+            "crossfader",
+            "system",
+            "templatelayout",
+            "customwizard",
+            "image",
+            "wizard"
+        ],
+        "require": ["${app}.app"],
+        "i18n": ["bundle"]
+    },
+    "bundles": {
+        "wizard": {
+            "BundleMenuController": {
+                "componentEnabled": false
+            }
+        },
+        "locator": {
+            "LocatorStore": {
+                "url": "http://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
+            }
+        },
+        "locateme": {
+            "WatchHandler": {
+                "outlineColor": [79,
+                    118,
+                    145,
+                    0.5],
+                "outlineStroke": 1,
+                "fillColor": [79,
+                    118,
+                    145,
+                    0.4],
+                "symbol": {
+                    "url": "images/locateme_marker_winter.png",
+                    "width": 14.5,
+                    "height": 14.5
+                }
+            },
+            "ZoomToHandler": {
+                "trackPosition": true
+            }
+        },
+        "map": {
+            "MapModelFactory": {
+                "_configData": {
+                    "maps": [{
+                            "id": "default",
+                            "glass_pane": [],
+                            "operationalLayer": [],
+                            "baseLayer": [{
+                                    "id": "streets",
+                                    "title": "Streetmap",
+                                    "enabled": true,
+                                    "service": "streets",
+                                    "category": {
+                                        "imgUrl": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/0/0/0"
+                                    },
+                                    "layers": ["*"]
+                                }, {
+                                    "id": "topo",
+                                    "title": "Topography",
+                                    "service": "topo",
+                                    "category": {
+                                        "imgUrl": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/0/0/0"
+                                    },
+                                    "layers": ["*"]
+                                }, {
+                                    "id": "image",
+                                    "title": "Satellite",
+                                    "service": "image",
+                                    "category": {
+                                        "imgUrl": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/0/0/0"
+                                    },
+                                    "layers": ["*"]
+                                }
+                            ]
+                        }]
+                }
+            },
+            "MapState": {
+                "initialExtent": {
+                    "xmin": -896965.2750203621,
+                    "xmax": 3212289.3655896215,
+                    "ymin": 5170567.199262223,
+                    "ymax": 8086181.206171212,
+                    "wkid": 3857
+                }
+            },
+            "MapWidgetFactory": {
+                "esriMapOpts": {
+                    "slider": false,
+                    "nav": false,
+                    "logo": true,
+                    "sliderStyle": "small",
+                    "doubleClickZoom": true,
+                    "clickRecenter": true,
+                    "pan": true,
+                    "rubberBandZoom": true,
+                    "keyboardNavigation": true,
+                    "scrollWheelZoom": true,
+                    "sliderPosition": "bottom-right",
+                    "displayGraphicsOnPan": true,
+                    "fadeOnZoom": true,
+                    "showAttribution": true,
+                    "sliderOrientation": "vertical",
+                    "sliderLabels": [""],
+                    "navigationMode": "css-transforms"
+                }
+            },
+            "MappingResourceRegistryFactory": {
+                "_knownServices": {
+                    "services": [{
+                            "id": "topo",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Topography",
+                            "layers": [{
+                                    "id": "0"
+                                }]
+                        }, {
+                            "id": "streets",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Streetmap",
+                            "layers": [{
+                                    "id": "0"
+                                }]
+                        }, {
+                            "id": "image",
+                            "url": "http://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+                            "type": "AGS_TILED",
+                            "title": "Image",
+                            "layers": [{
+                                    "id": "0"
+                                }]
+                        }]
+                }
+            }
+        },
+        "omnisearch": {
+            "MANIFEST": {
+                "Config-Bundle-Location": null
+            },
+            "ZoomHandler": {
+                "scale": 5000
+            }
+        },
+        "templates": {
+            "MANIFEST": {
+                "Config-Bundle-Location": null
+            },
+            "TemplateModel": {
+                "_selectedTemplate": "mapMovieTemplate",
+                "_templates": [{
+                        "name": "mapMovieTemplate",
+                        "location": "${app}/templates"
+                    }]
+            },
+            "TemplateSelector": {
+                "componentEnabled": false
+            }
+        },
+        "themes": {
+            "MANIFEST": {
+                "Config-Bundle-Location": null
+            },
+            "ThemeModel": {
+                "_selectedTheme": "winter-bright",
+                "_themes": [{
+                        "name": "spring"
+                    }, {
+                        "name": "winter-bright",
+                        "location": "${app}.themes"
+                    }]
+            },
+            "ThemeSelector": {
+                "componentEnabled": false
+            }
+        },
+        "crossfader": {
+            "CrossFaderController": {
+                "stopOnClose": false,
+                "resetOnClose": false,
+                "transitionTime": 5000
+            },
+            "CrossFaderTool": {
+                "activateOnStartup": true
+            }
+        },
+        "toolset": {
+            "MANIFEST": {
+                "Config-Bundle-Location": null
+            },
+            "ToolsetManager": {
+                "toolsets": [{
+                        "id": "default_tools",
+                        "windowType": "container",
+                        "registerWidget": true,
+                        "container": "ignore",
+                        "tools": ["agsprinttool",
+                            "urlEncoder",
+                            "measurementtool",
+                            "bookmarkstool"]
+                    },
+                    {
+                        "id": "mapview_tools",
+                        "container": "map",
+                        "max_horizontal": 1,
+                        "windowType": "css_positioned",
+                        "cssClass": "notitle muted mapview_tools",
+                        "tools": ["initialExtentTool",
+                            "locateme",
+                            "zoomInClickTool",
+                            "zoomOutClickTool",
+                            "*CustomInfoTool"]
+                    }]
+            }
+        }
+    }
+}
