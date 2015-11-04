@@ -1,8 +1,8 @@
 {
-    "Bundle-SymbolicName": "customwizard",
+    "Bundle-SymbolicName": "dn_customwizard",
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
-    "Bundle-Version": "1.0.0-SNAPSHOT",
+    "Bundle-Version": "1.0.1",
     "Bundle-Name": "Logo",
     "Bundle-Vendor": "con terra GmbH",
     "Require-Bundle": [{
@@ -32,8 +32,8 @@
                         "query": ".ctTool_measurementtool .dijitButtonNode",
                         "widgetId": "measurementBuilderWidget"
                     }, {
-                        "query": ".ctImage",
-                        "widgetId": "imageBuilderWidget"
+                        "query": ".ctBanner",
+                        "widgetId": "bannerBuilderWidget"
                     }, {
                         "query": ".ctMapCrossfader",
                         "widgetId": "crossfaderWidget"

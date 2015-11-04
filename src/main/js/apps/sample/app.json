@@ -4,7 +4,8 @@
     },
     "load": {
         "bundleLocations": ["${app}/bundles", "bundles"],
-        "allowedBundles": ["dataform",
+        "allowedBundles": [
+            "dataform",
             "mobileview",
             "notifier",
             "parametermanager",
@@ -16,17 +17,25 @@
             "navigationtoolset",
             "locator",
             "omnisearch",
-            "crossfader",
             "system",
             "templatelayout",
-            "customwizard",
-            "image",
+            "dn_customwizard",
+            "dn_crossfader",
+            "banner",
             "wizard"
         ],
         "require": ["${app}.app"],
         "i18n": ["bundle"]
     },
     "bundles": {
+        "banner": {
+            "BannerWidget": {
+                "image": "resource('${app}:/images/icon.png')",
+                "imageWidth": 100,
+                "link": "http://www.example.com/",
+                "imagePosition": "above"
+            }
+        },
         "wizard": {
             "BundleMenuController": {
                 "componentEnabled": false
@@ -195,7 +204,7 @@
                 "componentEnabled": false
             }
         },
-        "crossfader": {
+        "dn_crossfader": {
             "CrossFaderController": {
                 "stopOnClose": false,
                 "resetOnClose": false,
