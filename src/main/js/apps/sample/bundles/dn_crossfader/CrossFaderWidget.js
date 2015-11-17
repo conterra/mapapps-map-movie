@@ -54,7 +54,6 @@ define([
                 },
                 show: function () {
                 }
-            }
-            )
+            });
         }
 );

@@ -141,7 +141,7 @@ define([
                     //		private
 
                     this._closeChild(); // don't call this.onClose since that's incorrect for MenuBar's that never close
-                    if(typeof this.isShowingNow == 'undefined'){ // non-popup menu doesn't call onClose
+                    if(typeof this.isShowingNow === 'undefined'){ // non-popup menu doesn't call onClose
                         this.set("activated", false);
                     }
 

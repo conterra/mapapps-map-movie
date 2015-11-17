@@ -40,16 +40,17 @@ define([
                     this.overlayLabelNode.innerHTML = val;
                 },
                 _setUnselectedAttr: function (unselected) {
-                    if (unselected) {
+                    /*if (unselected) {
                         domClass.add(this.overlayNode, "unselected");
                     } else {
                         domClass.remove(this.overlayNode, "unselected");
-                    }
+                    }*/
+                    ct_css.toggleClass(this.overlayNode, "unselected", unselected);
                 },
                 _setSelected: function (selected) {
                     this.inherited(arguments);
-                    ct_css.toggleClass(this.overlayLabelNode, "dijitHidden", !selected);
-                    ct_css.toggleClass(this.overlayNode, "dijitHidden", !selected);
+                    //ct_css.toggleClass(this.overlayLabelNode, "dijitHidden", !selected);
+                    //ct_css.toggleClass(this.overlayNode, "dijitHidden", !selected);
                 },
                 _setIconUrlAttr: function (src) {
                     domStyle.set(this._iconCellNode, {
