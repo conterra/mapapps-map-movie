@@ -5,6 +5,7 @@
     "Bundle-Version": "1.0.1",
     "Bundle-Name": "Logo",
     "Bundle-Vendor": "con terra GmbH",
+    "Product-Name": "con terra Developer Network",
     "Require-Bundle": [{
             "name": "windowmanager",
             "version": "^3.3.0"
