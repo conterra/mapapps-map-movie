@@ -7,6 +7,7 @@
     "Config-Bundle-Location": "/config",
     "Bundle-Layer": "module",
     "Bundle-AutoStartPolicy": "yes",
+    "Product-Name": "con terra Developer Network",
     "Require-Bundle": [{
             "name": "map",
             "version": "^3.3.0"
