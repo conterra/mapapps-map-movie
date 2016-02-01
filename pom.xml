@@ -16,7 +16,8 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>ct-mapapps-map-movie</artifactId>
@@ -151,12 +152,17 @@
                 <plugin>
                     <groupId>org.eclipse.jetty</groupId>
                     <artifactId>jetty-maven-plugin</artifactId>
-                    <version>9.2.1.v20140609</version>
+                    <version>9.2.10.v20150310</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>properties-maven-plugin</artifactId>
                     <version>1.0-alpha-2</version>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.code.maven-replacer-plugin</groupId>
+                    <artifactId>replacer</artifactId>
+                    <version>1.5.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.lesscss</groupId>
@@ -314,7 +320,9 @@
                                     <version>${mapapps.version}</version>
                                     <classifier>src</classifier>
                                     <outputDirectory>${project.build.directory}/unpacked</outputDirectory>
-                                    <includes>bundles/base/themes/themes/winter/**,bundles/base/themes/themes/common/**,bundles/base/templates/templates/common/**</includes>
+                                    <includes>
+                                        bundles/base/themes/themes/winter/**,bundles/base/themes/themes/common/**,bundles/base/templates/templates/common/**
+                                    </includes>
                                 </artifactItem>
                             </artifactItems>
                         </configuration>
@@ -369,7 +377,6 @@
             <plugin>
                 <groupId>com.google.code.maven-replacer-plugin</groupId>
                 <artifactId>replacer</artifactId>
-                <version>1.5.3</version>
                 <executions>
                     <execution>
                         <id>replace some config settings in app.json</id>
@@ -386,7 +393,8 @@
                             <replacements>
                                 <replacement>
                                     <!-- remove bundleLocations from app.json -->
-                                    <token>\s*"bundleLocations"\s*:\s*\[\s*"localbundles"\s*,\s*"bundles"\s*\]\s*,\s*</token>
+                                    <token>\s*"bundleLocations"\s*:\s*\[\s*"localbundles"\s*,\s*"bundles"\s*\]\s*,\s*
+                                    </token>
                                     <value></value>
                                 </replacement>
                             </replacements>
@@ -407,7 +415,8 @@
                         <configuration>
                             <templateName>${project.artifactId}</templateName>
                             <templateTitle>${project.artifactId}-${project.version}</templateTitle>
-                            <templateFile>${project.build.directory}/${project.artifactId}-${project.version}.zip</templateFile>
+                            <templateFile>${project.build.directory}/${project.artifactId}-${project.version}.zip
+                            </templateFile>
                             <templateResources>
                                 <templateResource>
                                     <directory>${js.build.outputPath}/apps/sample</directory>
@@ -441,7 +450,9 @@
                     <webAppConfig>
                         <contextPath>/</contextPath>
                         <baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-                            <resourcesAsCSV>${basedir}/src/main,${basedir}/src/test/webapp,${project.build.directory}/${project.artifactId}</resourcesAsCSV>
+                            <resourcesAsCSV>
+                                ${basedir}/src/main,${basedir}/src/test/webapp,${project.build.directory}/${project.artifactId}
+                            </resourcesAsCSV>
                         </baseResource>
                         <!-- include ct-jsregistry-embedded-<version>.jar as web-fragment provider -->
                         <webInfIncludeJarPattern>.*/ct-jsregistry-embedded-[^/]*\.jar$</webInfIncludeJarPattern>
@@ -460,7 +471,8 @@
                 <version>2.5.2</version>
                 <configuration>
                     <preparationGoals>clean</preparationGoals>
-                    <releaseProfiles>release,compress,write-release-versions,commit-release-versions,rollout</releaseProfiles>
+                    <releaseProfiles>release,compress,write-release-versions,commit-release-versions,rollout
+                    </releaseProfiles>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
@@ -493,7 +505,8 @@
 
         <!-- the default app, replaced in the *.html files to switch app names-->
         <default.app.name>sample</default.app.name>
-        <client.config.initjs>$\{mapapps.remote.base\}/resources/jsregistry/root/ct/${mapapps.version}/dojo-init.js</client.config.initjs>
+        <client.config.initjs>$\{mapapps.remote.base\}/resources/jsregistry/root/ct/${mapapps.version}/dojo-init.js
+        </client.config.initjs>
         <proxy.allowedServerUrls>
             http;
         </proxy.allowedServerUrls>
@@ -598,7 +611,9 @@
                                     <goal>update</goal>
                                 </goals>
                                 <configuration>
-                                    <message>[update-bundle-package-versions] from ${replace.source.version} to ${replace.target.version}</message>
+                                    <message>[update-bundle-package-versions] from ${replace.source.version} to
+                                        ${replace.target.version}
+                                    </message>
                                     <basedir>${basedir}/src/main/js</basedir>
                                 </configuration>
                             </execution>
