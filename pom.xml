@@ -190,7 +190,7 @@
                 <excludes>
                     <exclude>crossBrowserSettings.css</exclude>
                 </excludes>
-                <targetPath>${js.build.outputPath}/apps/mapmovie/themes/common</targetPath>
+                <targetPath>${js.build.outputPath}/apps/sample/themes/common</targetPath>
             </resource>
             <resource>
                 <directory>${project.build.directory}/unpacked/bundles/base/themes/themes/winter</directory>
@@ -199,11 +199,11 @@
                     <exclude>themeSettings.less</exclude>
                     <exclude>winter.less</exclude>
                 </excludes>
-                <targetPath>${js.build.outputPath}/apps/mapmovie/themes/winter-bright</targetPath>
+                <targetPath>${js.build.outputPath}/apps/sample/themes/winter-bright</targetPath>
             </resource>
             <resource>
                 <directory>${project.build.directory}/unpacked/bundles/base/templates/templates/common</directory>
-                <targetPath>${js.build.outputPath}/apps/mapmovie/templates/common</targetPath>
+                <targetPath>${js.build.outputPath}/apps/sample/templates/common</targetPath>
             </resource>
             <resource>
                 <directory>src/main/js</directory>
@@ -370,7 +370,7 @@
                     <sourceDirectory>${js.build.outputPath}</sourceDirectory>
                     <outputDirectory>${js.build.outputPath}</outputDirectory>
                     <includes>
-                        <include>bundles/**/*.less</include>
+                        <include>apps/**/*.less</include>
                     </includes>
                 </configuration>
             </plugin>
