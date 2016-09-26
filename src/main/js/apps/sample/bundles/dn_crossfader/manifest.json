@@ -7,7 +7,7 @@
     "Config-Bundle-Location": "/config",
     "Bundle-Layer": "module",
     "Bundle-AutoStartPolicy": "yes",
-    "Product-Name": "con terra Developer Network",
+    "Product-Name": "devnet-mapapps-map-movie-template",
     "Require-Bundle": [{
             "name": "map",
             "version": "^3.3.0"
