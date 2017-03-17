@@ -3,7 +3,6 @@
     "Bundle-Name": "${bundleName}",
     "Bundle-Description": "${bundleDescription}",
     "Bundle-Version": "1.0.1",
-    "Bundle-Name": "Logo",
     "Bundle-Vendor": "con terra GmbH",
     "Product-Name": "devnet-mapapps-map-movie-template",
     "Require-Bundle": [{
