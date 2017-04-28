@@ -1,54 +1,69 @@
 {
-    "Bundle-SymbolicName": "dn_customwizard",
-    "Bundle-Name": "${bundleName}",
-    "Bundle-Description": "${bundleDescription}",
-    "Bundle-Version": "1.0.1",
-    "Bundle-Vendor": "con terra GmbH",
-    "Product-Name": "devnet-mapapps-map-movie-template",
-    "Require-Bundle": [{
-            "name": "windowmanager",
-            "version": "^3.3.0"
-        }],
-    "Components": [
+  "Bundle-SymbolicName": "dn_customwizard",
+  "Bundle-Name": "${bundleName}",
+  "Bundle-Description": "${bundleDescription}",
+  "Bundle-Version": "1.0.1",
+  "Bundle-Vendor": "con terra GmbH",
+  "Product-Name": "devnet-mapapps-map-movie-template",
+  "Require-Bundle": [
+    {
+      "name": "windowmanager",
+      "version": "^3.3.0"
+    }
+  ],
+  "Components": [
+    {
+      "name": "MenuControllerPatcher",
+      "properties": {
+        "configItems": [
+          {
+            "query": ".ctOmniSearchUI",
+            "widgetId": "locatorBuilderWidget"
+          },
+          {
+            "query": ".ctTool_initialExtentTool .dijitButtonNode",
+            "widgetId": "mapStateBuilderWidget"
+          },
+          {
+            "query": ".ctTool_locateme .dijitButtonNode",
+            "widgetId": "locatemeBuilderWidget"
+          },
+          {
+            "query": ".ctTool_agsprinttool .dijitButtonNode",
+            "widgetId": "agsPrintingBuilderWidget"
+          },
+          {
+            "query": ".ctTool_urlEncoder .dijitButtonNode",
+            "widgetId": "parameterManagerBuilderWidget"
+          },
+          {
+            "query": ".ctTool_measurementtool .dijitButtonNode",
+            "widgetId": "measurementBuilderWidget"
+          },
+          {
+            "query": ".ctBanner",
+            "widgetId": "bannerBuilderWidget"
+          },
+          {
+            "query": ".ctMapCrossfader",
+            "widgetId": "crossfaderWidget"
+          }
+        ]
+      },
+      "references": [
         {
-            "name": "MenuControllerPatcher",
-            "properties": {
-                "configItems": [{
-                        "query": ".ctOmniSearchUI",
-                        "widgetId": "locatorBuilderWidget"
-                    }, {
-                        "query": ".ctTool_initialExtentTool .dijitButtonNode",
-                        "widgetId": "mapStateBuilderWidget"
-                    }, {
-                        "query": ".ctTool_locateme .dijitButtonNode",
-                        "widgetId": "locatemeBuilderWidget"
-                    }, {
-                        "query": ".ctTool_agsprinttool .dijitButtonNode",
-                        "widgetId": "agsPrintingBuilderWidget"
-                    }, {
-                        "query": ".ctTool_urlEncoder .dijitButtonNode",
-                        "widgetId": "parameterManagerBuilderWidget"
-                    }, {
-                        "query": ".ctTool_measurementtool .dijitButtonNode",
-                        "widgetId": "measurementBuilderWidget"
-                    }, {
-                        "query": ".ctBanner",
-                        "widgetId": "bannerBuilderWidget"
-                    }, {
-                        "query": ".ctMapCrossfader",
-                        "widgetId": "crossfaderWidget"
-                    }]
-            },
-            "references": [{
-                    "name": "_menuController",
-                    "providing": "wizard.MenuController"
-                }, {
-                    "name": "_windowManager",
-                    "providing": "ct.framework.api.WindowManager"
-                }, {
-                    "name": "_appCtx",
-                    "providing": "ct.framework.api.ApplicationContext"
-                }]
+          "name": "_menuController",
+          "providing": "wizard.MenuController"
+        },
+        {
+          "name": "_windowManager",
+          "providing": "ct.framework.api.WindowManager"
+        },
+        {
+          "name": "_appCtx",
+          "providing": "ct.framework.api.ApplicationContext"
         }
-    ]
+      ]
+    }
+  ]
 }

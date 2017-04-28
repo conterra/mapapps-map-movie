@@ -1,109 +1,119 @@
 {
-    "Bundle-SymbolicName": "dn_crossfader",
-    "Bundle-Version": "3.0.2",
-    "Bundle-Name": "${bundleName}",
-    "Bundle-Description": "${bundleDescription}",
-    "Bundle-Vendor": "con terra GmbH",
-    "Config-Bundle-Location": "/config",
-    "Bundle-Layer": "module",
-    "Bundle-AutoStartPolicy": "yes",
-    "Product-Name": "devnet-mapapps-map-movie-template",
-    "Require-Bundle": [{
-            "name": "map",
-            "version": "^3.3.0"
-        }],
-    "Components": [
+  "Bundle-SymbolicName": "dn_crossfader",
+  "Bundle-Version": "3.0.2",
+  "Bundle-Name": "${bundleName}",
+  "Bundle-Description": "${bundleDescription}",
+  "Bundle-Vendor": "con terra GmbH",
+  "Config-Bundle-Location": "/config",
+  "Bundle-Layer": "module",
+  "Bundle-AutoStartPolicy": "yes",
+  "Product-Name": "devnet-mapapps-map-movie-template",
+  "Require-Bundle": [
+    {
+      "name": "map",
+      "version": "^3.3.0"
+    }
+  ],
+  "Components": [
+    {
+      "name": "CrossFaderBarFactory",
+      "provides": [
+        "crossfader.CrossFaderBar"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "references": [
         {
-            "name": "CrossFaderBarFactory",
-            "provides": ["crossfader.CrossFaderBar"],
-            "propertiesConstructor": true,
-            "instanceFactory": true,
-            "references": [
-                {
-                    "name": "mapModel",
-                    "providing": "ct.mapping.map.MapModel"
-                }
-            ]
-        },
-        {
-            "name": "ImageSelectorFactory",
-            "provides": ["crossfader.ImageSelector"],
-            "propertiesConstructor": true,
-            "instanceFactory": true,
-            "properties": {
-                "tileHeight": 190
-            }
-        },
-        {
-            "name": "CrossFaderController",
-            "propertiesConstructor": true,
-            "properties": {
-                "transitionTime": 5000,
-                "stopOnClose": false,
-                "resetOnClose": false
-            },
-            "references": [
-                {
-                    "name": "mapModel",
-                    "providing": "ct.mapping.map.MapModel",
-                    "connect": {
-                        "onModelNodeStateChanged": "_onModelNodeStateChange",
-                        "onModelStructureChanged": "_onModelStructureChange"
-                    }
-                },
-                {
-                    "name": "crossFader",
-                    "providing": "crossfader.CrossFader"
-                }
-            ]
-        },
-        {
-            "name": "CrossFaderFactory",
-            "provides": ["dijit.Widget", "crossfader.CrossFader"],
-            "propertiesConstructor": true,
-            "instanceFactory": true,
-            "properties": {
-                "widgetRole": "crossfader"
-            },
-            "references": [
-                {
-                    "name": "imageSelector",
-                    "providing": "crossfader.ImageSelector"
-                },
-                {
-                    "name": "crossFaderBar",
-                    "providing": "crossfader.CrossFaderBar"
-                }
-            ]
-        },
-        {
-            "name": "ResolutionCheck",
-            "immediate": true,
-            "references": [
-                {
-                    "name": "_wm",
-                    "providing": "ct.framework.api.WindowManager"
-                }
-            ]
-        },
-        {
-            "name": "CrossFaderTool",
-            "impl": "ct/tools/Tool",
-            "provides": ["ct.tools.Tool"],
-            "propertiesConstructor": true,
-            "properties": {
-                "id": "crossfaderTool",
-                "toolRole": "toolset",
-                "title": "Zeitreise",
-                "tooltip": "Zeitreise",
-                "togglable": true,
-                "iconClass": "icon-cog",
-                "rules": {
-                    "noGroup": true
-                }
-            },
-            "references": []
+          "name": "mapModel",
+          "providing": "ct.mapping.map.MapModel"
         }
-
-    ]
+      ]
+    },
+    {
+      "name": "ImageSelectorFactory",
+      "provides": [
+        "crossfader.ImageSelector"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "properties": {
+        "tileHeight": 190
+      }
+    },
+    {
+      "name": "CrossFaderController",
+      "propertiesConstructor": true,
+      "properties": {
+        "transitionTime": 5000,
+        "stopOnClose": false,
+        "resetOnClose": false
+      },
+      "references": [
+        {
+          "name": "mapModel",
+          "providing": "ct.mapping.map.MapModel",
+          "connect": {
+            "onModelNodeStateChanged": "_onModelNodeStateChange",
+            "onModelStructureChanged": "_onModelStructureChange"
+          }
+        },
+        {
+          "name": "crossFader",
+          "providing": "crossfader.CrossFader"
+        }
+      ]
+    },
+    {
+      "name": "CrossFaderFactory",
+      "provides": [
+        "dijit.Widget",
+        "crossfader.CrossFader"
+      ],
+      "propertiesConstructor": true,
+      "instanceFactory": true,
+      "properties": {
+        "widgetRole": "crossfader"
+      },
+      "references": [
+        {
+          "name": "imageSelector",
+          "providing": "crossfader.ImageSelector"
+        },
+        {
+          "name": "crossFaderBar",
+          "providing": "crossfader.CrossFaderBar"
+        }
+      ]
+    },
+    {
+      "name": "ResolutionCheck",
+      "immediate": true,
+      "references": [
+        {
+          "name": "_wm",
+          "providing": "ct.framework.api.WindowManager"
+        }
+      ]
+    },
+    {
+      "name": "CrossFaderTool",
+      "impl": "ct/tools/Tool",
+      "provides": [
+        "ct.tools.Tool"
+      ],
+      "propertiesConstructor": true,
+      "properties": {
+        "id": "crossfaderTool",
+        "toolRole": "toolset",
+        "title": "Zeitreise",
+        "tooltip": "Zeitreise",
+        "togglable": true,
+        "iconClass": "icon-cog",
+        "rules": {
+          "noGroup": true
+        }
+      },
+      "references": []
+    }
+  ]
 }
