@@ -189,6 +189,7 @@
 @image-form-slider-thumbs: "form/images/sliderThumbs.png";
 @image-layout-tab-close: "layout/images/tabClose.png";	// [x] icon to close a tab
 @image-loading-animation: "images/loadingAnimation.gif";
+@image-loading-animation-rtl: "images/loadingAnimation_rtl.gif";
 @image-tooltip: "images/tooltip.png";	// arrow connectors
 @image-tooltip-ie6: "images/tooltip8bit.png";	// arrow connectors (8 bit)
 @image-tree-expand: "images/treeExpandImages.png";
@@ -287,13 +288,15 @@
 
 // (d)Grid Colors
 @ct-dGrid-background-color: @container-background-color;
-@ct-dGrid-header-background-color: @ct-highlight-color;
+@ct-dGrid-header-background-color: @primary-color;
 @ct-dGrid-header-text-color: @ct-highlight-text-color;
-@ct-dGrid-hovered-row-color: @button-hovered-background-color;  //bg color of hovered grid rows
+@ct-dGrid-hovered-row-color: @minor-selected-color;   //bg color of hovered grid rows  TODO: rename to '@ct-dGrid-header-hovered-background-color:'
 @ct-dGrid-hovered-row-text-color: @ct-highlight-text-color; //text color of hovered grid rows
-@ct-dGrid-highlighted-row-color: lighten(@ct-icon-muted-hovered-color, 10%); //bg color of hover and selected grid rows
-@ct-dGrid-highlighted-row-text-color: @ct-highlight-text-color; //text color of selected grid rows
-@ct-dGrid-border-color: @ct-dGrid-background-color;
+@ct-dGrid-highlighted-row-color: lighten(@ct-dGrid-hovered-row-color, 5%);  //bg color of hovered grid rows //TODO: rename to '@ct-dGrid-hovered-row-color'
+@ct-dGrid-highlighted-row-text-color: darken(@text-color, 5%); //text color of hovered grid rows //TODO: rename to '@ct-dGrid-hovered-text-color'
+@ct-dGrid-selected-row-color: @ct-dGrid-highlighted-row-color; //bg color of selected grid rows
+@ct-dGrid-selected-row-text-color: @ct-dGrid-highlighted-row-text-color; //text color of selected grid rows
+@ct-dGrid-border-color: darken(@text-color,70%);
 @ct-dGrid-vertical-table-borders: false;
 @ct-dGrid-horizontal-table-borders: true;
 
