@@ -23,10 +23,10 @@
       "omnisearch@^3.3.0",
       "system@^3.3.0",
       "templatelayout@^3.3.0",
-      "dn_customwizard",
-      "dn_crossfader",
       "banner@^3.3.0",
-      "wizard@^3.3.0"
+      "wizard@^3.3.0",
+      "dn_customwizard",
+      "dn_crossfader"
     ],
     "require": [
       "${app}.app"
