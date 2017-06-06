@@ -20,7 +20,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>mapapps-map-movie-template</artifactId>
-    <version>2.0.3-SNAPSHOT</version>
+    <version>2.0.3</version>
     <packaging>jar</packaging>
     <!-- DISABLE repositories and pluginRepositories if inside the con terra! -->
     <repositories>
@@ -513,7 +513,7 @@
         <connection>scm:git:https://github.com/conterra/mapapps-map-movie-template.git</connection>
         <developerConnection>scm:git:https://github.com/conterra/mapapps-map-movie-template.git</developerConnection>
         <url>https://github.com/conterra/mapapps-map-movie-template</url>
-        <tag>HEAD</tag>
+        <tag>2.0.3</tag>
     </scm>
     <distributionManagement>
         <repository>
