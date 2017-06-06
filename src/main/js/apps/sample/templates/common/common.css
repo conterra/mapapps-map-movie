@@ -13,4 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-*{outline:0}.fullwidthAndHeight{width:100%;height:100%;margin:0;padding:0}.header .logo h1 span{position:absolute;left:-1000px}
+* {
+    outline: 0
+}
+
+.fullwidthAndHeight {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.header .logo h1 span {
+    position: absolute;
+    left: -1000px
+}
