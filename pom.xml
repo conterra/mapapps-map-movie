@@ -16,11 +16,12 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>de.conterra.devnet</groupId>
     <artifactId>mapapps-map-movie-template</artifactId>
-    <version>2.0.4-SNAPSHOT</version>
+    <version>2.0.2</version>
     <packaging>jar</packaging>
     <!-- DISABLE repositories and pluginRepositories if inside the con terra! -->
     <repositories>
@@ -43,7 +44,7 @@
                 <!-- import dependencies management from mapapps -->
                 <groupId>de.conterra.mapapps</groupId>
                 <artifactId>ct-mapapps</artifactId>
-                <version>${mapapps4.version}</version>
+                <version>${mapapps.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -86,7 +87,7 @@
                 <plugin>
                     <groupId>de.conterra.mapapps</groupId>
                     <artifactId>mapapps-maven-plugin</artifactId>
-                    <version>${mapapps4.version}</version>
+                    <version>${mapapps.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>de.conterra.jsregistry</groupId>
@@ -306,7 +307,7 @@
                     <!-- add here properties which are used in plugin configuration resolution -->
                     <properties>
                         <!-- deployment of map.apps installation -->
-                        <mapapps.remote.base />
+                        <mapapps.remote.base/>
                     </properties>
                 </configuration>
             </plugin>
@@ -407,7 +408,7 @@
                                     <!-- remove bundleLocations from app.json -->
                                     <token>\s*"bundleLocations"\s*:\s*\[\s*"localbundles"\s*,\s*"bundles"\s*\]\s*,\s*
                                     </token>
-                                    <value />
+                                    <value/>
                                 </replacement>
                             </replacements>
                         </configuration>
@@ -442,25 +443,6 @@
                     <createApp>false</createApp>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/main/config/assembly.xml</descriptor>
-                    </descriptors>
-                    <finalName>${project.artifactId}-bundle</finalName>
-                    <appendAssemblyId>false</appendAssemblyId>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-zip</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
@@ -531,26 +513,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- dojo custom build parameters -->
         <js.build.outputPath>${project.build.directory}/${project.artifactId}/js</js.build.outputPath>
-        <netbeans.hint.jdkPlatform>JDK_1.7</netbeans.hint.jdkPlatform>
-
-        <!-- JS lib versions -->
-        <mapapps.version>3.8.0</mapapps.version>
-        <mapapps4.version>4.1.0-PIONEER</mapapps4.version>
-
-        <!-- Defines runtime version for the sample project. Defaults to map.apps 3.x -->
-        <!-- To develope mapapps 4.x apps, change this property -->
-        <apprt.version>${mapapps.version}</apprt.version>
-
+        <!-- mapapps.version -->
+        <mapapps.version>3.7.0</mapapps.version>
         <!-- java lib versions -->
-        <ct.jsregistry.version>1.1.1</ct.jsregistry.version>
-        <ct.jsrt-test.version>1.0.9</ct.jsrt-test.version>
+        <ct.jsregistry.version>1.0.25</ct.jsregistry.version>
+        <ct.jsrt-test.version>1.0.8</ct.jsrt-test.version>
 
         <!-- the default app, replaced in the *.html files to switch app names-->
         <default.app.name>sample</default.app.name>
-        <client.config.initjs>
-            $\{mapapps.remote.base\}/resources/jsregistry/root/apprt-boot/${mapapps4.version}/boot.js
+        <client.config.initjs>$\{mapapps.remote.base\}/resources/jsregistry/root/ct/${mapapps.version}/dojo-init.js
         </client.config.initjs>
-
         <!-- don't do this in production configuration! This allows to go any http traffic over the /proxy endpoint -->
         <proxy.allowedServerUrls>http,*;</proxy.allowedServerUrls>
         <proxy.allowedSSLDNs>*</proxy.allowedSSLDNs>
