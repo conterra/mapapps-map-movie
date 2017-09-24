@@ -5,7 +5,7 @@ The template also shows a prototype of a new way of configuring an app (by click
 
 Sample App
 ------------------
-http://www.mapapps.de/mapapps/resources/apps/downloads_mapmovie/index.html
+https://demos.conterra.de/mapapps/resources/apps/downloads_mapmovie/index.html
 
 Development Guide
 ------------------
