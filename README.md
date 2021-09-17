@@ -5,10 +5,6 @@ The template also shows a prototype of a new way of configuring an app (by click
 
 ![Screenshot Map Movei Sample app](https://github.com/conterra/mapapps-map-movie-template/blob/master/mapMovie.JPG)
 
-Sample App
-------------------
-https://demos.conterra.de/mapapps/resources/apps/downloads_mapmovie/index.html
-
 Development Guide
 ------------------
 ### Define the mapapps remote base
